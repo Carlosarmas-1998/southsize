@@ -176,16 +176,15 @@
     }
 
     /* ══════════════════════════
-       GRID PRODUCTOS
+       GRID PRODUCTOS — cuadrícula
     ══════════════════════════ */
     .collection-grid {
       flex-grow: 1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 48px 32px;
-      padding: 16px 4% 110px;
-      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 48px 28px;
+      padding: 16px 5% 110px;
+      max-width: 1100px;
       margin: 0 auto;
       width: 100%;
     }
@@ -194,7 +193,6 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      max-width: 260px;
       transition: transform 0.45s cubic-bezier(0.19,1,0.22,1);
     }
 
@@ -378,13 +376,35 @@
     .btn-fav.active { border-color: #e05252; background: #fff0f0; }
     .btn-fav.active svg { fill: #e05252; stroke: #e05252; }
 
+    /* ── Aviso talla elegante ── */
     .size-warn {
-      font-size: 8px; font-weight: 700;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      color: #c0392b;
-      min-height: 16px;
-      margin-top: -10px; margin-bottom: 10px;
-      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(184,151,90,0.12);
+      border: 1px solid rgba(184,151,90,0.45);
+      border-radius: 999px;
+      padding: 5px 14px;
+      min-height: 0;
+      margin-top: 6px; margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      width: fit-content;
+      align-self: center;
+    }
+    .size-warn.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .size-warn::before {
+      content: '↑';
+      font-size: 10px;
+      color: var(--gold);
     }
 
     @keyframes shake {
@@ -444,8 +464,10 @@
       max-width: 94vw; max-height: 88vh;
       object-fit: contain; border-radius: 4px;
       user-select: none; -webkit-user-drag: none;
-      cursor: pointer; /* clic en imagen = cerrar */
+      cursor: pointer;
+      transition: opacity 0.28s ease;
     }
+    #lightbox img.fading { opacity: 0; }
 
     #lightbox-close {
       position: absolute; top: 20px; right: 28px;
@@ -598,21 +620,31 @@
     /* ══════════════════════════
        RESPONSIVE
     ══════════════════════════ */
-    @media (max-width: 800px) { .product-card { max-width: 220px; } }
+    @media (max-width: 900px) {
+      .collection-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+    }
 
     @media (max-width: 600px) {
       nav { gap: 6px; padding: 8px 10px; }
       nav a { font-size: 7px; padding: 7px 11px; letter-spacing: 0.18em; }
       header { padding: 100px 16px 36px; }
-      .collection-grid { gap: 36px 20px; padding: 12px 4% 100px; }
-      .product-card { max-width: 48%; }
+      /* Exactamente 2 columnas en móvil */
+      .collection-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 12px;
+        padding: 12px 3% 100px;
+      }
+      .product-info { padding: 0; }
+      .product-title { font-size: 14px; }
+      .product-motto { font-size: 7.5px; }
+      .product-price { font-size: 12px; margin-bottom: 10px; }
+      .controls-row { flex-direction: column; align-items: center; gap: 6px; }
       .carousel-arrow { display: none; }
       .support-float { bottom: 18px; right: 18px; padding: 11px 18px; font-size: 7px; }
       footer { flex-direction: column; text-align: center; padding: 20px; }
     }
 
-    @media (max-width: 420px) {
-      .product-card { max-width: 100%; }
+    @media (max-width: 380px) {
       nav a { font-size: 6.5px; padding: 6px 9px; letter-spacing: 0.12em; }
       .contact-buttons { flex-direction: column; align-items: center; }
     }
@@ -659,8 +691,8 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c1.jpg" alt="Sudadera Class Topping">
-          <img src="c2.jpg" alt="Sudadera Class Topping">
+          <img src="c1.jpg" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
+          <img src="c2.jpg" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -697,8 +729,8 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c3.jpg" alt="Sudadera Champín South Size">
-          <img src="c4.jpg" alt="Sudadera Champín South Size">
+          <img src="c3.jpg" alt="Sudadera Champín South Size" onclick="openLightboxFromImg(this)">
+          <img src="c4.jpg" alt="Sudadera Champín South Size" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -735,8 +767,8 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c5.jpg" alt="Camiseta Game Over">
-          <img src="c6.jpg" alt="Camiseta Game Over">
+          <img src="c5.jpg" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
+          <img src="c6.jpg" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -773,8 +805,8 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c7.jpg" alt="Camiseta Boxing Profight">
-          <img src="c8.jpg" alt="Camiseta Boxing Profight">
+          <img src="c7.jpg" alt="Camiseta Boxing Profight" onclick="openLightboxFromImg(this)">
+          <img src="c8.jpg" alt="Camiseta Boxing Profight" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -811,8 +843,8 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c9.jpg" alt="Camiseta South Size">
-          <img src="c10.jpg" alt="Camiseta South Size">
+          <img src="c9.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
+          <img src="c10.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -997,12 +1029,18 @@
     const lbWrap      = document.getElementById('lightbox-img-wrap');
     let lbSrcs = [], lbIndex = 0;
 
+    /* Abrir desde clic en imagen (escritorio + móvil) */
+    function openLightboxFromImg(img) {
+      const track = img.closest('.carousel-track');
+      openLightbox(img.src, track);
+    }
+
     function openLightbox(src, track) {
       if (track) {
         lbSrcs  = Array.from(track.querySelectorAll('img')).map(i => i.src);
-        lbIndex = lbSrcs.indexOf(src);
-        if (lbIndex < 0) lbIndex = 0;
+        lbIndex = Math.max(0, lbSrcs.indexOf(src));
       } else { lbSrcs = [src]; lbIndex = 0; }
+      lightboxImg.classList.remove('fading');
       lightboxImg.src = lbSrcs[lbIndex];
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -1014,18 +1052,31 @@
       lbWrap.style.transform = 'translateY(0)';
     }
 
-    function lbPrev() { lbIndex = (lbIndex - 1 + lbSrcs.length) % lbSrcs.length; lightboxImg.src = lbSrcs[lbIndex]; }
-    function lbNext() { lbIndex = (lbIndex + 1) % lbSrcs.length; lightboxImg.src = lbSrcs[lbIndex]; }
+    /* Cambio con fade */
+    function lbChangeTo(newIndex) {
+      lightboxImg.classList.add('fading');
+      setTimeout(() => {
+        lbIndex = (newIndex + lbSrcs.length) % lbSrcs.length;
+        lightboxImg.src = lbSrcs[lbIndex];
+        lightboxImg.classList.remove('fading');
+      }, 200);
+    }
 
-    lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target === lbWrap) closeLightbox(); });
+    function lbPrev() { lbChangeTo(lbIndex - 1); }
+    function lbNext() { lbChangeTo(lbIndex + 1); }
 
-    /* ── Touch unificado: swipe horizontal (navegar) y vertical (cerrar) ── */
-    let lbTouchX = 0, lbTouchY = 0, lbDeltaY = 0, lbDeltaX = 0, lbSwiping = false;
+    /* Clic en fondo o en imagen → cerrar */
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox || e.target === lbWrap || e.target === lightboxImg) closeLightbox();
+    });
+
+    /* ── Touch: swipe horizontal (navegar) y vertical (cerrar) ── */
+    let lbTouchX = 0, lbTouchY = 0, lbDeltaX = 0, lbDeltaY = 0, lbSwiping = false;
 
     lightbox.addEventListener('touchstart', e => {
-      lbTouchX  = e.touches[0].clientX;
-      lbTouchY  = e.touches[0].clientY;
-      lbDeltaX  = 0; lbDeltaY = 0; lbSwiping = false;
+      lbTouchX = e.touches[0].clientX;
+      lbTouchY = e.touches[0].clientY;
+      lbDeltaX = 0; lbDeltaY = 0; lbSwiping = false;
       lbWrap.style.transition = 'none';
     }, { passive: true });
 
@@ -1033,7 +1084,6 @@
       lbDeltaX = e.touches[0].clientX - lbTouchX;
       lbDeltaY = e.touches[0].clientY - lbTouchY;
       lbSwiping = true;
-      /* Arrastra verticalmente para cerrar */
       if (Math.abs(lbDeltaY) > Math.abs(lbDeltaX)) {
         lbWrap.style.transform = `translateY(${lbDeltaY}px)`;
       }
@@ -1042,14 +1092,10 @@
     lightbox.addEventListener('touchend', () => {
       lbWrap.style.transition = 'transform 0.28s cubic-bezier(0.19,1,0.22,1)';
       if (!lbSwiping) return;
-
       const absX = Math.abs(lbDeltaX), absY = Math.abs(lbDeltaY);
-
       if (absY > absX && absY > 55) {
-        /* Swipe vertical → cerrar */
         closeLightbox();
       } else if (absX > absY && absX > 18) {
-        /* Swipe horizontal ultrasensible (18px) → navegar */
         lbWrap.style.transform = 'translateY(0)';
         lbDeltaX < 0 ? lbNext() : lbPrev();
       } else {
@@ -1059,9 +1105,10 @@
     });
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') lbNext();
-      if (e.key === 'ArrowLeft')  lbPrev();
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowRight')  lbNext();
+      if (e.key === 'ArrowLeft')   lbPrev();
     });
 
     /* ══════════════════════════════════
@@ -1121,14 +1168,22 @@
       const sizeBtn = card ? card.querySelector('.size-btn.active') : null;
 
       if (!sizeBtn) {
+        /* Aviso elegante: pill dorada + sacudida en los botones de talla */
         const warn = document.getElementById('warn-' + id);
         if (warn) {
-          warn.textContent = '← Selecciona una talla primero';
-          warn.classList.remove('shake'); void warn.offsetWidth; warn.classList.add('shake');
-          setTimeout(() => { warn.textContent = ''; warn.classList.remove('shake'); }, 2200);
+          warn.textContent = 'Elige tu talla';
+          warn.classList.add('visible', 'shake');
+          setTimeout(() => { warn.classList.remove('shake'); }, 500);
+          setTimeout(() => { warn.classList.remove('visible'); warn.textContent = ''; }, 2800);
         }
-        btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake');
-        setTimeout(() => btn.classList.remove('shake'), 500);
+        /* Pulso dorado en el grupo de tallas */
+        const sizesGroup = btn.closest('.product-card').querySelector('.sizes-group');
+        if (sizesGroup) {
+          sizesGroup.style.transition = 'box-shadow 0.2s';
+          sizesGroup.style.boxShadow = '0 0 0 2px var(--gold)';
+          sizesGroup.style.borderRadius = '999px';
+          setTimeout(() => { sizesGroup.style.boxShadow = ''; }, 1400);
+        }
         return;
       }
 
@@ -1183,30 +1238,52 @@
     }
 
     /* ══════════════════════════════════
-       ANTI-CAPTURA
+       ANTI-CAPTURA — PC + iOS + Android
     ══════════════════════════════════ */
+    let ssModalTimer = null;
     function screenshotAlert() {
       const m = document.getElementById('screenshot-modal');
-      if (m) { m.style.display = 'flex'; setTimeout(() => m.style.display = 'none', 3000); }
+      if (!m) return;
+      m.style.display = 'flex';
+      clearTimeout(ssModalTimer);
+      ssModalTimer = setTimeout(() => { m.style.display = 'none'; }, 4000);
     }
 
-    document.addEventListener('keyup', e => { if (e.key === 'PrintScreen') screenshotAlert(); });
+    /* PC: PrintScreen + Ctrl/Cmd+P + Cmd+Shift+3/4 */
+    document.addEventListener('keyup',   e => { if (e.key === 'PrintScreen') screenshotAlert(); });
     document.addEventListener('keydown', e => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'p') { e.preventDefault(); screenshotAlert(); }
       if ((e.metaKey || e.ctrlKey) && e.shiftKey && ['3','4','s','S'].includes(e.key)) screenshotAlert();
     });
 
+    /* iOS: la pantalla pierde foco brevemente al capturar (<700ms) */
     let blurTime = 0;
     window.addEventListener('blur', () => { blurTime = Date.now(); });
-    window.addEventListener('focus', () => { if (Date.now() - blurTime < 600 && blurTime > 0) screenshotAlert(); blurTime = 0; });
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') blurTime = Date.now();
-      if (document.visibilityState === 'visible' && Date.now() - blurTime < 600 && blurTime > 0) { screenshotAlert(); blurTime = 0; }
+    window.addEventListener('focus', () => {
+      const gap = Date.now() - blurTime;
+      if (blurTime > 0 && gap > 10 && gap < 700) screenshotAlert();
+      blurTime = 0;
     });
 
-    document.querySelectorAll('.carousel-track img').forEach(img => {
-      img.addEventListener('contextmenu', e => { e.preventDefault(); screenshotAlert(); });
+    /* Android: visibilitychange con ventana corta */
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        blurTime = Date.now();
+      } else if (document.visibilityState === 'visible' && blurTime > 0) {
+        const gap = Date.now() - blurTime;
+        if (gap > 10 && gap < 700) screenshotAlert();
+        blurTime = 0;
+      }
     });
+
+    /* Clic derecho e intento de guardar imagen */
+    document.querySelectorAll('.carousel-track img, #lightbox-img').forEach(img => {
+      img.addEventListener('contextmenu', e => { e.preventDefault(); screenshotAlert(); });
+      img.addEventListener('dragstart',   e => { e.preventDefault(); });
+    });
+
+    /* Impresión (Ctrl+P en escritorio) */
+    window.addEventListener('beforeprint', () => screenshotAlert());
 
     /* ══ INIT ══ */
     syncBadges();
