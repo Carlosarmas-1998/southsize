@@ -1,218 +1,677 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>SOUTH SIZE TOPPING ⚡️ | Políticas y Privacidad</title>
-    <meta name="description" content="Política de devoluciones y protección de datos de South Size Topping. Diseño premium en Madrid.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Políticas y Privacidad — South Size Topping</title>
+  <meta name="description" content="Política de devoluciones y protección de datos — South Size Topping, Madrid.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ═══ VARIABLES DE LUJO MINIMALISTA ═══ */
-        :root {
-            --bg-pure: #ffffff;
-            --text-primary: #000000;
-            --text-muted: #666666;
-            --border-subtle: #f0f0f0;
-            --accent-gold: #cfa05d;
-            --transition-luxury: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-        }
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream:   #faf9f7;
+      --ink:     #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --ink-soft:#7a7875;
+      --gold:    #b8975a;
+      --border:  rgba(13,13,13,0.1);
+    }
 
-        body {
-            background-color: var(--bg-pure);
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* ═══ NAVEGACIÓN SUPERIOR INMACULADA ═══ */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem 2rem;
-            display: flex;
-            justify-content: center;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-subtle);
-        }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .nav-links {
-            display: flex; gap: 4.5rem; list-style: none; flex-wrap: wrap; justify-content: center;
-        }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
 
-        .nav-links a {
-            color: var(--text-primary); text-decoration: none; font-size: 0.65rem;
-            font-weight: 500; text-transform: uppercase; letter-spacing: 3px;
-            transition: var(--transition-luxury); position: relative;
-        }
+    /* ══════════════════════════
+       BANNER
+    ══════════════════════════ */
+    .banner {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 300;
+      background: var(--ink); color: #fff;
+      font-size: 9px; letter-spacing: 0.2em;
+      text-align: center; padding: 6px 1rem;
+      text-transform: uppercase; font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        .nav-links a:hover { color: var(--accent-gold); }
+    /* ══════════════════════════
+       NAV — igual que catalogo/el
+    ══════════════════════════ */
+    nav {
+      position: fixed;
+      top: 30px; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      min-height: 60px;
+      padding: 10px 40px;
+    }
 
-        .nav-links a::after {
-            content: ''; position: absolute; width: 0; height: 1px;
-            bottom: -6px; left: 50%; background-color: var(--accent-gold);
-            transition: var(--transition-luxury); transform: translateX(-50%);
-        }
-        .nav-links a:hover::after { width: 100%; }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(250,249,247,0.94);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1.5px solid rgba(13,13,13,0.1);
+      border-radius: 999px;
+      padding: 8px 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        /* ═══ CONTENEDOR LEGAL ═══ */
-        main {
-            display: flex; flex-direction: column; width: 100%; max-width: 900px;
-            padding: 180px 40px 100px; flex-grow: 1; text-align: left;
-        }
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
 
-        .legal-header { text-align: center; margin-bottom: 5rem; }
+    nav a:hover, nav a.active {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
 
-        .legal-title {
-            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem;
-        }
+    /* ── Iconos nav ── */
+    .nav-icon-btn {
+      position: relative;
+      background: transparent;
+      border: 1.5px solid rgba(13,13,13,0.18);
+      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      flex-shrink: 0;
+    }
 
-        .legal-subtitle {
-            font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 4px;
-        }
+    /* Sobreescribir padding de nav a para los iconos */
+    nav a.nav-icon-btn {
+      padding: 0;
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+    }
 
-        /* Formato del texto legal */
-        .legal-section { margin-bottom: 4rem; }
+    .nav-icon-btn:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
 
-        .legal-section h2 {
-            font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--text-primary); padding-bottom: 10px; display: inline-block;
-        }
+    .nav-icon-btn svg {
+      width: 16px; height: 16px;
+      stroke: var(--ink);
+      stroke-width: 1.8;
+      fill: none;
+      transition: stroke 0.25s ease, fill 0.25s ease;
+    }
 
-        .legal-section p, .legal-section li {
-            font-size: 0.85rem; line-height: 2; color: #333; margin-bottom: 1rem; font-weight: 300;
-        }
+    .nav-icon-btn:hover svg { stroke: var(--cream); fill: none; }
+    .nav-icon-btn:hover .heart-svg { fill: var(--cream); stroke: var(--cream); }
 
-        .legal-section ul { list-style-type: square; padding-left: 20px; margin-bottom: 1.5rem; }
-        .legal-section strong { font-weight: 500; color: var(--text-primary); }
+    /* Corazón latiendo */
+    .heart-svg {
+      fill: none;
+      stroke: var(--ink);
+      animation: heartbeat 1.8s ease infinite;
+    }
+    .heart-svg.has-items { fill: #e03535; stroke: #e03535; }
 
-        /* ═══ FOOTER & ICONOS ═══ */
-        footer {
-            background-color: #fafafa; border-top: 1px solid var(--border-subtle);
-            padding: 5rem 2rem 3rem; text-align: center; width: 100%;
-        }
+    /* Bolsa oscilando */
+    .bag-svg {
+      animation: bagswing 2.6s ease-in-out infinite;
+      transform-origin: top center;
+    }
+    .bag-svg.has-items { stroke: var(--gold); }
 
-        .app-contact-grid { display: flex; justify-content: center; align-items: center; gap: 4rem; margin-bottom: 3rem; }
-        .app-icon-link { text-decoration: none; transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; }
-        .app-icon-link:hover { transform: scale(1.15); }
-        .app-icon-link svg { width: 35px; height: 35px; }
+    /* Badges */
+    .icon-badge {
+      position: absolute;
+      top: -4px; right: -4px;
+      min-width: 16px; height: 16px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 8px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      letter-spacing: 0;
+      opacity: 0; transform: scale(0);
+      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .icon-badge.visible { opacity: 1; transform: scale(1); }
+    .icon-badge.pop { animation: badgePop 0.45s cubic-bezier(0.34,1.56,0.64,1); }
 
-        .copyright {
-            font-size: 0.55rem; color: #888; text-transform: uppercase; letter-spacing: 2px;
-            border-top: 1px solid #eaeaea; padding-top: 2rem; max-width: 600px; margin: 0 auto;
-        }
+    /* Nav divider */
+    .nav-divider {
+      width: 1px; height: 18px;
+      background: rgba(13,13,13,0.15);
+      flex-shrink: 0;
+    }
 
-        /* Móvil */
-        @media (max-width: 768px) {
-            nav { padding: 1.5rem 1rem; }
-            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .nav-links a { font-size: 0.55rem; letter-spacing: 1.5px; }
-            main { padding: 140px 20px 60px; }
-            .legal-title { font-size: 1.8rem; }
-            .legal-section h2 { font-size: 1.2rem; }
-            .app-contact-grid { gap: 3rem; }
-        }
-    </style>
+    /* ══════════════════════════
+       HERO
+    ══════════════════════════ */
+    .page-hero {
+      padding: 110px 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+
+    .page-hero .eyebrow {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .page-hero .subtitle {
+      margin-top: 1.2rem;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       CONTENT
+    ══════════════════════════ */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 7rem;
+      flex-grow: 1;
+    }
+
+    .legal-section {
+      margin-bottom: 4.5rem;
+      padding-bottom: 4.5rem;
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+    .legal-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-num {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .section-rule {
+      height: 1px;
+      flex: 1;
+      background: rgba(13,13,13,0.1);
+    }
+
+    .legal-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+      line-height: 1.15;
+    }
+
+    .legal-section p {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 2.1;
+      color: var(--ink-mid);
+      margin-bottom: 1.3rem;
+      text-align: justify;
+    }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section em { font-style: italic; color: var(--ink-soft); }
+    .legal-section strong { font-weight: 800; color: var(--ink); }
+
+    /* Lista */
+    .legal-list {
+      list-style: none;
+      margin: 1rem 0 1.5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .legal-list li {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.9;
+      color: var(--ink-mid);
+      padding-left: 1.6rem;
+      position: relative;
+    }
+    .legal-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    /* Caja destacada */
+    .highlight-box {
+      background: var(--ink);
+      border-radius: 6px;
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+    }
+    .highlight-box p {
+      color: rgba(255,255,255,0.85) !important;
+      font-size: 12px !important;
+      margin-bottom: 0 !important;
+      text-align: left !important;
+    }
+    .highlight-box strong { color: #fff !important; }
+
+    /* Botones contacto inline */
+    .contact-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    .contact-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(13,13,13,0.18);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+    .contact-callout:hover {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* ══════════════════════════
+       SECCIÓN CONTACTO FINAL
+    ══════════════════════════ */
+    .contact-section {
+      background: var(--ink);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .contact-section .c-sub {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 3rem;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1.8rem;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      color: #fff;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.28s ease, border-color 0.28s ease;
+    }
+    .contact-pill:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.45);
+    }
+    .contact-pill svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ══════════════════════════
+       SUPPORT FLOAT
+    ══════════════════════════ */
+    .support-float {
+      position: fixed;
+      bottom: 2rem; right: 1.5rem;
+      z-index: 300;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(13,13,13,0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .support-float:hover { transform: scale(1.12); background: #1a1a1a; }
+    .support-float svg {
+      width: 22px; height: 22px;
+      stroke: currentColor; fill: none; stroke-width: 1.6;
+    }
+
+    /* ══════════════════════════
+       KEYFRAMES
+    ══════════════════════════ */
+    @keyframes heartbeat {
+      0%   { transform: scale(1); }
+      10%  { transform: scale(1.22); }
+      20%  { transform: scale(0.96); }
+      30%  { transform: scale(1.16); }
+      45%  { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bagswing {
+      0%   { transform: rotate(0deg); }
+      15%  { transform: rotate(-9deg); }
+      30%  { transform: rotate(7deg); }
+      45%  { transform: rotate(-5deg); }
+      60%  { transform: rotate(3deg); }
+      75%  { transform: rotate(-1deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes badgePop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.6); }
+      100% { transform: scale(1); }
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 768px) {
+      nav { top: 28px; padding: 8px 16px; }
+      .page-hero { padding: 120px 1.2rem 2.5rem; }
+      .content-wrap { padding: 3rem 1.2rem 5rem; }
+      .highlight-box { padding: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="quienes-somos.html">Sobre la marca</a></li>
-            <li><a href="contactos.html">Contacto</a></li>
-        </ul>
-    </nav>
+  <!-- BANNER -->
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="quienes-somos.html">Sobre la marca</a>
+      <a href="politicas.html" class="active">Políticas</a>
+      <a href="contactos.html">Contactos</a>
+      <div class="nav-divider"></div>
+      <a href="favoritos.html" class="nav-icon-btn" title="Favoritos" id="btn-fav">
+        <svg viewBox="0 0 24 24" class="heart-svg" id="heart-icon">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span class="icon-badge" id="fav-badge">0</span>
+      </a>
+      <a href="carrito.html" class="nav-icon-btn" title="Carrito" id="btn-cart">
+        <svg viewBox="0 0 24 24" class="bag-svg" id="bag-icon">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="icon-badge" id="cart-badge">0</span>
+      </a>
+    </div>
+  </nav>
 
-    <main>
-        <div class="legal-header">
-            <h1 class="legal-title">Políticas y Privacidad</h1>
-            <p class="legal-subtitle">Términos Legales • South Size Topping • Madrid</p>
-        </div>
+  <!-- HERO -->
+  <header class="page-hero">
+    <p class="eyebrow">Términos Legales — South Size Topping · Madrid</p>
+    <h1>Políticas y Privacidad</h1>
+    <p class="subtitle">Transparencia y protección total</p>
+  </header>
 
-        <div class="legal-section">
-            <h2>1. Derecho de Desistimiento y Devoluciones</h2>
-            <p>En SOUTH SIZE TOPPING nuestro mayor compromiso es la excelencia de nuestras prendas. Si por algún motivo la pieza adquirida no cumple con sus expectativas, usted tiene el derecho a desistir de su compra en un plazo de <strong>14 días naturales</strong> sin necesidad de justificación, tal y como establece el <em>Art. 71 del Real Decreto Legislativo 1/2007</em>, por el que se aprueba el texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios de España.</p>
-            
-            <p><strong>Condiciones estrictas para la aceptación de la devolución:</strong></p>
-            <ul>
-                <li>La prenda debe encontrarse en su estado original, sin haber sido usada, lavada ni alterada de ninguna forma.</li>
-                <li>Debe conservar todas sus etiquetas originales, precintos de seguridad y embalaje primario intacto.</li>
-                <li>De conformidad con el <em>Art. 108.2</em> de la citada ley, la firma se reserva el derecho de rechazar devoluciones o reclamar la disminución de valor de los bienes si se detecta una manipulación distinta a la estrictamente necesaria para comprobar la naturaleza de la prenda.</li>
-            </ul>
-        </div>
+  <!-- CONTENT -->
+  <main class="content-wrap">
 
-        <div class="legal-section">
-            <h2>2. Excepciones al Derecho de Desistimiento</h2>
-            <p>Para garantizar los estándares de higiene, salud y exclusividad de nuestra firma, y amparados estrictamente por el <em>Art. 103 del Real Decreto Legislativo 1/2007</em>, <strong>NO se admitirán cambios ni devoluciones</strong> en los siguientes supuestos:</p>
-            <ul>
-                <li>Bienes confeccionados conforme a las especificaciones del consumidor o claramente personalizados (prendas a medida o ediciones limitadas numeradas).</li>
-                <li>Bienes precintados que no sean aptos para ser devueltos por razones de protección de la salud o de higiene y que hayan sido desprecintados tras la entrega (ropa interior, trajes de baño, joyería o accesorios de uso personal directo).</li>
-            </ul>
-        </div>
+    <!-- 01. DEVOLUCIONES -->
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">01</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Derecho de Desistimiento y Devoluciones</h2>
+      <p>
+        En South Size Topping nuestro mayor compromiso es la excelencia de cada pieza. Si por algún motivo la prenda adquirida no cumple sus expectativas, tiene derecho a desistir de su compra en un plazo de <strong>14 días naturales</strong> sin justificación, conforme al <em>Art. 71 del Real Decreto Legislativo 1/2007</em>, texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios de España.
+      </p>
+      <p><strong>Condiciones para la aceptación de la devolución:</strong></p>
+      <ul class="legal-list">
+        <li>La prenda debe encontrarse en su estado original, sin haber sido usada, lavada ni alterada de ninguna forma.</li>
+        <li>Debe conservar todas sus etiquetas originales, precintos de seguridad y embalaje primario intacto.</li>
+        <li>Conforme al <em>Art. 108.2</em> de la citada ley, la firma se reserva el derecho de rechazar devoluciones o reclamar la disminución de valor si se detecta una manipulación distinta a la estrictamente necesaria para comprobar la naturaleza de la prenda.</li>
+      </ul>
+    </section>
 
-        <div class="legal-section">
-            <h2>3. Costes y Proceso de Devolución</h2>
-            <p>Para iniciar el proceso de devolución, deberá notificar su decisión escribiendo a nuestro servicio de Concierge en <strong>angelmoretaalcorta01@gmail.com</strong> o vía WhatsApp al <strong>+34 653 18 19 05</strong>. Nuestro equipo evaluará la solicitud y le proporcionará las instrucciones para el envío a nuestro estudio en Madrid.</p>
-            <p>Conforme a la normativa vigente, <strong>los costes directos de la devolución de los bienes (envío de retorno) serán asumidos íntegramente por el cliente</strong>, salvo que la devolución se deba a un defecto de fábrica comprobado por nuestro equipo de calidad. El reembolso se procesará en <strong>Euros (€)</strong> utilizando el mismo método de pago empleado en la transacción original, en un plazo máximo de 14 días desde que recibamos y verifiquemos el perfecto estado de la mercancía en nuestras instalaciones.</p>
-        </div>
+    <!-- 02. EXCEPCIONES -->
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">02</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Excepciones al Derecho de Desistimiento</h2>
+      <p>
+        Para garantizar los estándares de higiene, salud y exclusividad de nuestra firma, y amparados por el <em>Art. 103 del Real Decreto Legislativo 1/2007</em>, <strong>no se admitirán cambios ni devoluciones</strong> en los siguientes supuestos:
+      </p>
+      <ul class="legal-list">
+        <li>Bienes confeccionados conforme a las especificaciones del consumidor o claramente personalizados — prendas a medida o ediciones limitadas numeradas.</li>
+        <li>Bienes precintados que no sean aptos para ser devueltos por razones de protección de la salud o higiene y que hayan sido desprecintados tras la entrega — ropa interior, accesorios de uso personal directo.</li>
+      </ul>
+    </section>
 
-        <div class="legal-section">
-            <h2>4. Política de Privacidad y Protección de Datos (RGPD)</h2>
-            <p>SOUTH SIZE TOPPING garantiza la total privacidad y confidencialidad de la información proporcionada por nuestros clientes, en estricto cumplimiento del <em>Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo (RGPD)</em>, y la <em>Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)</em> de España.</p>
-            
-            <p><strong>Finalidad y Legitimación:</strong> Sus datos serán tratados exclusivamente para la gestión de su pedido, facturación, envío a su domicilio, y para mantenerle informado sobre colecciones exclusivas (siempre que nos dé su consentimiento). La base legal para el tratamiento es la ejecución del contrato de compraventa y su consentimiento expreso.</p>
-            
-            <p><strong>Derechos ARCO-POL:</strong> Usted podrá ejercer en cualquier momento sus derechos de Acceso, Rectificación, Supresión, Oposición, Limitación del tratamiento y Portabilidad de sus datos, dirigiéndose por escrito a nuestro correo oficial <strong>angelmoretaalcorta01@gmail.com</strong>, adjuntando copia de su documento de identidad.</p>
-            <p>Sus datos están blindados en nuestros servidores y <strong>no serán cedidos ni vendidos a terceros bajo ninguna circunstancia</strong>, salvo obligación legal o cuando sea estrictamente necesario para la ejecución del servicio (por ejemplo, a las empresas de mensajería para entregar su paquete).</p>
-        </div>
+    <!-- 03. PROCESO -->
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">03</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Costes y Proceso de Devolución</h2>
+      <p>
+        Para iniciar el proceso, notifique su decisión escribiendo a nuestro equipo. Evaluaremos su solicitud y le proporcionaremos las instrucciones para el envío a nuestro estudio en Madrid.
+      </p>
+      <div class="contact-inline">
+        <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-callout">Email ✉</a>
+        <a href="https://wa.me/34653181905" target="_blank" class="contact-callout">WhatsApp</a>
+      </div>
+      <div class="highlight-box">
+        <p>
+          Conforme a la normativa vigente, <strong>los costes de envío de retorno serán asumidos íntegramente por el cliente</strong>, salvo que la devolución se deba a un defecto de fábrica comprobado. El reembolso se procesará en <strong>Euros (€)</strong> mediante el mismo método de pago original, en un plazo máximo de <strong>14 días</strong> desde la recepción y verificación de la mercancía en nuestras instalaciones.
+        </p>
+      </div>
+    </section>
 
-    </main>
+    <!-- 04. PRIVACIDAD -->
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">04</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Política de Privacidad y Protección de Datos (RGPD)</h2>
+      <p>
+        South Size Topping garantiza la total privacidad y confidencialidad de la información proporcionada por nuestros clientes, en estricto cumplimiento del <em>Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo (RGPD)</em> y la <em>Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)</em>.
+      </p>
+      <p>
+        <strong>Finalidad y Legitimación:</strong> Sus datos serán tratados exclusivamente para la gestión de su pedido, facturación, envío a domicilio y, con su consentimiento expreso, para mantenerle informado sobre nuevas colecciones.
+      </p>
+      <p>
+        <strong>Derechos ARCO-POL:</strong> Puede ejercer en cualquier momento sus derechos de Acceso, Rectificación, Supresión, Oposición, Limitación y Portabilidad escribiendo a <strong>angelmoretaalcorta01@gmail.com</strong> adjuntando copia de su documento de identidad.
+      </p>
+      <p>
+        Sus datos están protegidos en nuestros sistemas y <strong>no serán cedidos ni vendidos a terceros bajo ninguna circunstancia</strong>, salvo obligación legal o cuando sea estrictamente necesario para la ejecución del servicio — por ejemplo, a empresas de mensajería para entregar su pedido.
+      </p>
+    </section>
 
-    <footer id="contacto">
-        
-        <div class="app-contact-grid">
-            <a href="https://wa.me/34653181905" class="app-icon-link" target="_blank" title="WhatsApp Concierge">
-                <svg viewBox="0 0 24 24"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-            </a>
-            
-            <a href="https://instagram.com/Street.southsizetopping" class="app-icon-link" target="_blank" title="Instagram">
-                <svg viewBox="0 0 24 24">
-                    <defs>
-                        <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#fd5949" />
-                            <stop offset="50%" stop-color="#d6249f" />
-                            <stop offset="100%" stop-color="#285AEB" />
-                        </linearGradient>
-                    </defs>
-                    <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.069-1.646-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-            </a>
-            
-            <a href="mailto:angelmoretaalcorta01@gmail.com" class="app-icon-link" title="Correo Electrónico">
-                <svg viewBox="0 0 24 24" fill="#0078D4" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
-                </svg>
-            </a>
-        </div>
+  </main>
 
-        <p class="copyright">© 2026 SOUTH SIZE TOPPING. ESTUDIO DE DISEÑO. TODOS LOS DERECHOS RESERVADOS.</p>
-    </footer>
+  <!-- CONTACTO FINAL -->
+  <section class="contact-section">
+    <h2>¿Tienes alguna duda?</h2>
+    <p class="c-sub">Nuestro equipo está disponible para resolver cualquier consulta</p>
+    <div class="contact-links">
+      <a href="https://instagram.com/Street.southsizetopping" target="_blank" class="contact-pill">
+        <svg viewBox="0 0 24 24" stroke="none" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.069-1.646-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-pill">
+        <svg viewBox="0 0 24 24" stroke="none" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+       
+      </a>
+      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+     
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 South Size Topping — Madrid &nbsp;·&nbsp; Todos los derechos reservados</p>
+  </footer>
+
+  <!-- SUPPORT FLOAT -->
+  <a href="soporte.html" class="support-float" title="Soporte">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
+    </svg>
+  </a>
+
+  <script>
+    /* ══════════════════════════
+       BADGES — lee localStorage
+    ══════════════════════════ */
+    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || []; } catch { return []; } }
+    function getFavs()  { try { return JSON.parse(localStorage.getItem('sst-fav'))  || []; } catch { return []; } }
+
+    function syncBadges() {
+      const cartTotal = getCart().reduce((s, i) => s + (i.qty || 1), 0);
+      const favTotal  = getFavs().length;
+
+      const cb = document.getElementById('cart-badge');
+      const fb = document.getElementById('fav-badge');
+      const hi = document.getElementById('heart-icon');
+      const bi = document.getElementById('bag-icon');
+
+      if (cb) {
+        cb.textContent = cartTotal;
+        cb.classList.toggle('visible', cartTotal > 0);
+      }
+      if (fb) {
+        fb.textContent = favTotal;
+        fb.classList.toggle('visible', favTotal > 0);
+      }
+      if (hi) hi.classList.toggle('has-items', favTotal > 0);
+      if (bi) bi.classList.toggle('has-items', cartTotal > 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', syncBadges);
+    window.addEventListener('storage', syncBadges);
+  </script>
 
 </body>
 </html>
