@@ -3,7 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOUTH SIZE TOPPING</title>
+  
+  <title>Ropa Urbana y Streetwear Exclusivo | South Size Topping España</title>
+  <meta name="description" content="Descubre South Size Topping × Boxing Profight. Ropa urbana, moda casual y streetwear de edición limitada para hombre y mujer. Lanzamientos exclusivos por fechas en Madrid, España." />
+  <meta name="keywords" content="ropa urbana, moda casual, ropa streetwear, ropa hombre, ropa mujer, sudaderas oversize, camisetas urbanas, llaveros exclusivos, moda Madrid, South Size Topping, Boxing Profight" />
+  <meta name="author" content="Ángel" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.streeturbanwear.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.streeturbanwear.com/" />
+  <meta property="og:title" content="Ropa Urbana y Streetwear Exclusivo | South Size Topping" />
+  <meta property="og:description" content="Descubre la moda urbana de edición limitada. Colecciones para él y ella con lanzamientos exclusivos por fechas. Nació en Madrid. Vestirá el mundo." />
+  <meta property="og:image" content="https://www.streeturbanwear.com/sello.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.streeturbanwear.com/" />
+  <meta name="twitter:title" content="Ropa Urbana y Streetwear Exclusivo | South Size Topping" />
+  <meta name="twitter:description" content="Moda urbana de edición limitada en España. Lanzamientos exclusivos por fechas." />
+  <meta name="twitter:image" content="https://www.streeturbanwear.com/sello.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "South Size Topping",
+    "url": "https://www.streeturbanwear.com",
+    "logo": "https://www.streeturbanwear.com/sello.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Ángel"
+    },
+    "description": "Firma de moda de ropa urbana y casual de alta calidad. Sudaderas, camisetas y accesorios de edición limitada con lanzamientos por fechas en España.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Madrid",
+      "addressCountry": "ES"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34653181905",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish",
+      "email": "angelmoretaalcorta01@gmail.com"
+    },
+    "sameAs": [
+      "https://www.instagram.com/Street.southsizetopping"
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -127,7 +175,7 @@
       background: var(--cream);
     }
 
-    /* Sello como imagen pequeña centrada, no como fondo completo */
+    /* Sello como imagen pequeña centrada */
     .hero-sello {
       position: absolute;
       top: 30%;
@@ -153,6 +201,75 @@
       );
       z-index: 1;
     }
+
+    /* ══════════════════════════
+       SELLO ESQUINA IZQUIERDA (Lanzamiento 20 prendas)
+    ══════════════════════════ */
+    .launch-badge {
+      position: absolute;
+      top: 130px; /* Bajado para que no choque con el nav */
+      left: 40px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--ink) 0%, #1a1a1a 100%);
+      border: 1.5px solid var(--gold);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 12px 35px rgba(184,151,90,0.25), inset 0 0 15px rgba(0,0,0,0.5);
+      z-index: 10;
+      animation: floatBadge 4s ease-in-out infinite;
+      text-decoration: none;
+    }
+
+    .launch-badge:hover {
+      transform: scale(1.05) rotate(-3deg);
+      box-shadow: 0 15px 45px rgba(184,151,90,0.35), inset 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .lb-tag {
+      font-size: 6.5px;
+      font-weight: 800;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .lb-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--gold);
+      margin-bottom: 8px;
+      animation: textSparkle 2.5s infinite alternate;
+    }
+
+    .lb-sub {
+      font-size: 5.5px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(250,249,247,0.75);
+      line-height: 1.5;
+    }
+
+    /* Destellos */
+    .sparkle-icon {
+      position: absolute;
+      color: var(--gold);
+      animation: blinkSparkle 1.8s infinite alternate;
+      pointer-events: none;
+    }
+    .sp-1 { top: 20%; left: 20%; font-size: 12px; animation-delay: 0s; }
+    .sp-2 { bottom: 25%; right: 15%; font-size: 10px; animation-delay: 0.6s; }
 
     .hero-link {
       position: absolute;
@@ -368,22 +485,6 @@
     }
 
     /* ══════════════════════════
-       SOPORTE FLOTANTE (Solo icono)
-    ══════════════════════════ */
-    .support-float {
-      position: fixed; bottom: 36px; right: 36px;
-      width: 52px; height: 52px; border-radius: 50%;
-      background: var(--ink); color: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
-      z-index: 999; border: 1.5px solid var(--ink);
-      transition: background 0.25s, color 0.25s, transform 0.25s;
-    }
-    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
-    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
-
-    /* ══════════════════════════
        KEYFRAMES
     ══════════════════════════ */
     @keyframes riseIn {
@@ -399,26 +500,54 @@
       0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
     }
 
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes textSparkle {
+      0% { text-shadow: 0 0 4px rgba(184,151,90,0.3); }
+      100% { text-shadow: 0 0 10px rgba(184,151,90,0.8), 0 0 15px rgba(255,255,255,0.3); }
+    }
+
+    @keyframes blinkSparkle {
+      0% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+      100% { opacity: 1; transform: scale(1.3) rotate(45deg); }
+    }
+
     /* ══════════════════════════
        RESPONSIVE
     ══════════════════════════ */
     @media (max-width: 768px) {
       nav { padding: 10px 20px; gap: 8px; }
-      nav a.nav-pill { font-size: 8px; padding: 8px 14px; letter-spacing: 0.2em; }
+      nav a { font-size: 8px; padding: 8px 14px; letter-spacing: 0.2em; }
       .contact-section { padding: 80px 20px 60px; }
       footer { flex-direction: column; text-align: center; padding: 22px 24px; gap: 20px; }
+      
+      .launch-badge {
+        top: 110px; left: 20px; width: 110px; height: 110px; padding: 10px;
+      }
+      .lb-tag { font-size: 5px; margin-bottom: 5px; }
+      .lb-title { font-size: 12px; margin-bottom: 5px; }
+      .lb-sub { font-size: 4.5px; }
     }
 
     @media (max-width: 480px) {
       nav { gap: 6px; padding: 10px; }
-      nav a.nav-pill { font-size: 7px; padding: 6px 10px; letter-spacing: 0.15em; }
-      .nav-sep { display: none; }
+      nav a { font-size: 7px; padding: 6px 10px; letter-spacing: 0.15em; }
       .hero-eyebrow { font-size: 7px; letter-spacing: 0.4em; }
       .hero-sub { font-size: 7px; letter-spacing: 0.3em; line-height: 1.5; }
       .hero-cta { font-size: 8px; padding: 12px 28px; letter-spacing: 0.2em; }
       .contact-buttons { flex-direction: column; width: 100%; }
       .contact-btn { width: 100%; justify-content: center; }
-      .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
+
+      .launch-badge {
+        top: 95px; left: 10px; width: 90px; height: 90px; padding: 8px;
+      }
+      .lb-tag { font-size: 4px; margin-bottom: 3px; }
+      .lb-title { font-size: 10px; line-height: 1; margin-bottom: 4px; }
+      .lb-sub { font-size: 4px; line-height: 1.2; }
+      .sp-1, .sp-2 { font-size: 8px; }
     }
   </style>
 </head>
@@ -447,6 +576,14 @@
     <img src="sello.jpg" alt="Sello South Size Topping" class="hero-sello" />
 
     <div class="hero-veil"></div>
+
+    <a href="catalogo.html" class="launch-badge">
+      <span class="sparkle-icon sp-1">✨</span>
+      <span class="sparkle-icon sp-2">✨</span>
+      <span class="lb-tag">Lanzamiento</span>
+      <div class="lb-title">Sólo 20<br>piezas</div>
+      <span class="lb-sub">Máximo por diseño</span>
+    </a>
 
     <a href="catalogo.html" class="hero-link">
       <span class="hero-eyebrow">Colección Exclusiva &nbsp;·&nbsp; Ropa Urbana</span>
@@ -506,21 +643,11 @@
     <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
   </footer>
 
-  <a href="soporte.html" class="support-float" title="Soporte">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="5" r="2.2"/>
-      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
-      <path d="M1 22h22"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
-      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
-    </svg>
-  </a>
-
   <script>
     /* ══════════════════════════════════
        CARRITO & FAVORITOS LOGIC (NAV BADGES)
     ══════════════════════════════════ */
-    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || []; } catch { return []; } }
+    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; } catch { return []; } }
     function getFavs() { try { return JSON.parse(localStorage.getItem('sst-fav')) || []; } catch { return []; } }
 
     function syncBadges() {
