@@ -652,7 +652,6 @@
 </head>
 <body>
 
-  <!-- ══ NAV ══ -->
   <nav>
     <a href="index.html">Inicio</a>
     <a href="catalogo.html">Catálogo</a>
@@ -660,7 +659,6 @@
     <a href="politicas.html">Políticas de marca</a>
     <a href="contactos.html">Contactos</a>
 
-    <!-- Favoritos -->
     <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
       <svg viewBox="0 0 24 24">
         <path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -668,7 +666,6 @@
       <span class="icon-badge" id="fav-badge">0</span>
     </a>
 
-    <!-- Carrito -->
     <a href="carrito.html" class="nav-icon-btn" title="Carrito">
       <svg viewBox="0 0 24 24">
         <path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/>
@@ -677,16 +674,13 @@
     </a>
   </nav>
 
-  <!-- ══ HEADER — sin nombre de marca ni sello ══ -->
   <header>
     <h1 class="collection-title">Colección Él</h1>
     <p class="header-sub">Selección Exclusiva &nbsp;·&nbsp; Madrid</p>
   </header>
 
-  <!-- ══ PRODUCTOS ══ -->
   <main class="collection-grid">
 
-    <!-- Sudadera Class Topping -->
     <article class="product-card" data-id="sudadera-class-topping">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
@@ -700,7 +694,7 @@
       <div class="product-info">
         <h2 class="product-title">Sudadera Class Topping</h2>
         <p class="product-motto">"La redefinición del streetwear clásico."</p>
-        <p class="product-price">45,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">58,00 €</s>45,00 €</p>
         <div class="controls-row">
           <div class="sizes-group">
             <button class="size-btn" onclick="toggleSize(this)">S</button>
@@ -724,7 +718,6 @@
       </div>
     </article>
 
-    <!-- Sudadera Champín South Size -->
     <article class="product-card" data-id="sudadera-champin-south-size">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
@@ -738,7 +731,7 @@
       <div class="product-info">
         <h2 class="product-title">Sudadera Champín South Size</h2>
         <p class="product-motto">"El legado de los campeones. Diseñada para Madrid."</p>
-        <p class="product-price">45,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">58,00 €</s>45,00 €</p>
         <div class="controls-row">
           <div class="sizes-group">
             <button class="size-btn" onclick="toggleSize(this)">S</button>
@@ -762,7 +755,6 @@
       </div>
     </article>
 
-    <!-- Camiseta Game Over -->
     <article class="product-card" data-id="camiseta-game-over">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
@@ -776,7 +768,7 @@
       <div class="product-info">
         <h2 class="product-title">Camiseta Game Over</h2>
         <p class="product-motto">"Último nivel. Algodón premium. Pura actitud."</p>
-        <p class="product-price">32,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">45,00 €</s>32,00 €</p>
         <div class="controls-row">
           <div class="sizes-group">
             <button class="size-btn" onclick="toggleSize(this)">S</button>
@@ -800,7 +792,6 @@
       </div>
     </article>
 
-    <!-- Camiseta Boxing Profight -->
     <article class="product-card" data-id="camiseta-boxing-profight">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
@@ -814,7 +805,7 @@
       <div class="product-info">
         <h2 class="product-title">Camiseta Boxing Profight</h2>
         <p class="product-motto">"Resistencia y estilo inquebrantable."</p>
-        <p class="product-price">50,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">63,00 €</s>50,00 €</p>
         <div class="controls-row">
           <div class="sizes-group">
             <button class="size-btn" onclick="toggleSize(this)">S</button>
@@ -838,12 +829,11 @@
       </div>
     </article>
 
-    <!-- Camiseta South Size -->
     <article class="product-card" data-id="camiseta-south-size">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c9.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
+          <img src="C9.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
           <img src="c10.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
@@ -852,7 +842,7 @@
       <div class="product-info">
         <h2 class="product-title">Camiseta South Size</h2>
         <p class="product-motto">"No sigues tendencias. Las defines."</p>
-        <p class="product-price">32,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">45,00 €</s>32,00 €</p>
         <div class="controls-row">
           <div class="sizes-group">
             <button class="size-btn" onclick="toggleSize(this)">S</button>
@@ -878,13 +868,11 @@
 
   </main>
 
-  <!-- ══ TOAST ══ -->
   <div id="cart-toast">
     <span id="toast-msg">Añadido a tu bolsa</span>
     <a href="carrito.html" class="toast-cta">Ver bolsa →</a>
   </div>
 
-  <!-- ══ LIGHTBOX ══ -->
   <div id="lightbox">
     <button id="lightbox-close" onclick="closeLightbox()">×</button>
     <button class="lb-arrow lb-arrow-prev" onclick="lbPrev()">&#8249;</button>
@@ -895,23 +883,16 @@
     <span id="lightbox-hint">Toca la imagen para cerrar &nbsp;·&nbsp; Desliza para navegar</span>
   </div>
 
-  <!-- ══ SOPORTE FLOTANTE — persona con ordenador ══ -->
   <a href="soporte.html" class="support-float" title="Soporte">
-    <!-- Persona con portátil / agente de soporte -->
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <!-- Cabeza -->
       <circle cx="12" cy="5" r="2.2"/>
-      <!-- Portátil / pantalla -->
       <rect x="3" y="11" width="18" height="11" rx="1.5"/>
       <path d="M1 22h22"/>
       <line x1="3" y1="18" x2="21" y2="18"/>
-      <!-- Cuerpo conectando persona y portátil -->
       <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
     </svg>
-    Soporte
   </a>
 
-  <!-- ══ CONTACTO ══ -->
   <section id="contacto" class="contact-section">
     <span class="contact-tag">Estamos aquí</span>
     <h2>Contacto</h2>
@@ -931,13 +912,11 @@
     </div>
   </section>
 
-  <!-- ══ FOOTER ══ -->
   <footer>
     <span class="footer-brand">South Size Topping</span>
     <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
   </footer>
 
-  <!-- ══ MODAL ANTI-CAPTURA — pantalla completa ══ -->
   <div id="screenshot-modal" style="
     display:none; position:fixed; inset:0; z-index:9999;
     align-items:center; justify-content:center;
@@ -945,21 +924,17 @@
     flex-direction:column; gap:32px;
     text-align:center; padding:40px 24px;
   ">
-    <!-- Bolsa grande animada -->
     <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0d0d0d" stroke-width="1.2" style="animation:bagswing 1.2s ease-in-out infinite; transform-origin:top center;">
       <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
       <line x1="3" y1="6" x2="21" y2="6"/>
       <path d="M16 10a4 4 0 01-8 0"/>
     </svg>
-    <!-- Texto principal grande -->
     <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(48px,12vw,96px); font-weight:700; font-style:italic; color:#0d0d0d; line-height:1.1; letter-spacing:0.04em;">
       Cómpratela.<br>Te lo mereces.
     </p>
-    <!-- Subtítulo -->
     <p style="font-size:9px; font-weight:700; letter-spacing:0.55em; text-transform:uppercase; color:#b8975a;">
       South Size Topping &nbsp;·&nbsp; Madrid
     </p>
-    <!-- Botón ir a comprar -->
     <a href="carrito.html" style="
       display:inline-flex; align-items:center; gap:10px;
       background:#0d0d0d; color:#faf9f7;
