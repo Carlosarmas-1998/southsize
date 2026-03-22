@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>SOUTH SIZE TOPPING ⚡️ | Colección ELLA (En Confección)</title>
+    <meta name="description" content="Colección femenina de South Size Topping. Próximamente en Madrid.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ═══ VARIABLES DE LUJO ═══ */
+        :root {
+            --bg-pure: #ffffff;
+            --text-primary: #000000;
+            --text-muted: #888888;
+            --accent-gold: #cfa05d;
+            --transition-luxury: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-pure);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ═══ BARRA DE ENVÍO ═══ */
+        .shipping-banner {
+            background-color: var(--text-primary);
+            color: var(--bg-pure);
+            text-align: center;
+            padding: 9px 10px;
+            font-size: 0.6rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            position: fixed;
+            top: 0; width: 100%; z-index: 1001;
+            font-weight: 200;
+        }
+
+        /* ═══ NAVEGACIÓN ═══ */
+        nav {
+            position: fixed;
+            top: 31px;
+            left: 0; width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; text-decoration: none; color: #000; letter-spacing: 2px; }
+        
+        .nav-links { display: flex; gap: 3.5rem; list-style: none; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; font-size: 0.6rem; font-weight: 500; text-transform: uppercase; letter-spacing: 3.5px; transition: var(--transition-luxury); }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        .nav-icons { display: flex; gap: 2rem; align-items: center; }
+        .nav-icons a { color: var(--text-primary); text-decoration: none; position: relative; }
+        .nav-icons svg { width: 20px; height: 20px; transition: var(--transition-luxury); }
+        .nav-icons a:hover svg { color: var(--accent-gold); }
+
+        /* ═══ SECCIÓN ATELIER (EN CONFECCIÓN) ═══ */
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 180px 20px 100px;
+            text-align: center;
+        }
+
+        .atelier-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 15px;
+        }
+
+        .atelier-subtitle {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 300;
+            margin-bottom: 4rem;
+        }
+
+        /* Animación de la Aguja (Super Pro) */
+        .sewing-needle-animation {
+            width: 80px; height: auto; margin: 0 auto 3rem; display: block;
+        }
+        
+        .needle { fill: var(--text-primary); animation: needleSew 2.5s infinite ease-in-out; transform-origin: center; }
+        .thread { stroke: var(--accent-gold); stroke-width: 0.8; fill: none; stroke-dasharray: 60; stroke-dashoffset: 60; animation: threadFlow 2.5s infinite ease-in-out; }
+        .stitch { stroke: var(--text-primary); stroke-width: 1.2; fill: none; opacity: 0; animation: stitchAppear 2.5s infinite ease-in-out; }
+        .stitch-1 { animation-delay: 0.5s; }
+        .stitch-2 { animation-delay: 1.0s; }
+        .stitch-3 { animation-delay: 1.5s; }
+
+        @keyframes needleSew {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(12px) rotate(3deg); }
+        }
+        @keyframes threadFlow {
+            0% { stroke-dashoffset: 60; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -60; }
+        }
+        @keyframes stitchAppear {
+            0%, 20% { opacity: 0; }
+            40%, 80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .atelier-message {
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            line-height: 2;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: #222;
+        }
+
+        .btn-return {
+            display: inline-block;
+            background: none;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 15px 40px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: none;
+            transition: var(--transition-luxury);
+        }
+
+        .btn-return:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-pure);
+            letter-spacing: 6px;
+        }
+
+        /* ═══ BOTÓN SOPORTE FIJO ═══ */
+        .support-float {
+            position: fixed; bottom: 35px; right: 35px; background-color: #000; color: white;
+            padding: 14px 28px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 10px;
+            font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15); z-index: 2000; transition: var(--transition-luxury); border: 1px solid #000;
+        }
+        .support-float:hover { transform: translateY(-4px); background-color: #fff; color: #000; }
+        .support-float svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 5%; top: 25px;}
+            .shipping-banner { font-size: 0.55rem; padding: 6px; }
+            .nav-links { display: none; }
+            main { padding: 140px 20px 80px; }
+            .atelier-title { font-size: 2.2rem; }
+            .support-float { bottom: 20px; right: 20px; padding: 10px 22px; font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shipping-banner">
+        Maison Madrid • Envío gratuito a domicilio en pedidos superiores a 30€
+    </div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">S$T</a>
+        <ul class="nav-links">
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="quienes-somos.html">Sobre la marca</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="#" title="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></a>
+            <a href="#" title="Bolsa de Compra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg></a>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="atelier-title">Colección ELLA</h1>
+        <p class="atelier-subtitle">Dentro del Atelier • Madrid</p>
+
+        <svg class="sewing-needle-animation" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+            <line class="stitch stitch-1" x1="10" y1="30" x2="25" y2="30"/>
+            <line class="stitch stitch-2" x1="30" y1="30" x2="45" y2="30"/>
+            <line class="stitch stitch-3" x1="50" y1="30" x2="65" y2="30"/>
+            <path class="thread" d="M85,10 C75,15 95,25 80,30 L60,30"/>
+            <g class="needle">
+                <path d="M80,5 L82,5 L82,25 L81,35 L80,25 Z"/>
+                <circle cx="81" cy="8" r="1.5" fill="#fff"/>
+            </g>
+        </svg>
+
+        <p class="atelier-message">
+            La verdadera Alta Costura requiere tiempo, precisión y una atención obsesiva por el detalle. Nuestros diseñadores están confeccionando actualmente las piezas que redefinirán la elegancia radical urbana.<br><br>
+            <strong>Próximamente disponible.</strong>
+        </p>
+
+        <a href="catalogo.html" class="btn-return">Explorar otras colecciones</a>
+    </main>
+
+    <a href="soporte.html" class="support-float" title="Soporte y Concierge">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 19H11V17H13V19ZM15.07 11.25L14.17 12.17C13.45 12.9 13 13.5 13 15H11V14.5C11 13.4 11.45 12.4 12.17 11.67L13.41 10.41C13.78 10.05 14 9.55 14 9C14 7.9 13.1 7 12 7C10.9 7 10 7.9 10 9H8C8 6.79 9.79 5 12 5C14.21 5 16 6.79 16 9C16 9.88 15.64 10.68 15.07 11.25Z"/>
+        </svg>
+        SOPORTE
+    </a>
+
+</body>
+</html>
