@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOUTHSIZETOPPING × BOXING PROFIGHT</title>
+  <title>SOUTH SIZE TOPPING</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,10 +38,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap; /* Añadido para responsiveness */
+      flex-wrap: wrap;
       gap: 12px;
-      min-height: 70px; /* Cambiado a min-height */
-      padding: 10px 40px; /* Ajustado el padding vertical */
+      min-height: 70px;
+      padding: 10px 40px;
       background: rgba(250,249,247,0.88);
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
@@ -86,18 +86,20 @@
       background: var(--cream);
     }
 
-    .hero-bg {
+    /* Sello como imagen pequeña centrada, no como fondo completo */
+    .hero-sello {
       position: absolute;
-      inset: 0;
-      background-image: url('sello.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: opacity(0.22) saturate(0.85);
-      transform: scale(1.05);
-      transition: transform 10s ease;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(180px, 28vw, 340px);
+      height: clamp(180px, 28vw, 340px);
+      object-fit: contain;
+      opacity: 0.18;
+      filter: saturate(0.7);
+      z-index: 0;
+      pointer-events: none;
     }
-
-    .hero:hover .hero-bg { transform: scale(1.0); }
 
     .hero-veil {
       position: absolute;
@@ -121,7 +123,7 @@
       justify-content: center;
       text-decoration: none;
       cursor: pointer;
-      padding: 0 20px; /* Añadido para evitar toque en bordes */
+      padding: 0 20px;
     }
 
     .hero-eyebrow {
@@ -138,7 +140,7 @@
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 7.5vw, 108px); /* Reducido el valor mínimo */
+      font-size: clamp(28px, 7.5vw, 108px);
       font-weight: 700;
       font-style: italic;
       letter-spacing: 0.12em;
@@ -149,20 +151,12 @@
       opacity: 0;
       animation: riseIn 1.1s ease 0.55s forwards;
       transition: letter-spacing 0.5s ease;
-      word-wrap: break-word; /* Previene desbordamiento horizontal */
+      word-wrap: break-word;
       overflow-wrap: break-word;
       max-width: 100%;
     }
 
     .hero-link:hover .hero-title { letter-spacing: 0.18em; }
-
-    .hero-x {
-      font-style: normal;
-      font-weight: 600;
-      color: var(--gold);
-      padding: 0 0.1em;
-      display: inline-block; /* Ayuda con el wrap */
-    }
 
     .hero-sub {
       font-size: 8px;
@@ -360,15 +354,10 @@
 
     @media (max-width: 480px) {
       nav { gap: 6px; padding: 10px; }
-      nav a { 
-        font-size: 7px; 
-        padding: 6px 10px; 
-        letter-spacing: 0.15em; 
-      }
+      nav a { font-size: 7px; padding: 6px 10px; letter-spacing: 0.15em; }
       .hero-eyebrow { font-size: 7px; letter-spacing: 0.4em; }
       .hero-sub { font-size: 7px; letter-spacing: 0.3em; line-height: 1.5; }
       .hero-cta { font-size: 8px; padding: 12px 28px; letter-spacing: 0.2em; }
-      
       .contact-buttons { flex-direction: column; width: 100%; }
       .contact-btn { width: 100%; justify-content: center; }
     }
@@ -378,21 +367,21 @@
 
   <nav>
     <a href="catalogo.html">Catálogo</a>
-    <a href="#contacto">Sobre la marca</a>
-    <a href="#contacto">Contactos</a>
-    <a href="#contacto">Políticas de marca</a>
+    <a href="quienes-somos.html">Sobre la marca</a>
+    <a href="contactos.html">Contactos</a>
+    <a href="politicas.html">Políticas de marca</a>
   </nav>
 
   <section class="hero">
-    <div class="hero-bg"></div>
+    <!-- Sello pequeño centrado -->
+    <img src="sello.jpg" alt="Sello South Size Topping" class="hero-sello" />
+
     <div class="hero-veil"></div>
 
     <a href="catalogo.html" class="hero-link">
       <span class="hero-eyebrow">Colección Exclusiva &nbsp;·&nbsp; Ropa Urbana</span>
 
-      <h1 class="hero-title">
-        Southsizetopping<span class="hero-x">&thinsp;×&thinsp;</span>Boxing&thinsp;Profight
-      </h1>
+      <h1 class="hero-title">South Size Topping</h1>
 
       <p class="hero-sub">Streetwear &nbsp;·&nbsp; Ropa Urbana &nbsp;·&nbsp; Alta Costura Urbana</p>
 
@@ -443,7 +432,7 @@
   </section>
 
   <footer>
-    <span class="footer-brand">Southsizetopping × Boxing Profight</span>
+    <span class="footer-brand">South Size Topping</span>
     <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
   </footer>
 
