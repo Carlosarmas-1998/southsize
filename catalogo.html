@@ -1,323 +1,405 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>SOUTH SIZE TOPPING ⚡️ | Colecciones Exclusivas</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ═══ VARIABLES DE LUJO MINIMALISTA ═══ */
-        :root {
-            --bg-pure: #ffffff;
-            --text-primary: #000000;
-            --text-muted: #888888;
-            --accent-gold: #cfa05d;
-            --border-light: #eaeaea;
-            --transition-luxury: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo — Southsizetopping × Boxing Profight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #faf9f7;
+      --ink:   #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --gold:  #b8975a;
+    }
 
-        body {
-            background-color: var(--bg-pure);
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* ═══ NAVEGACIÓN CON CARRITO Y FAVORITOS ═══ */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px);
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-light);
-        }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .nav-links {
-            display: flex; gap: 3rem; list-style: none;
-        }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
 
-        .nav-links a {
-            color: var(--text-primary); text-decoration: none; font-size: 0.6rem;
-            font-weight: 500; text-transform: uppercase; letter-spacing: 3px;
-            transition: var(--transition-luxury);
-        }
+    /* ══════════════════════════
+       NAV — idéntico al index
+    ══════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; /* Añadido para responsiveness */
+      gap: 12px;
+      min-height: 70px; /* Cambiado a min-height */
+      padding: 10px 40px; /* Ajustado el padding vertical */
+      background: rgba(250,249,247,0.88);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
 
-        .nav-links a:hover { color: var(--accent-gold); }
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
 
-        .nav-icons {
-            display: flex; gap: 2rem; align-items: center;
-        }
+    nav a:hover, nav a.active {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
 
-        .nav-icons a {
-            color: var(--text-primary); text-decoration: none; position: relative;
-            display: flex; align-items: center; justify-content: center;
-        }
+    /* ══════════════════════════
+       HEADER
+    ══════════════════════════ */
+    header {
+      padding: 148px 20px 52px;
+      text-align: center;
+    }
 
-        .nav-icons svg { width: 22px; height: 22px; transition: var(--transition-luxury); }
-        .nav-icons a:hover svg { color: var(--accent-gold); transform: scale(1.1); }
+    .brand-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 6vw, 88px); /* Reducido el mínimo */
+      font-weight: 700;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      line-height: 1.1; /* Ligero ajuste para móviles */
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--ink) 10%, var(--gold) 50%, var(--ink) 90%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorFlow 6s linear infinite;
+      word-wrap: break-word; /* Previene desbordamiento horizontal */
+      overflow-wrap: break-word;
+      max-width: 100%;
+    }
 
-        .cart-count {
-            position: absolute; top: -5px; right: -8px;
-            background: var(--text-primary); color: #fff;
-            font-size: 9px; width: 16px; height: 16px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 700;
-        }
+    @keyframes colorFlow { to { background-position: 200% center; } }
 
-        /* ═══ CABECERA ═══ */
-        header {
-            padding: 180px 20px 60px;
-            text-align: center;
-        }
+    .header-sub {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
 
-        .luxury-brand-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 6rem);
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 3rem;
-            /* Efecto Color Fluido */
-            background: linear-gradient(to right, #111 10%, #cfa05d 50%, #111 90%);
-            background-size: 200% auto;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: colorFlow 6s linear infinite;
-        }
+    /* ══════════════════════════
+       CATEGORÍAS
+    ══════════════════════════ */
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 5% 110px;
+    }
 
-        @keyframes colorFlow { to { background-position: 200% center; } }
+    .cat-card {
+      text-decoration: none;
+      width: 100%;
+      max-width: 420px;
+      height: 84px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--cream);
+      transition: transform 0.45s cubic-bezier(0.19,1,0.22,1),
+                  box-shadow 0.45s cubic-bezier(0.19,1,0.22,1);
+    }
 
-        .letter-lg { font-size: 1.25em; font-weight: 400; }
+    .cat-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--ink);
+      position: relative;
+      z-index: 2;
+      transition: color 0.45s cubic-bezier(0.19,1,0.22,1),
+                  letter-spacing 0.45s cubic-bezier(0.19,1,0.22,1);
+    }
 
-        /* ═══ CATEGORÍAS "PRO" (REDUCIDAS Y ELEGANTES) ═══ */
-        .category-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem; /* Menos espacio entre botones */
-            padding: 0 5% 100px;
-            flex-grow: 1;
-        }
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+      z-index: 1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.19,1,0.22,1);
+    }
 
-        .cat-card {
-            text-decoration: none;
-            width: 100%;
-            max-width: 380px; /* Tamaño mucho más reducido y elegante */
-            height: 80px; /* Altura más delicada */
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--text-primary);
-            overflow: hidden;
-            background: var(--bg-pure);
-            transition: var(--transition-luxury);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-        }
+    .cat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(13,13,13,0.1);
+      border-color: var(--ink);
+    }
 
-        .cat-card h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem; /* Texto ajustado a la nueva proporción */
-            font-weight: 400;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            z-index: 2;
-            transition: var(--transition-luxury);
-        }
+    .cat-card:hover::before { transform: scaleX(1); }
+    .cat-card:hover h2      { color: var(--cream); letter-spacing: 0.7em; }
 
-        /* Efecto de llenado y borde dorado */
-        .cat-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--text-primary);
-            z-index: 1;
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+    /* ══════════════════════════
+       SOPORTE FLOTANTE
+    ══════════════════════════ */
+    .support-float {
+      position: fixed;
+      bottom: 36px; right: 36px;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 13px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.18);
+      z-index: 999;
+      border: 1.5px solid var(--ink);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
 
-        .cat-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 2px;
-            background: var(--accent-gold);
-            z-index: 3;
-            transform: scaleX(0);
-            transition: transform 0.6s ease;
-        }
+    .support-float:hover {
+      background: var(--cream);
+      color: var(--ink);
+      transform: translateY(-3px);
+    }
 
-        .cat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            border-color: var(--text-primary);
-        }
+    .support-float svg {
+      width: 16px; height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
 
-        .cat-card:hover::before {
-            transform: scaleY(1);
-            transform-origin: top;
-        }
+    /* ══════════════════════════
+       CONTACTO — idéntico al index
+    ══════════════════════════ */
+    .contact-section {
+      background: var(--ink);
+      padding: 100px 40px 80px;
+      text-align: center;
+    }
 
-        .cat-card:hover::after {
-            transform: scaleX(1);
-        }
+    .contact-tag {
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 16px;
+    }
 
-        .cat-card:hover h2 {
-            color: #fff;
-            letter-spacing: 15px; /* Expansión sutil */
-        }
+    .contact-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+      margin-bottom: 56px;
+    }
 
-        /* ═══ BOTÓN SOPORTE (PRO FLOTANTE) ═══ */
-        .support-float {
-            position: fixed; bottom: 40px; right: 40px;
-            background-color: var(--text-primary); color: white;
-            padding: 16px 35px; border-radius: 50px;
-            text-decoration: none; display: flex; align-items: center; gap: 12px;
-            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 3px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            z-index: 2000; transition: var(--transition-luxury);
-            border: 1px solid var(--text-primary);
-        }
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 600px; /* Limita ancho para mejor wrap en tablet/móvil */
+      margin: 0 auto;
+    }
 
-        .support-float:hover { 
-            transform: translateY(-5px); 
-            background-color: var(--bg-pure); 
-            color: var(--text-primary);
-        }
-        
-        .support-float svg { width: 20px; height: 20px; fill: currentColor; }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center; /* Centrar contenido interno */
+      gap: 12px;
+      padding: 16px 36px;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1.5px solid rgba(250,249,247,0.22);
+      color: rgba(250,249,247,0.7);
+      transition: all 0.3s ease;
+    }
 
-        /* ═══ FOOTER ═══ */
-        footer {
-            background-color: #fafafa;
-            border-top: 1px solid var(--border-light);
-            padding: 6rem 5% 3rem;
-            text-align: center;
-        }
+    .contact-btn svg {
+      width: 18px; height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
 
-        .footer-icons {
-            display: flex; justify-content: center; align-items: center; gap: 4rem; margin-bottom: 3rem;
-        }
+    .contact-btn:hover svg { transform: scale(1.2); }
 
-        .footer-icons a { 
-            transition: transform 0.3s ease; 
-            display: flex; align-items: center; justify-content: center;
-        }
-        
-        .footer-icons a:hover { transform: scale(1.15); }
-        .footer-icons svg { width: 35px; height: 35px; }
+    .btn-ig:hover    { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color: #fff; border-color: transparent; }
+    .btn-wa:hover    { background: #25D366; color: #fff; border-color: transparent; }
+    .btn-email:hover { background: var(--gold); color: var(--ink); border-color: transparent; }
 
-        .copyright {
-            font-size: 0.55rem; color: #888; text-transform: uppercase;
-            letter-spacing: 2px; border-top: 1px solid #eaeaea; padding-top: 2rem;
-            max-width: 600px; margin: 0 auto;
-        }
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(250,249,247,0.06);
+      padding: 26px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            nav { padding: 1.2rem 5%; }
-            .nav-links { display: none; }
-            .cat-card { height: 70px; max-width: 300px; }
-            .cat-card h2 { font-size: 0.85rem; letter-spacing: 8px; }
-            .support-float { bottom: 20px; right: 20px; padding: 12px 25px; font-size: 0.65rem; }
-            .footer-icons { gap: 2.5rem; }
-        }
-    </style>
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.25em;
+      color: rgba(250,249,247,0.2);
+    }
+
+    .footer-copy {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(250,249,247,0.12);
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; gap: 8px; }
+      nav a { font-size: 8px; padding: 8px 14px; letter-spacing: 0.2em; }
+      .contact-section { padding: 80px 20px 60px; }
+      footer { flex-direction: column; text-align: center; padding: 22px 24px; gap: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { gap: 6px; padding: 10px; }
+      nav a { font-size: 7px; padding: 6px 10px; letter-spacing: 0.15em; }
+      
+      .cat-card { max-width: 100%; height: 72px; } /* Ajuste de tarjeta */
+      
+      .support-float { 
+        bottom: 20px; 
+        right: 20px; 
+        padding: 10px 20px; 
+        font-size: 7px;
+      }
+
+      .contact-buttons { flex-direction: column; width: 100%; }
+      .contact-btn { width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="quienes-somos.html">Sobre la marca</a></li>
-            <li><a href="contactos.html">Contacto</a></li>
-            <li><a href="politicas.html">Políticas</a></li>
-        </ul>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#contacto">Sobre la marca</a>
+    <a href="#contacto">Contactos</a>
+    <a href="index.html#contacto">Políticas de marca</a>
+  </nav>
 
-        <div class="nav-icons">
-            <a href="#" title="Favoritos">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            </a>
-            <a href="#" title="Bolsa de Compra">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                <span class="cart-count">0</span>
-            </a>
-        </div>
-    </nav>
+  <header>
+    <h1 class="brand-title">Southsizetopping × Boxing Profight</h1>
+    <p class="header-sub">Madrid &nbsp;·&nbsp; Selecciona tu categoría</p>
+  </header>
 
-    <header>
-        <h1 class="luxury-brand-title">
-            <span class="letter-lg">S</span>OUTH <span class="letter-lg">S</span>IZE <span class="letter-lg">T</span>OPPIN<span class="letter-lg">G</span>
-        </h1>
-        <p style="letter-spacing: 6px; text-transform: uppercase; font-size: 0.65rem; color: var(--text-muted);"> Madrid • Seleccione Categoría</p>
-    </header>
+  <main>
+    <a href="el.html" class="cat-card"><h2>Él</h2></a>
+    <a href="ella.html" class="cat-card"><h2>Ella</h2></a>
+    <a href="llaveros.html" class="cat-card"><h2>Llaveros</h2></a>
+  </main>
 
-    <main class="category-container">
-        
-        <a href="el.html" class="cat-card">
-            <h2>ÉL</h2>
-        </a>
+  <a href="mailto:angelmoretaalcorta01@gmail.com" class="support-float">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+    Soporte
+  </a>
 
-        <a href="ella.html" class="cat-card">
-            <h2>ELLA</h2>
-        </a>
+  <section id="contacto" class="contact-section">
+    <span class="contact-tag">Estamos aquí</span>
+    <h2>Contacto</h2>
+    <div class="contact-buttons">
 
-        <a href="llaveros.html" class="cat-card">
-            <h2>LLAVEROS</h2>
-        </a>
-
-    </main>
-
-    <a href="soporte.html" class="support-float" title="Soporte y Atención al Cliente">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 19H11V17H13V19ZM15.07 11.25L14.17 12.17C13.45 12.9 13 13.5 13 15H11V14.5C11 13.4 11.45 12.4 12.17 11.67L13.41 10.41C13.78 10.05 14 9.55 14 9C14 7.9 13.1 7 12 7C10.9 7 10 7.9 10 9H8C8 6.79 9.79 5 12 5C14.21 5 16 6.79 16 9C16 9.88 15.64 10.68 15.07 11.25Z"/>
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
         </svg>
-        SOPORTE
-    </a>
+        Instagram
+      </a>
 
-    <footer>
-        <div class="footer-icons">
-            <a href="https://wa.me/34653181905" target="_blank" title="Contactar por WhatsApp">
-                <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-            </a>
-            
-            <a href="https://instagram.com/Street.southsizetopping" target="_blank" title="Instagram Oficial">
-                <svg viewBox="0 0 24 24">
-                    <defs>
-                        <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#fd5949" />
-                            <stop offset="50%" stop-color="#d6249f" />
-                            <stop offset="100%" stop-color="#285AEB" />
-                        </linearGradient>
-                    </defs>
-                    <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.069-1.646-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-            </a>
-            
-            <a href="mailto:angelmoretaalcorta01@gmail.com" title="Correo Electrónico">
-                <svg viewBox="0 0 24 24" fill="#0078D4"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg>
-            </a>
-        </div>
-        
-        <p class="copyright">© 2026 SOUTH SIZE TOPPING. Madrid. Todos los derechos reservados.</p>
-    </footer>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+        </svg>
+        WhatsApp
+      </a>
+
+      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-btn btn-email">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Email
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Southsizetopping × Boxing Profight</span>
+    <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
+  </footer>
 
 </body>
 </html>
