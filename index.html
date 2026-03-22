@@ -61,6 +61,7 @@
       --ink:     #0d0d0d;
       --ink-mid: #3a3a3a;
       --gold:    #b8975a;
+      --ease:    cubic-bezier(.25,1,.4,1);
     }
 
     html { scroll-behavior: smooth; }
@@ -77,12 +78,12 @@
     ::-webkit-scrollbar-thumb { background: var(--ink); }
 
     /* ══════════════════════════
-       NAV
+       NAV Y DROPDOWN
     ══════════════════════════ */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 200;
+      z-index: 400;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -96,7 +97,7 @@
       border-bottom: 1px solid rgba(13,13,13,0.08);
     }
 
-    nav a.nav-pill {
+    nav a.nav-pill, .dropbtn {
       color: var(--ink);
       text-decoration: none;
       font-family: 'Montserrat', sans-serif;
@@ -104,12 +105,13 @@
       font-weight: 700;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      padding: 10px 20px;
+      padding: 10px 24px;
       border-radius: 999px;
       border: 1.5px solid rgba(13,13,13,0.18);
       background: transparent;
       transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     nav a.nav-pill:hover {
@@ -119,46 +121,63 @@
       transform: translateY(-1px);
     }
 
-    .nav-sep { width: 1px; height: 22px; background: rgba(13,13,13,0.18); flex-shrink: 0; }
-
-    .nav-icon-btn {
+    /* DROPDOWN */
+    .dropdown {
       position: relative;
-      display: flex; align-items: center; justify-content: center;
-      width: 38px; height: 38px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(13,13,13,0.18);
-      background: transparent;
-      cursor: pointer; color: var(--ink);
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--cream);
+      min-width: 180px;
+      box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px;
+      border: 1px solid rgba(13,13,13,0.08);
+      z-index: 500;
+      margin-top: 10px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: var(--ink);
+      padding: 14px 20px;
       text-decoration: none;
-      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
-      flex-shrink: 0;
+      display: block;
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-align: center;
+      transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
     }
 
-    .nav-icon-btn:hover {
-      background: var(--ink); color: var(--cream);
-      border-color: var(--ink); transform: translateY(-1px);
+    .dropdown-content a:last-child {
+      border-bottom: none;
     }
 
-    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; transition: fill 0.25s, stroke 0.25s; }
-    
-    .nav-icon-btn:hover svg { stroke: var(--cream); }
-    .nav-icon-btn:hover .heart-svg { fill: var(--cream); stroke: var(--cream); }
-
-    .cart-count, .fav-count {
-      position: absolute; top: -4px; right: -4px;
-      background: var(--ink); color: var(--cream);
-      font-size: 7px; font-weight: 800;
-      width: 14px; height: 14px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      border: 1.5px solid var(--cream);
-      transition: transform 0.3s;
-      opacity: 0; transform: scale(0);
+    .dropdown-content a:hover {
+      background-color: var(--ink);
+      color: var(--cream);
     }
-    .cart-count.visible, .fav-count.visible { opacity: 1; transform: scale(1); }
 
-    .heart-svg { fill: none; stroke: var(--ink); }
-    .heart-svg.has-items { fill: #e03535; stroke: #e03535; }
-    .bag-svg.has-items { stroke: var(--gold); }
+    .dropdown:hover .dropdown-content {
+      display: flex;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .dropdown:hover .dropbtn {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
 
     /* ══════════════════════════
        HERO
@@ -167,7 +186,7 @@
       position: relative;
       width: 100%;
       height: 100vh;
-      min-height: 640px;
+      min-height: 680px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -175,7 +194,7 @@
       background: var(--cream);
     }
 
-    /* Sello como imagen pequeña centrada */
+    /* Sello como imagen pequeña centrada al fondo */
     .hero-sello {
       position: absolute;
       top: 30%;
@@ -202,75 +221,6 @@
       z-index: 1;
     }
 
-    /* ══════════════════════════
-       SELLO ESQUINA IZQUIERDA (Lanzamiento 20 prendas)
-    ══════════════════════════ */
-    .launch-badge {
-      position: absolute;
-      top: 130px; /* Bajado para que no choque con el nav */
-      left: 40px;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, var(--ink) 0%, #1a1a1a 100%);
-      border: 1.5px solid var(--gold);
-      color: var(--cream);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 15px;
-      box-shadow: 0 12px 35px rgba(184,151,90,0.25), inset 0 0 15px rgba(0,0,0,0.5);
-      z-index: 10;
-      animation: floatBadge 4s ease-in-out infinite;
-      text-decoration: none;
-    }
-
-    .launch-badge:hover {
-      transform: scale(1.05) rotate(-3deg);
-      box-shadow: 0 15px 45px rgba(184,151,90,0.35), inset 0 0 15px rgba(0,0,0,0.5);
-    }
-
-    .lb-tag {
-      font-size: 6.5px;
-      font-weight: 800;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--cream);
-      margin-bottom: 8px;
-    }
-
-    .lb-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      font-weight: 700;
-      font-style: italic;
-      line-height: 1.1;
-      color: var(--gold);
-      margin-bottom: 8px;
-      animation: textSparkle 2.5s infinite alternate;
-    }
-
-    .lb-sub {
-      font-size: 5.5px;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(250,249,247,0.75);
-      line-height: 1.5;
-    }
-
-    /* Destellos */
-    .sparkle-icon {
-      position: absolute;
-      color: var(--gold);
-      animation: blinkSparkle 1.8s infinite alternate;
-      pointer-events: none;
-    }
-    .sp-1 { top: 20%; left: 20%; font-size: 12px; animation-delay: 0s; }
-    .sp-2 { bottom: 25%; right: 15%; font-size: 10px; animation-delay: 0.6s; }
-
     .hero-link {
       position: absolute;
       inset: 0;
@@ -285,11 +235,11 @@
     }
 
     .hero-eyebrow {
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.6em;
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
-      color: var(--ink-mid);
+      color: var(--gold);
       margin-bottom: 20px;
       opacity: 0;
       animation: riseIn 1s ease 0.3s forwards;
@@ -322,14 +272,89 @@
       letter-spacing: 0.5em;
       text-transform: uppercase;
       color: var(--ink-mid);
-      margin-top: 22px;
+      margin-top: 18px;
       opacity: 0;
       animation: riseIn 1s ease 0.8s forwards;
       text-align: center;
     }
 
+    /* ══════════════════════════
+       SELLO LANZAMIENTO (Integrado al centro)
+    ══════════════════════════ */
+    .badge-container {
+      opacity: 0;
+      animation: riseIn 1s ease 0.9s forwards;
+      margin-top: 35px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .launch-badge {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--ink) 0%, #1a1a1a 100%);
+      border: 1.5px solid var(--gold);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 8px 25px rgba(184,151,90,0.2), inset 0 0 10px rgba(0,0,0,0.5);
+      animation: floatBadge 4s ease-in-out infinite;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .hero-link:hover .launch-badge {
+      transform: scale(1.05) rotate(-3deg);
+      box-shadow: 0 10px 30px rgba(184,151,90,0.3), inset 0 0 12px rgba(0,0,0,0.5);
+    }
+
+    .lb-tag {
+      font-size: 5px;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .lb-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--gold);
+      margin-bottom: 4px;
+      animation: textSparkle 2.5s infinite alternate;
+    }
+
+    .lb-sub {
+      font-size: 4.5px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250,249,247,0.75);
+      line-height: 1.5;
+    }
+
+    .sparkle-icon {
+      position: absolute;
+      color: var(--gold);
+      animation: blinkSparkle 1.8s infinite alternate;
+      pointer-events: none;
+    }
+    .sp-1 { top: 15%; left: 15%; font-size: 9px; animation-delay: 0s; }
+    .sp-2 { bottom: 20%; right: 12%; font-size: 7px; animation-delay: 0.6s; }
+
+    /* Botón final del Hero */
     .hero-cta {
-      margin-top: 48px;
+      margin-top: 24px;
       display: inline-flex;
       align-items: center;
       gap: 14px;
@@ -485,11 +510,32 @@
     }
 
     /* ══════════════════════════
+       SOPORTE FLOTANTE
+    ══════════════════════════ */
+    .support-float {
+      position: fixed; bottom: 36px; right: 36px;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--ink); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
+      z-index: 999; border: 1.5px solid var(--ink);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
+    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+
+    /* ══════════════════════════
        KEYFRAMES
     ══════════════════════════ */
     @keyframes riseIn {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to   { opacity: 1; transform: translate(-50%, 0); }
     }
 
     @keyframes fadeIn {
@@ -502,7 +548,7 @@
 
     @keyframes floatBadge {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      50% { transform: translateY(-6px); }
     }
 
     @keyframes textSparkle {
@@ -520,34 +566,33 @@
     ══════════════════════════ */
     @media (max-width: 768px) {
       nav { padding: 10px 20px; gap: 8px; }
-      nav a { font-size: 8px; padding: 8px 14px; letter-spacing: 0.2em; }
+      nav a.nav-pill, .dropbtn { font-size: 8px; padding: 8px 16px; letter-spacing: 0.2em; }
       .contact-section { padding: 80px 20px 60px; }
       footer { flex-direction: column; text-align: center; padding: 22px 24px; gap: 20px; }
-      
-      .launch-badge {
-        top: 110px; left: 20px; width: 110px; height: 110px; padding: 10px;
-      }
-      .lb-tag { font-size: 5px; margin-bottom: 5px; }
-      .lb-title { font-size: 12px; margin-bottom: 5px; }
-      .lb-sub { font-size: 4.5px; }
     }
 
     @media (max-width: 480px) {
       nav { gap: 6px; padding: 10px; }
-      nav a { font-size: 7px; padding: 6px 10px; letter-spacing: 0.15em; }
-      .hero-eyebrow { font-size: 7px; letter-spacing: 0.4em; }
-      .hero-sub { font-size: 7px; letter-spacing: 0.3em; line-height: 1.5; }
-      .hero-cta { font-size: 8px; padding: 12px 28px; letter-spacing: 0.2em; }
-      .contact-buttons { flex-direction: column; width: 100%; }
-      .contact-btn { width: 100%; justify-content: center; }
-
-      .launch-badge {
-        top: 95px; left: 10px; width: 90px; height: 90px; padding: 8px;
-      }
+      /* Botones más pequeños en móvil */
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 12px; letter-spacing: 0.15em; }
+      
+      .hero-eyebrow { font-size: 7.5px; letter-spacing: 0.4em; margin-bottom: 12px; }
+      .hero-sub { font-size: 7px; letter-spacing: 0.3em; line-height: 1.5; margin-top: 14px; }
+      .badge-container { margin-top: 25px; margin-bottom: 5px; }
+      
+      /* Ajuste del sello en móvil para que encaje perfecto */
+      .launch-badge { width: 95px; height: 95px; padding: 8px; }
       .lb-tag { font-size: 4px; margin-bottom: 3px; }
-      .lb-title { font-size: 10px; line-height: 1; margin-bottom: 4px; }
+      .lb-title { font-size: 11px; line-height: 1.1; margin-bottom: 4px; }
       .lb-sub { font-size: 4px; line-height: 1.2; }
-      .sp-1, .sp-2 { font-size: 8px; }
+      .sp-1, .sp-2 { font-size: 7px; }
+
+      .hero-cta { font-size: 7.5px; padding: 12px 24px; letter-spacing: 0.2em; margin-top: 15px;}
+      
+      .contact-buttons { flex-direction: column; width: 100%; }
+      .contact-btn { font-size: 7.5px; width: 100%; justify-content: center; padding: 12px 20px;}
+      
+      .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
     }
   </style>
 </head>
@@ -555,42 +600,39 @@
 
   <nav>
     <a href="catalogo.html" class="nav-pill">Catálogo</a>
-    <a href="quienes-somos.html" class="nav-pill">Sobre la marca</a>
-    <a href="contactos.html" class="nav-pill">Contactos</a>
-    <a href="politicas.html" class="nav-pill">Políticas de marca</a>
     
-    <div class="nav-sep"></div>
-
-    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
-      <svg viewBox="0 0 24 24"><path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <span class="fav-count" id="fav-badge">0</span>
-    </a>
-
-    <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
-      <svg viewBox="0 0 24 24"><path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-      <span class="cart-count" id="cart-badge">0</span>
-    </a>
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
+    </div>
   </nav>
 
   <section class="hero">
+
     <img src="sello.jpg" alt="Sello South Size Topping" class="hero-sello" />
 
     <div class="hero-veil"></div>
 
-    <a href="catalogo.html" class="launch-badge">
-      <span class="sparkle-icon sp-1">✨</span>
-      <span class="sparkle-icon sp-2">✨</span>
-      <span class="lb-tag">Lanzamiento</span>
-      <div class="lb-title">Sólo 20<br>piezas</div>
-      <span class="lb-sub">Máximo por diseño</span>
-    </a>
-
     <a href="catalogo.html" class="hero-link">
-      <span class="hero-eyebrow">Colección Exclusiva &nbsp;·&nbsp; Ropa Urbana</span>
+      <span class="hero-eyebrow">Lanzamientos Limitados por Fechas</span>
 
       <h1 class="hero-title">South Size Topping</h1>
 
       <p class="hero-sub">Streetwear &nbsp;·&nbsp; Ropa Urbana &nbsp;·&nbsp; Alta Costura Urbana</p>
+
+      <div class="badge-container">
+        <div class="launch-badge">
+          <span class="sparkle-icon sp-1">✨</span>
+          <span class="sparkle-icon sp-2">✨</span>
+          <span class="lb-tag">Lanzamiento</span>
+          <div class="lb-title">Sólo 20<br>piezas</div>
+          <span class="lb-sub">Máximo por diseño</span>
+        </div>
+      </div>
 
       <div class="hero-cta">
         Explorar colecciones
@@ -643,37 +685,23 @@
     <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
   </footer>
 
+  <a href="soporte.html" class="support-float" title="Soporte">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
+    </svg>
+  </a>
+
   <script>
-    /* ══════════════════════════════════
-       CARRITO & FAVORITOS LOGIC (NAV BADGES)
-    ══════════════════════════════════ */
-    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; } catch { return []; } }
-    function getFavs() { try { return JSON.parse(localStorage.getItem('sst-fav')) || []; } catch { return []; } }
-
-    function syncBadges() {
-      const cartTotal = getCart().reduce((s, i) => s + i.qty, 0);
-      const favTotal  = getFavs().length;
-
-      const cb = document.getElementById('cart-badge');
-      const fb = document.getElementById('fav-badge');
-
-      if (cb) { cb.textContent = cartTotal; cb.classList.toggle('visible', cartTotal > 0); }
-      if (fb) { fb.textContent = favTotal;  fb.classList.toggle('visible', favTotal  > 0); }
-
-      const heartSvg = document.querySelector('.heart-svg');
-      const bagSvg   = document.querySelector('.bag-svg');
-      if (heartSvg) heartSvg.classList.toggle('has-items', favTotal  > 0);
-      if (bagSvg)   bagSvg.classList.toggle('has-items',   cartTotal > 0);
-    }
-
-    /* ── INIT ── */
-    syncBadges();
-
-    /* Escuchar cambios en otras pestañas */
-    window.addEventListener('storage', function(e) {
-      if(e.key === 'sst-fav' || e.key === 'sst-cart' || e.key === 'sst_cart') {
-        syncBadges();
-      }
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropbtn = document.querySelector('.dropbtn');
+      dropbtn.addEventListener('click', (e) => {
+        // En móviles previene que haga cosas raras y fuerza el focus
+        e.preventDefault();
+      });
     });
   </script>
 
