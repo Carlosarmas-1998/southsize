@@ -62,6 +62,9 @@
     }
     .nav-inner a:hover, .nav-inner a.active { background: var(--ink); color: #fff; }
 
+    /* SOLUCIÓN AL PROBLEMA DE LOS ICONOS APLASTADOS */
+    .nav-inner a.nav-icon-btn { padding: 0; }
+
     .nav-divider { width: 1px; height: 16px; background: rgba(13,13,13,.18); flex-shrink:0; }
 
     .nav-icon-btn {
@@ -173,6 +176,7 @@
       border: 1.5px solid rgba(13,13,13,.08);
       border-radius: 6px;
       padding: 3rem 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .form-col h2 {
@@ -320,10 +324,6 @@
 </head>
 <body>
 
-  <!-- BANNER -->
-  <div class="banner">Envío gratis en pedidos superiores a 30 € &nbsp;·&nbsp; Ediciones limitadas</div>
-
-  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="index.html">Inicio</a>
@@ -341,17 +341,14 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="page-hero">
     <p class="eyebrow">Servicio de Concierge — Madrid</p>
     <h1>Hablemos</h1>
     <p class="subtitle">Estamos aquí para lo que necesites</p>
   </header>
 
-  <!-- CONTENT -->
   <div class="content-wrap">
 
-    <!-- INFO -->
     <div class="info-col">
       <h2>Contacto Directo</h2>
 
@@ -406,7 +403,6 @@
       </div>
     </div>
 
-    <!-- FORM -->
     <div class="form-col">
       <h2>Escríbenos</h2>
       <p class="form-sub">Te respondemos en menos de 24 h</p>
@@ -445,7 +441,6 @@
 
   </div>
 
-  <!-- CONTACT SECTION -->
   <section class="contact-section">
     <h2>También nos encuentras aquí</h2>
     <p class="c-sub">Siempre disponibles para ti</p>
@@ -465,12 +460,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2026 Southsizetopping × Boxing Profight — Madrid &nbsp;·&nbsp; Todos los derechos reservados</p>
   </footer>
 
-  <!-- SUPPORT FLOAT -->
   <a href="soporte.html" class="support-float" title="Soporte">
     <svg viewBox="0 0 24 24">
       <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
@@ -481,7 +474,6 @@
     </svg>
   </a>
 
-  <!-- TOAST -->
   <div class="toast" id="toast">✉ Mensaje enviado — Te respondemos pronto 🖤</div>
 
   <script>
