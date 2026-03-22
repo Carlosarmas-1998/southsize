@@ -1,228 +1,616 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>SOUTH SIZE TOPPING ⚡️ | Colección ELLA (En Confección)</title>
-    <meta name="description" content="Colección femenina de South Size Topping. Próximamente en Madrid.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ═══ VARIABLES DE LUJO ═══ */
-        :root {
-            --bg-pure: #ffffff;
-            --text-primary: #000000;
-            --text-muted: #888888;
-            --accent-gold: #cfa05d;
-            --transition-luxury: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colección Ella — Southsizetopping × Boxing Profight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream:   #faf9f7;
+      --ink:     #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --ink-soft:#7a7875;
+      --gold:    #b8975a;
+      --border:  rgba(13,13,13,0.1);
+    }
 
-        body {
-            background-color: var(--bg-pure);
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* ═══ BARRA DE ENVÍO ═══ */
-        .shipping-banner {
-            background-color: var(--text-primary);
-            color: var(--bg-pure);
-            text-align: center;
-            padding: 9px 10px;
-            font-size: 0.6rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            position: fixed;
-            top: 0; width: 100%; z-index: 1001;
-            font-weight: 200;
-        }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* ═══ NAVEGACIÓN ═══ */
-        nav {
-            position: fixed;
-            top: 31px;
-            left: 0; width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px);
-            padding: 1.2rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid #f0f0f0;
-        }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
 
-        .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; text-decoration: none; color: #000; letter-spacing: 2px; }
-        
-        .nav-links { display: flex; gap: 3.5rem; list-style: none; }
-        .nav-links a { color: var(--text-primary); text-decoration: none; font-size: 0.6rem; font-weight: 500; text-transform: uppercase; letter-spacing: 3.5px; transition: var(--transition-luxury); }
-        .nav-links a:hover { color: var(--accent-gold); }
+    /* ══════════════════════════
+       BANNER
+    ══════════════════════════ */
+    .shipping-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 300;
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
 
-        .nav-icons { display: flex; gap: 2rem; align-items: center; }
-        .nav-icons a { color: var(--text-primary); text-decoration: none; position: relative; }
-        .nav-icons svg { width: 20px; height: 20px; transition: var(--transition-luxury); }
-        .nav-icons a:hover svg { color: var(--accent-gold); }
+    /* ══════════════════════════
+       NAV
+    ══════════════════════════ */
+    nav {
+      position: fixed;
+      top: 30px; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 70px;
+      padding: 10px 20px;
+      background: rgba(250,249,247,0.94);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        /* ═══ SECCIÓN ATELIER (EN CONFECCIÓN) ═══ */
-        main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 180px 20px 100px;
-            text-align: center;
-        }
+    nav a.nav-pill {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      white-space: nowrap;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+    }
 
-        .atelier-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 15px;
-        }
+    nav a.nav-pill:hover {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
 
-        .atelier-subtitle {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 300;
-            margin-bottom: 4rem;
-        }
+    .nav-sep { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
 
-        /* Animación de la Aguja (Super Pro) */
-        .sewing-needle-animation {
-            width: 80px; height: auto; margin: 0 auto 3rem; display: block;
-        }
-        
-        .needle { fill: var(--text-primary); animation: needleSew 2.5s infinite ease-in-out; transform-origin: center; }
-        .thread { stroke: var(--accent-gold); stroke-width: 0.8; fill: none; stroke-dasharray: 60; stroke-dashoffset: 60; animation: threadFlow 2.5s infinite ease-in-out; }
-        .stitch { stroke: var(--text-primary); stroke-width: 1.2; fill: none; opacity: 0; animation: stitchAppear 2.5s infinite ease-in-out; }
-        .stitch-1 { animation-delay: 0.5s; }
-        .stitch-2 { animation-delay: 1.0s; }
-        .stitch-3 { animation-delay: 1.5s; }
+    .nav-icon-btn {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      cursor: pointer; color: var(--ink);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+      flex-shrink: 0;
+    }
 
-        @keyframes needleSew {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(12px) rotate(3deg); }
-        }
-        @keyframes threadFlow {
-            0% { stroke-dashoffset: 60; }
-            50% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: -60; }
-        }
-        @keyframes stitchAppear {
-            0%, 20% { opacity: 0; }
-            40%, 80% { opacity: 1; }
-            100% { opacity: 0; }
-        }
+    .nav-icon-btn:hover {
+      background: var(--ink); color: var(--cream);
+      border-color: var(--ink); transform: translateY(-1px);
+    }
 
-        .atelier-message {
-            max-width: 600px;
-            margin: 0 auto 4rem;
-            line-height: 2;
-            font-weight: 300;
-            font-size: 0.95rem;
-            color: #222;
-        }
+    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; }
 
-        .btn-return {
-            display: inline-block;
-            background: none;
-            border: 1px solid var(--text-primary);
-            color: var(--text-primary);
-            padding: 15px 40px;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-decoration: none;
-            transition: var(--transition-luxury);
-        }
+    .cart-count {
+      position: absolute; top: -4px; right: -4px;
+      background: var(--gold); color: var(--cream);
+      font-size: 7px; font-weight: 800;
+      width: 14px; height: 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1.5px solid var(--cream);
+      transition: transform 0.3s;
+    }
 
-        .btn-return:hover {
-            background-color: var(--text-primary);
-            color: var(--bg-pure);
-            letter-spacing: 6px;
-        }
+    /* ══════════════════════════
+       HEADER
+    ══════════════════════════ */
+    header {
+      padding: 148px 20px 44px;
+      text-align: center;
+    }
 
-        /* ═══ BOTÓN SOPORTE FIJO ═══ */
-        .support-float {
-            position: fixed; bottom: 35px; right: 35px; background-color: #000; color: white;
-            padding: 14px 28px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 10px;
-            font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2.5px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.15); z-index: 2000; transition: var(--transition-luxury); border: 1px solid #000;
-        }
-        .support-float:hover { transform: translateY(-4px); background-color: #fff; color: #000; }
-        .support-float svg { width: 18px; height: 18px; fill: currentColor; }
+    .collection-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 6vw, 86px);
+      font-weight: 700; font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 5%; top: 25px;}
-            .shipping-banner { font-size: 0.55rem; padding: 6px; }
-            .nav-links { display: none; }
-            main { padding: 140px 20px 80px; }
-            .atelier-title { font-size: 2.2rem; }
-            .support-float { bottom: 20px; right: 20px; padding: 10px 22px; font-size: 0.6rem; }
-        }
-    </style>
+    .header-sub {
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       COMING SOON — zona central
+    ══════════════════════════ */
+    .coming-soon {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 120px;
+      text-align: center;
+    }
+
+    /* Animación aguja/hilo — SVG puro */
+    .needle-wrap {
+      margin-bottom: 48px;
+      animation: float 3.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .needle-wrap svg {
+      width: clamp(80px, 16vw, 130px);
+      height: auto;
+      opacity: 0.9;
+    }
+
+    /* Línea de hilo animada */
+    .thread-line {
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      animation: drawThread 2.2s ease forwards 0.4s;
+    }
+
+    @keyframes drawThread {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Texto principal */
+    .cs-eyebrow {
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.6em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.3s forwards;
+    }
+
+    .cs-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 700; font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.5s forwards;
+    }
+
+    .cs-sub {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink-soft);
+      line-height: 2.2;
+      max-width: 460px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.7s forwards;
+    }
+
+    /* Barra de progreso animada */
+    .progress-wrap {
+      width: clamp(220px, 50vw, 380px);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.9s forwards;
+    }
+
+    .progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--ink), var(--gold));
+      border-radius: 999px;
+      width: 0%;
+      animation: fillBar 2.5s cubic-bezier(0.22,1,0.36,1) 1.2s forwards;
+    }
+
+    @keyframes fillBar { to { width: 70%; } }
+
+    /* Notificarme */
+    .notify-row {
+      display: flex; gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.1s forwards;
+      max-width: 380px;
+      width: 90%;
+    }
+
+    .notify-row input {
+      flex-grow: 1;
+      border: none; outline: none;
+      background: transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--ink);
+      padding: 13px 20px;
+    }
+
+    .notify-row input::placeholder { color: var(--ink-soft); }
+
+    .notify-row button {
+      background: var(--ink); color: var(--cream);
+      border: none; cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 13px 22px;
+      white-space: nowrap;
+      transition: background 0.25s;
+    }
+
+    .notify-row button:hover { background: var(--gold); }
+
+    /* Tags */
+    .cs-tags {
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.3s forwards;
+    }
+
+    .cs-tag {
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       SOPORTE FLOTANTE
+    ══════════════════════════ */
+    .support-float {
+      position: fixed;
+      bottom: 36px; right: 36px;
+      background: var(--ink); color: var(--cream);
+      padding: 13px 24px; border-radius: 999px;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
+      z-index: 999;
+      border: 1.5px solid var(--ink);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
+
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
+    .support-float svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+    /* ══════════════════════════
+       CONTACTO
+    ══════════════════════════ */
+    .contact-section {
+      background: var(--ink);
+      padding: 90px 40px 70px;
+      text-align: center;
+    }
+
+    .contact-tag {
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 14px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 60px);
+      font-weight: 700; font-style: italic;
+      letter-spacing: 0.1em; color: var(--cream);
+      margin-bottom: 50px;
+    }
+
+    .contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 11px;
+      padding: 14px 32px; text-decoration: none;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      border-radius: 999px;
+      border: 1.5px solid rgba(250,249,247,0.2);
+      color: rgba(250,249,247,0.65);
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .contact-btn:hover svg { transform: scale(1.2); }
+    .btn-ig:hover    { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; border-color:transparent; }
+    .btn-wa:hover    { background: #25D366; color:#fff; border-color:transparent; }
+    .btn-email:hover { background: var(--gold); color: var(--ink); border-color:transparent; }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(250,249,247,0.06);
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; font-weight: 700; font-style: italic;
+      letter-spacing: 0.22em; color: rgba(250,249,247,0.2);
+    }
+
+    .footer-copy {
+      font-size: 7.5px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(250,249,247,0.12);
+    }
+
+    /* ══════════════════════════
+       ANIMACIONES
+    ══════════════════════════ */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 600px) {
+      nav { gap: 6px; padding: 8px 10px; min-height: auto; top: 28px; }
+      nav a.nav-pill { font-size: 7px; padding: 7px 11px; letter-spacing: 0.16em; }
+      .nav-sep { display: none; }
+      header { padding: 130px 16px 36px; }
+      .support-float { bottom: 18px; right: 18px; padding: 11px 20px; font-size: 7px; }
+      footer { flex-direction: column; text-align: center; padding: 20px; }
+    }
+
+    @media (max-width: 420px) {
+      nav a.nav-pill { font-size: 6.5px; padding: 6px 9px; letter-spacing: 0.12em; }
+      .contact-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="shipping-banner">
-        Maison Madrid • Envío gratuito a domicilio en pedidos superiores a 30€
-    </div>
+  <!-- BANNER -->
+  <div class="shipping-banner">
+    Envío gratuito en Madrid en pedidos superiores a 30€
+  </div>
 
-    <nav>
-        <a href="index.html" class="nav-brand">S$T</a>
-        <ul class="nav-links">
-            <li><a href="catalogo.html">Catálogo</a></li>
-            <li><a href="quienes-somos.html">Sobre la marca</a></li>
-        </ul>
-        <div class="nav-icons">
-            <a href="#" title="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></a>
-            <a href="#" title="Bolsa de Compra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg></a>
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-pill">Inicio</a>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    <a href="quienes-somos.html" class="nav-pill">Sobre la marca</a>
+    <a href="politicas.html" class="nav-pill">Políticas</a>
+    <a href="contactos.html" class="nav-pill">Contactos</a>
 
-    <main>
-        <h1 class="atelier-title">Colección ELLA</h1>
-        <p class="atelier-subtitle">Dentro del Atelier • Madrid</p>
+    <div class="nav-sep"></div>
 
-        <svg class="sewing-needle-animation" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-            <line class="stitch stitch-1" x1="10" y1="30" x2="25" y2="30"/>
-            <line class="stitch stitch-2" x1="30" y1="30" x2="45" y2="30"/>
-            <line class="stitch stitch-3" x1="50" y1="30" x2="65" y2="30"/>
-            <path class="thread" d="M85,10 C75,15 95,25 80,30 L60,30"/>
-            <g class="needle">
-                <path d="M80,5 L82,5 L82,25 L81,35 L80,25 Z"/>
-                <circle cx="81" cy="8" r="1.5" fill="#fff"/>
-            </g>
-        </svg>
-
-        <p class="atelier-message">
-            La verdadera Alta Costura requiere tiempo, precisión y una atención obsesiva por el detalle. Nuestros diseñadores están confeccionando actualmente las piezas que redefinirán la elegancia radical urbana.<br><br>
-            <strong>Próximamente disponible.</strong>
-        </p>
-
-        <a href="catalogo.html" class="btn-return">Explorar otras colecciones</a>
-    </main>
-
-    <a href="soporte.html" class="support-float" title="Soporte y Concierge">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 19H11V17H13V19ZM15.07 11.25L14.17 12.17C13.45 12.9 13 13.5 13 15H11V14.5C11 13.4 11.45 12.4 12.17 11.67L13.41 10.41C13.78 10.05 14 9.55 14 9C14 7.9 13.1 7 12 7C10.9 7 10 7.9 10 9H8C8 6.79 9.79 5 12 5C14.21 5 16 6.79 16 9C16 9.88 15.64 10.68 15.07 11.25Z"/>
-        </svg>
-        SOPORTE
+    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
     </a>
 
+    <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
+      <svg viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <span class="cart-count">0</span>
+    </a>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="collection-title">Colección Ella</h1>
+    <p class="header-sub">Selección Exclusiva &nbsp;·&nbsp; Madrid</p>
+  </header>
+
+  <!-- COMING SOON -->
+  <section class="coming-soon">
+
+    <!-- Icono aguja + hilo animado -->
+    <div class="needle-wrap">
+      <svg viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cuerpo de la aguja -->
+        <rect x="46" y="10" width="8" height="90" rx="4" fill="#0d0d0d"/>
+        <!-- Ojo de la aguja -->
+        <ellipse cx="50" cy="18" rx="4" ry="6" fill="#faf9f7" stroke="#0d0d0d" stroke-width="1.5"/>
+        <!-- Punta -->
+        <polygon points="46,100 54,100 50,115" fill="#0d0d0d"/>
+        <!-- Hilo animado -->
+        <path class="thread-line"
+          d="M50 18 C30 30, 70 50, 40 70 C20 85, 65 95, 50 115"
+          stroke="#b8975a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <!-- Puntos de costura -->
+        <circle cx="34" cy="128" r="3" fill="#b8975a" opacity="0.5"/>
+        <circle cx="44" cy="132" r="2" fill="#b8975a" opacity="0.35"/>
+        <circle cx="56" cy="130" r="2.5" fill="#b8975a" opacity="0.4"/>
+        <circle cx="66" cy="126" r="2" fill="#b8975a" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <span class="cs-eyebrow">Próximamente</span>
+
+    <h2 class="cs-title">Estamos diseñando<br>algo especial para ti</h2>
+
+    <p class="cs-sub">
+      Nuestra colección femenina está siendo creada con el mismo cuidado y detalle<br>
+      que cada prenda que llevamos. Pura actitud. Madrid al desnudo.
+    </p>
+
+    <!-- Barra de progreso -->
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>En proceso</span>
+        <span>70%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Notificarme -->
+    <div class="notify-row">
+      <input type="email" placeholder="Tu email para avisarte al lanzar" />
+      <button onclick="notifyMe(this)">Avísame</button>
+    </div>
+
+    <!-- Tags de categorías que vienen -->
+    <div class="cs-tags">
+      <span class="cs-tag">Sudaderas</span>
+      <span class="cs-tag">Camisetas</span>
+      <span class="cs-tag">Accesorios</span>
+      <span class="cs-tag">Edición limitada</span>
+    </div>
+
+  </section>
+
+  <!-- SOPORTE -->
+  <a href="soporte.html" class="support-float">
+    <svg viewBox="0 0 24 24">
+      <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h6v2H8v2h8v-2h-2v-2h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/>
+      <circle cx="12" cy="2.5" r="1.5"/>
+    </svg>
+    Soporte
+  </a>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact-section">
+    <span class="contact-tag">Estamos aquí</span>
+    <h2>Contacto</h2>
+    <div class="contact-buttons">
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-btn btn-email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">Southsizetopping × Boxing Profight</span>
+    <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
+  </footer>
+
+  <!-- Modal confirmación notificación -->
+  <div id="notify-modal" style="
+    display:none; position:fixed; inset:0; z-index:9999;
+    align-items:center; justify-content:center;
+    background:rgba(13,13,13,0.5); backdrop-filter:blur(8px);
+  ">
+    <div style="
+      background:var(--cream); padding:44px 52px; border-radius:4px;
+      text-align:center; max-width:340px; width:90%;
+      animation: riseIn 0.4s ease forwards;
+    ">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;font-style:italic;color:var(--ink);margin-bottom:12px;">
+        ¡Te avisamos! 🖤
+      </p>
+      <p style="font-size:8.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-soft);line-height:2;">
+        Serás la primera en saber<br>cuando lancemos la colección.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function notifyMe(btn) {
+      const input = btn.previousElementSibling;
+      const email = input.value.trim();
+
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        input.style.outline = '2px solid #e05252';
+        input.placeholder = 'Introduce un email válido';
+        setTimeout(() => {
+          input.style.outline = '';
+          input.placeholder = 'Tu email para avisarte al lanzar';
+        }, 2400);
+        return;
+      }
+
+      /* Abre el cliente de email con TODO relleno — solo hay que pulsar Enviar */
+      const subject = encodeURIComponent('💌 Nueva interesada — Colección Ella');
+      const body    = encodeURIComponent(
+        'Hola Ángel,\n\n' +
+        'Alguien está interesada en la Colección Ella de Southsizetopping × Boxing Profight.\n\n' +
+        '📧 Su email: ' + email + '\n\n' +
+        '— Notificación automática desde ella'
+      );
+
+      window.location.href =
+        'mailto:angelmoretaalcorta01@gmail.com' +
+        '?subject=' + subject +
+        '&body=' + body;
+
+      /* Mostrar confirmación */
+      input.value = '';
+      const m = document.getElementById('notify-modal');
+      m.style.display = 'flex';
+      setTimeout(() => m.style.display = 'none', 3500);
+    }
+
+    document.getElementById('notify-modal').addEventListener('click', function () {
+      this.style.display = 'none';
+    });
+  </script>
+
 </body>
-</html>
+</html>s
