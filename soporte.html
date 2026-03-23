@@ -660,10 +660,10 @@
       whatsappLink: 'https://wa.me/34653181905',
       instagram: '@Street.southsizetopping',
       instagramLink: 'https://instagram.com/Street.southsizetopping',
-      categories: ['Colección Él', 'Colección Ella (Próximamente)', 'Llaveros de Autor'],
       returnDays: 14,
       freeShipThreshold: 30,
       giftThreshold: 40,
+      bonoDescuento: 10,
       shippingCost: 4.99,
       shippingDays: '3-5 días laborables'
     };
@@ -692,13 +692,13 @@
         ]
       },
       {
-        keywords: ['ella', 'mujer', 'chica', 'femenina', 'femenino', 'chicas', 'mujeres', 'coleccion ella'],
+        keywords: ['ella', 'mujer', 'chica', 'femenina', 'femenino', 'chicas', 'mujeres', 'coleccion ella', 'colección ella'],
         replies: [
-          `La <strong>Colección Ella</strong> está en fase de diseño en nuestro atelier. Estamos creando piezas con la misma actitud urbana y elegancia que define a ${BRAND.name}. Visita la sección <a href="ella.html">Ella</a> y déjanos tu email para avisarte.`
+          `La <strong>Colección Ella</strong> está en fase de diseño en nuestro atelier. Estamos creando piezas con la misma actitud urbana y elegancia que define a ${BRAND.name}. Visita la sección <a href="ella.html">Ella</a> y déjanos tu email para avisarte en primicia.`
         ]
       },
       {
-        keywords: ['él', 'el ', 'hombre', 'chico', 'masculina', 'masculino', 'hombres', 'chicos', 'coleccion el'],
+        keywords: ['él', 'el ', 'hombre', 'chico', 'masculina', 'masculino', 'hombres', 'chicos', 'coleccion el', 'colección él'],
         replies: [
           `Nuestra <strong>Colección Él</strong> redefine el streetwear clásico. Sudaderas de corte arquitectónico, camisetas premium y puro carácter. Explora todas las piezas en la sección <a href="el.html">Colección Él</a>.`
         ]
@@ -706,76 +706,136 @@
       {
         keywords: ['llavero', 'llaveros', 'accesorio', 'accesorios', 'complemento', 'complementos'],
         replies: [
-          `Nuestros <strong>Llaveros de Autor</strong> son el emblema táctil de la firma. Un pequeño lujo que te identifica como miembro del club ${BRAND.short}. Descúbrelos en <a href="llaveros.html">Llaveros</a>.`
+          `Nuestros <strong>Llaveros de Autor</strong> son el emblema táctil de la firma. Un pequeño lujo que te identifica como miembro del club ${BRAND.short}. Descúbrelos en <a href="llaveros.html">Llaveros</a>. Por cierto, si tu pedido supera los ${BRAND.giftThreshold}€, te lo enviamos gratis.`
         ]
       },
       {
-        keywords: ['catálogo', 'catalogo', 'productos', 'coleccion', 'colecciones', 'ropa', 'prendas', 'tienda'],
+        keywords: ['catálogo', 'catalogo', 'productos', 'coleccion', 'colecciones', 'ropa', 'prendas', 'tienda', 'ver mas', 'ver más'],
         replies: [
-          `Trabajamos con tres líneas: <strong>Colección Él</strong>, <strong>Colección Ella</strong> (próximamente) y <strong>Llaveros de Autor</strong>. Puedes verlo todo en nuestro <a href="catalogo.html">Catálogo</a>.`
+          `Trabajamos con tres líneas: <strong>Colección Él</strong>, <strong>Colección Ella</strong> (próximamente) y <strong>Llaveros de Autor</strong>. Puedes verlo todo ordenado en nuestro <a href="catalogo.html">Catálogo</a>.`
+        ]
+      },
+      {
+        keywords: ['material', 'materiales', 'calidad', 'tela', 'algodón', 'algodon', 'tejido', 'hecho de', 'composición', 'gramaje', 'resistente'],
+        replies: [
+          `No escatimamos en calidad. En <strong>${BRAND.name}</strong> trabajamos con algodones premium de alto gramaje y tejidos que garantizan estructura, resistencia y una caída impecable. La elegancia de la alta costura llevada a la calle.`
+        ]
+      },
+      {
+        keywords: ['lavar', 'lavado', 'cuidado', 'cuidados', 'planchar', 'secadora', 'limpiar', 'mantenimiento', 'conservar', 'instrucciones lavado'],
+        replies: [
+          `Para que tu prenda se mantenga intacta: lávala del revés en <strong>agua fría (máx. 30 °C)</strong>, no uses secadora, y plancha del revés evitando pasar calor directo sobre estampados o bordados. Así mantienes el color y la estructura como el primer día.`
         ]
       },
       {
         keywords: ['precio', 'cuánto cuesta', 'cuanto cuesta', 'coste', 'valor', 'caro', 'barato', 'cuanto es'],
         replies: [
-          `Trabajamos con piezas de alta gama a precios justos. Los precios están visibles en el <a href="catalogo.html">Catálogo</a>. Además, si tu pedido supera los <strong>${BRAND.giftThreshold} €</strong>, te regalamos nuestro llavero icónico.`
+          `Trabajamos con piezas de alta gama a precios justos, siempre en euros (€). Los precios están visibles en el <a href="catalogo.html">Catálogo</a>. Recuerda que con 2 prendas de Él tienes un bono de 10€, y al superar ${BRAND.giftThreshold}€, te regalamos un llavero.`
         ]
       },
       {
-        keywords: ['promoción', 'promocion', 'descuento', 'rebaja', 'regalo', 'gratis', 'oferta', 'bono', 'bonos'],
+        keywords: ['promoción', 'promocion', 'descuento', 'rebaja', 'regalo', 'gratis', 'oferta', 'bono', 'bonos', '10 euros', '10€', '10 euros de descuento', 'diez euros'],
         replies: [
-          `Actualmente tienes <strong>Envío Gratis</strong> a partir de ${BRAND.freeShipThreshold} €, un <strong>Llavero de Regalo</strong> en pedidos superiores a ${BRAND.giftThreshold} € y un <strong>Bono de 10 €</strong> de descuento si compras 2 prendas de la Colección Él.`
+          `Actualmente tienes 3 ventajas automáticas en tu <a href="carrito.html">Bolsa</a>:<br>1. <strong>Bono -10 €</strong> comprando 2 o más prendas de la Colección Él.<br>2. <strong>Envío Gratis</strong> a partir de ${BRAND.freeShipThreshold} €.<br>3. <strong>Llavero de Autor</strong> de regalo en pedidos superiores a ${BRAND.giftThreshold} €.`
         ]
       },
       {
-        keywords: ['envío', 'envio', 'entrega', 'llegar', 'cuánto tarda', 'cuanto tarda', 'shipping', 'paquete'],
+        keywords: ['envío', 'envio', 'entrega', 'llegar', 'cuánto tarda', 'cuanto tarda', 'shipping', 'paquete', 'portes', 'coste envio'],
         replies: [
-          `Envíos a Península: ${BRAND.shippingCost} € (Gratis desde ${BRAND.freeShipThreshold} €). Entrega en <strong>${BRAND.shippingDays}</strong>. Baleares e Internacional por WhatsApp.`
+          `Envíos a Península: ${BRAND.shippingCost} € (<strong>¡Gratis desde ${BRAND.freeShipThreshold} €!</strong>). Entrega en <strong>${BRAND.shippingDays}</strong>.<br><br>¿Vives en Canarias, Baleares o fuera de España? Escríbeme por WhatsApp y lo gestionamos rápido:<br>${whatsappCard}`
         ]
       },
       {
-        keywords: ['devoluci', 'devolver', 'cambio', 'cambiar', 'reembolso', 'retorno'],
+        keywords: ['canarias', 'baleares', 'islas', 'ceuta', 'melilla', 'internacional', 'mexico', 'latinoamérica', 'europa', 'francia', 'extranjero', 'otro país'],
         replies: [
-          `Tienes <strong>${BRAND.returnDays} días naturales</strong> desde la recepción para gestionar una devolución. La prenda debe estar sin usar y con etiquetas. Escríbeme para iniciar el proceso:<br><br>${whatsappCard}`
+          `Hacemos envíos fuera de la Península (Baleares, Canarias, Internacional). Los tiempos y costes varían según destino, así que escríbeme directamente para darte precio cerrado y sin sorpresas:<br><br>${whatsappCard}`
         ]
       },
       {
-        keywords: ['talla', 'tallas', 'medida', 'medidas', 'size', 'guía de tallas', 'guia de tallas', 'como talla', 'tallaje'],
+        keywords: ['devoluci', 'devolver', 'cambio', 'cambiar', 'reembolso', 'retorno', 'no me gusta', 'me queda grande', 'me queda pequeño'],
         replies: [
-          `Nuestras prendas tienen un <strong>corte ligeramente oversize</strong> controlado. Si dudas, mándame tu altura y peso por WhatsApp y te asesoro personalmente para que aciertes seguro:<br><br>${whatsappCard}`
+          `Tienes <strong>${BRAND.returnDays} días naturales</strong> desde la recepción para gestionar un cambio o devolución. La prenda debe estar impecable, sin usar y con etiquetas. Escríbeme al WhatsApp para iniciar el proceso al momento:<br><br>${whatsappCard}`
         ]
       },
       {
-        keywords: ['pago', 'pagar', 'tarjeta', 'bizum', 'transferencia', 'paypal', 'método de pago'],
+        keywords: ['talla', 'tallas', 'medida', 'medidas', 'size', 'guía de tallas', 'guia de tallas', 'como talla', 'tallaje', 'oversize'],
         replies: [
-          `Al finalizar tu pedido vía WhatsApp para un trato personalizado, te daré las opciones de pago: <strong>Bizum</strong> o <strong>Transferencia Bancaria</strong> inmediata. Seguro y sin intermediarios.`
+          `Nuestras prendas tienen un <strong>corte ligeramente oversize controlado</strong>. Sientan perfectas si pides tu talla habitual, pero con ese toque holgado de streetwear. Si dudas entre dos tallas, mándame tu altura y peso por WhatsApp y te asesoro para que aciertes de lleno:<br><br>${whatsappCard}`
         ]
       },
       {
-        keywords: ['contacto', 'contactar', 'hablar', 'teléfono', 'telefono', 'email', 'correo', 'whatsapp'],
+        keywords: ['pago', 'pagar', 'tarjeta', 'bizum', 'transferencia', 'paypal', 'método de pago', 'metodo de pago'],
         replies: [
-          `Estoy siempre disponible para ti. Elige el canal que prefieras:<br><br>${allContacts}`
+          `Para garantizar exclusividad y un trato directo, al finalizar tu pedido en la web se abrirá un WhatsApp conmigo. Ahí cerramos el pago mediante <strong>Bizum</strong> o <strong>Transferencia Bancaria inmediata</strong>. 100% seguro y sin intermediarios.`
         ]
       },
       {
-        keywords: ['cómo te llamas', 'como te llamas', 'tu nombre', 'eres un bot', 'eres real', 'eres humano'],
+        keywords: ['contacto', 'contactar', 'hablar', 'teléfono', 'telefono', 'email', 'correo', 'whatsapp', 'humano', 'llamar'],
         replies: [
-          `Soy <strong>Ángel</strong>, fundador de ${BRAND.name}. Este chat te ayuda con preguntas frecuentes, pero si necesitas algo más personal, estoy al otro lado del WhatsApp en persona.`
+          `Este es un bot inteligente para ayudarte rápido, pero <strong>soy Ángel</strong> y estoy al otro lado para cualquier duda real. Elige el canal que prefieras para hablar conmigo directamente:<br><br>${allContacts}`
+        ]
+      },
+      {
+        keywords: ['cómo te llamas', 'como te llamas', 'tu nombre', 'eres un bot', 'eres real', 'eres humano', 'ia', 'robot'],
+        replies: [
+          `Soy <strong>Ángel</strong>, creador de ${BRAND.name}. He programado este asistente para que no tengas que esperar por dudas frecuentes (tallas, envíos, promos). Pero si le das al botón de WhatsApp, hablarás conmigo, el humano, en directo.`
+        ]
+      },
+      {
+        keywords: ['quién', 'quien', 'sobre', 'historia', 'fundador', 'filosofía', 'significado', 'boxing', 'profight', 'south size', 'topping'],
+        replies: [
+          `<strong>${BRAND.name}</strong> nace en Madrid. Es mi visión personal de fusionar la energía cruda de la calle y la disciplina del ring (Boxing Profight) con la precisión de la sastrería. No hacemos solo ropa: creamos actitud. Lee nuestra historia completa <a href="quienes-somos.html">aquí</a>.`
+        ]
+      },
+      {
+        keywords: ['tienda física', 'tienda fisica', 'local', 'showroom', 'probador', 'ir a ver', 'dirección', 'direccion', 'ubicación'],
+        replies: [
+          `Actualmente <strong>${BRAND.name}</strong> opera 100% online desde Madrid. No tenemos tienda física permanente, pero organizamos <strong>pop-ups y eventos</strong> exclusivos. Síguenos en <a href="${BRAND.instagramLink}" target="_blank">Instagram</a> para enterarte del próximo.`
+        ]
+      },
+      {
+        keywords: ['horario', 'hora', 'cuando', 'disponible', 'atencion al cliente', 'responden', 'abierto'],
+        replies: [
+          `Estoy disponible por WhatsApp prácticamente todos los días de <strong>10:00 a 22:00 (hora de Madrid)</strong>. Si me escribes fuera de ese horario, te respondo a primera hora de la mañana. Este chat web, en cambio, está activo 24/7.`
+        ]
+      },
+      {
+        keywords: ['colaboración', 'colaboracion', 'collab', 'embajador', 'influencer', 'modelo', 'trabajar juntos', 'propuesta', 'partnership'],
+        replies: [
+          `Nos encanta la gente con actitud. Si quieres colaborar con nosotros, envíame un mensaje directo por Instagram o un correo con tu perfil y tu idea, y lo valoramos:<br><br>${instaCard}${emailCard}`
+        ]
+      },
+      {
+        keywords: ['mierda', 'basura', 'asco', 'horrible', 'puto', 'puta', 'joder', 'gilipollas', 'idiota', 'estúpido', 'estupido', 'timo', 'ladrón'],
+        replies: [
+          `Ey, relájate. Mi prioridad es que tu experiencia sea perfecta. Si ha habido algún problema o algo no te cuadra, hablemos como personas. Escríbeme al WhatsApp, dime qué ha pasado y te doy una solución ahora mismo:<br><br>${whatsappCard}`
+        ]
+      },
+      {
+        keywords: ['gracias', 'genial', 'perfecto', 'vale', 'ok', 'entendido', 'guay', 'estupendo', 'muchas gracias', 'muy bien', 'excelente', 'increíble'],
+        replies: [
+          `Un placer. Si necesitas algo más, aquí sigo. Y si ya estás listo, pásate por el <a href="catalogo.html">Catálogo</a> y pilla tu prenda antes de que vuele el stock.`
+        ]
+      },
+      {
+        keywords: ['❤', '🔥', '👏', '💪', '😍', '🖤', '⚡', '👍', '🙌', '✨'],
+        replies: [
+          `Esa es la actitud ⚡. Si necesitas que te asesore con algo de la colección, dispara.`
         ]
       }
     ];
 
     const fallbackReplies = [
-      `Esa es una buena pregunta. Para darte la respuesta más precisa, prefiero que lo hablemos directamente:<br><br>${whatsappCard}${instaCard}`,
-      `Para darte una respuesta a medida, lo mejor es que hablemos directamente. Elige el canal que prefieras:<br><br>${whatsappCard}${instaCard}`
+      `Buena pregunta. Para asegurarme de darte la información exacta, lo mejor es que me escribas directo al WhatsApp y te contesto en un minuto:<br><br>${whatsappCard}`,
+      `No quiero darte una respuesta genérica para eso. Escríbeme por Insta o WhatsApp y lo miramos a fondo tú y yo:<br><br>${whatsappCard}${instaCard}`
     ];
 
     const quickReplies = [
-      { label: 'Envíos', text: 'información sobre envios' },
-      { label: 'Cambios', text: 'devolucion y cambios' },
-      { label: 'Tallas', text: 'guia de tallas' },
-      { label: 'Descuentos', text: 'promocion regalo descuento' },
-      { label: 'Contacto', text: 'contacto directo' },
+      { label: 'Envíos y Costes', text: 'información sobre envios' },
+      { label: 'Tallas y Cortes', text: 'guia de tallas oversize' },
+      { label: 'Descuentos (10€)', text: 'promocion bono descuento' },
+      { label: 'Cambios y Devos', text: 'devolucion y cambios' },
+      { label: 'WhatsApp de Ángel', text: 'contacto directo por whatsapp' },
     ];
 
     const chatMessages = document.getElementById('chatMessages');
@@ -845,7 +905,7 @@
     function findResponse(input) {
       const n = norm(input);
       if (n.length < 2) {
-        return pick([`Escríbeme tu pregunta y te ayudo encantado.`]);
+        return pick([`Dispara, ¿qué necesitas saber?`]);
       }
       let bestMatch = null;
       let bestScore = 0;
@@ -891,8 +951,8 @@
     chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') handleUserInput(chatInput.value); });
 
     (async function init() {
-      await addMessage(`${greetByTime()}. Soy <strong>Ángel</strong>, fundador y Concierge de <strong>${BRAND.name}</strong>.`, 'bot', 600);
-      await addMessage(`¿En qué puedo ayudarte hoy?`, 'bot', 1400);
+      await addMessage(`${greetByTime()}. Soy <strong>Ángel</strong>, creador de <strong>${BRAND.name}</strong>.`, 'bot', 600);
+      await addMessage(`¿En qué puedo ayudarte? Si tienes dudas con envíos, la promoción de -10€, tallas o lo que sea, cuéntame.`, 'bot', 1400);
       setTimeout(() => showQuickReplies(), 1800);
     })();
   })();
