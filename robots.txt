@@ -1,0 +1,19 @@
+# =========================================================
+# ROBOTS.TXT - SOUTH SIZE TOPPING
+# Optimizando el Crawl Budget para una indexación premium
+# =========================================================
+
+User-agent: *
+Allow: /
+
+# ── BLOQUEO DE PÁGINAS DINÁMICAS Y PRIVADAS ──
+# Evitamos que Google indexe carritos vacíos o listas de deseos
+Disallow: /carrito.html
+Disallow: /favoritos.html
+
+# ── BLOQUEO DE PARÁMETROS DE URL ──
+# Evita contenido duplicado si en el futuro usas etiquetas de rastreo (ej. ?source=ig)
+Disallow: /*?*
+
+# ── RUTA DIRECTA AL MAPA DEL SITIO ──
+Sitemap: https://www.streeturbanwear.com/sitemap.xml
