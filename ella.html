@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colección Ella — Southsizetopping × Boxing Profight</title>
+  <title>Colección Ella — South Size Topping</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,6 +15,7 @@
       --ink-soft:#7a7875;
       --gold:    #b8975a;
       --border:  rgba(13,13,13,0.1);
+      --ease:    cubic-bezier(.25,1,.4,1);
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +40,7 @@
     .shipping-banner {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 300;
+      z-index: 500;
       background: var(--ink);
       color: var(--cream);
       text-align: center;
@@ -51,78 +52,48 @@
     }
 
     /* ══════════════════════════
-       NAV
+       NAV Y DROPDOWN MINIMALISTA
     ══════════════════════════ */
     nav {
-      position: fixed;
-      top: 30px; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      min-height: 70px;
-      padding: 10px 20px;
-      background: rgba(250,249,247,0.94);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border-bottom: 1px solid var(--border);
+      position: fixed; top: 30px; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
     }
 
-    nav a.nav-pill {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 8.5px;
-      font-weight: 700;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 1.5px solid var(--border);
-      background: transparent;
-      white-space: nowrap;
-      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
     }
 
-    nav a.nav-pill:hover {
-      background: var(--ink);
-      color: var(--cream);
-      border-color: var(--ink);
-      transform: translateY(-1px);
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
     }
 
-    .nav-sep { width: 1px; height: 22px; background: var(--border); flex-shrink: 0; }
+    .dropdown { position: relative; display: inline-block; }
 
-    .nav-icon-btn {
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-      width: 38px; height: 38px;
-      border-radius: 999px;
-      border: 1.5px solid var(--border);
-      background: transparent;
-      cursor: pointer; color: var(--ink);
-      text-decoration: none;
-      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
-      flex-shrink: 0;
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
     }
 
-    .nav-icon-btn:hover {
-      background: var(--ink); color: var(--cream);
-      border-color: var(--ink); transform: translateY(-1px);
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
     }
 
-    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; }
-
-    .cart-count {
-      position: absolute; top: -4px; right: -4px;
-      background: var(--gold); color: var(--cream);
-      font-size: 7px; font-weight: 800;
-      width: 14px; height: 14px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      border: 1.5px solid var(--cream);
-      transition: transform 0.3s;
-    }
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
 
     /* ══════════════════════════
        HEADER
@@ -313,25 +284,20 @@
     }
 
     /* ══════════════════════════
-       SOPORTE FLOTANTE
+       SOPORTE FLOTANTE (Solo icono)
     ══════════════════════════ */
     .support-float {
-      position: fixed;
-      bottom: 36px; right: 36px;
+      position: fixed; bottom: 36px; right: 36px;
+      width: 52px; height: 52px; border-radius: 50%;
       background: var(--ink); color: var(--cream);
-      padding: 13px 24px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
       text-decoration: none;
-      display: flex; align-items: center; gap: 10px;
-      font-size: 8px; font-weight: 700;
-      letter-spacing: 0.28em; text-transform: uppercase;
       box-shadow: 0 10px 28px rgba(13,13,13,0.16);
-      z-index: 999;
-      border: 1.5px solid var(--ink);
+      z-index: 999; border: 1.5px solid var(--ink);
       transition: background 0.25s, color 0.25s, transform 0.25s;
     }
-
     .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
-    .support-float svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
 
     /* ══════════════════════════
        CONTACTO
@@ -404,75 +370,63 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to   { opacity: 1; transform: translate(-50%, 0); }
+    }
 
     /* ══════════════════════════
        RESPONSIVE
     ══════════════════════════ */
     @media (max-width: 600px) {
       nav { gap: 6px; padding: 8px 10px; min-height: auto; top: 28px; }
-      nav a.nav-pill { font-size: 7px; padding: 7px 11px; letter-spacing: 0.16em; }
-      .nav-sep { display: none; }
+      nav a.nav-pill, .dropbtn { font-size: 7.5px; padding: 8px 12px; letter-spacing: 0.16em; }
       header { padding: 130px 16px 36px; }
-      .support-float { bottom: 18px; right: 18px; padding: 11px 20px; font-size: 7px; }
+      .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
       footer { flex-direction: column; text-align: center; padding: 20px; }
     }
 
     @media (max-width: 420px) {
-      nav a.nav-pill { font-size: 6.5px; padding: 6px 9px; letter-spacing: 0.12em; }
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 9px; letter-spacing: 0.12em; }
       .contact-buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- BANNER -->
   <div class="shipping-banner">
     Envío gratuito en Madrid en pedidos superiores a 30€
   </div>
 
-  <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-pill">Inicio</a>
     <a href="catalogo.html" class="nav-pill">Catálogo</a>
-    <a href="quienes-somos.html" class="nav-pill">Sobre la marca</a>
-    <a href="politicas.html" class="nav-pill">Políticas</a>
-    <a href="contactos.html" class="nav-pill">Contactos</a>
-
-    <div class="nav-sep"></div>
-
-    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
-      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-    </a>
-
-    <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
-      <svg viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-      <span class="cart-count">0</span>
-    </a>
+    
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- HEADER -->
   <header>
     <h1 class="collection-title">Colección Ella</h1>
     <p class="header-sub">Selección Exclusiva &nbsp;·&nbsp; Madrid</p>
   </header>
 
-  <!-- COMING SOON -->
   <section class="coming-soon">
 
-    <!-- Icono aguja + hilo animado -->
     <div class="needle-wrap">
       <svg viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Cuerpo de la aguja -->
         <rect x="46" y="10" width="8" height="90" rx="4" fill="#0d0d0d"/>
-        <!-- Ojo de la aguja -->
         <ellipse cx="50" cy="18" rx="4" ry="6" fill="#faf9f7" stroke="#0d0d0d" stroke-width="1.5"/>
-        <!-- Punta -->
         <polygon points="46,100 54,100 50,115" fill="#0d0d0d"/>
-        <!-- Hilo animado -->
         <path class="thread-line"
           d="M50 18 C30 30, 70 50, 40 70 C20 85, 65 95, 50 115"
           stroke="#b8975a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-        <!-- Puntos de costura -->
         <circle cx="34" cy="128" r="3" fill="#b8975a" opacity="0.5"/>
         <circle cx="44" cy="132" r="2" fill="#b8975a" opacity="0.35"/>
         <circle cx="56" cy="130" r="2.5" fill="#b8975a" opacity="0.4"/>
@@ -489,7 +443,6 @@
       que cada prenda que llevamos. Pura actitud. Madrid al desnudo.
     </p>
 
-    <!-- Barra de progreso -->
     <div class="progress-wrap">
       <div class="progress-label">
         <span>En proceso</span>
@@ -500,13 +453,11 @@
       </div>
     </div>
 
-    <!-- Notificarme -->
     <div class="notify-row">
       <input type="email" placeholder="Tu email para avisarte al lanzar" />
       <button onclick="notifyMe(this)">Avísame</button>
     </div>
 
-    <!-- Tags de categorías que vienen -->
     <div class="cs-tags">
       <span class="cs-tag">Sudaderas</span>
       <span class="cs-tag">Camisetas</span>
@@ -516,16 +467,16 @@
 
   </section>
 
-  <!-- SOPORTE -->
-  <a href="soporte.html" class="support-float">
-    <svg viewBox="0 0 24 24">
-      <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h6v2H8v2h8v-2h-2v-2h6c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/>
-      <circle cx="12" cy="2.5" r="1.5"/>
+  <a href="soporte.html" class="support-float" title="Soporte">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
     </svg>
-    Soporte
   </a>
 
-  <!-- CONTACTO -->
   <section id="contacto" class="contact-section">
     <span class="contact-tag">Estamos aquí</span>
     <h2>Contacto</h2>
@@ -545,13 +496,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span class="footer-brand">Southsizetopping × Boxing Profight</span>
-    <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
+    <span class="footer-brand">South Size Topping</span>
+    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
   </footer>
 
-  <!-- Modal confirmación notificación -->
   <div id="notify-modal" style="
     display:none; position:fixed; inset:0; z-index:9999;
     align-items:center; justify-content:center;
@@ -572,6 +521,17 @@
   </div>
 
   <script>
+    // Prevenir el comportamiento por defecto en móviles para que el dropdown funcione bien
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropbtn = document.querySelector('.dropbtn');
+      if (dropbtn) {
+        dropbtn.addEventListener('click', (e) => {
+          e.preventDefault();
+        });
+      }
+    });
+
+    /* ── LÓGICA NOTIFICAR EMAIL ── */
     function notifyMe(btn) {
       const input = btn.previousElementSibling;
       const email = input.value.trim();
@@ -590,7 +550,7 @@
       const subject = encodeURIComponent('💌 Nueva interesada — Colección Ella');
       const body    = encodeURIComponent(
         'Hola Ángel,\n\n' +
-        'Alguien está interesada en la Colección Ella de Southsizetopping × Boxing Profight.\n\n' +
+        'Alguien está interesada en la Colección Ella de South Size Topping.\n\n' +
         '📧 Su email: ' + email + '\n\n' +
         '— Notificación automática desde ella'
       );
@@ -607,10 +567,13 @@
       setTimeout(() => m.style.display = 'none', 3500);
     }
 
-    document.getElementById('notify-modal').addEventListener('click', function () {
-      this.style.display = 'none';
-    });
+    const notifyModal = document.getElementById('notify-modal');
+    if (notifyModal) {
+      notifyModal.addEventListener('click', function () {
+        this.style.display = 'none';
+      });
+    }
   </script>
 
 </body>
-</html>s
+</html>
