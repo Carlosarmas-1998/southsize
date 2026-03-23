@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Southsizetopping × Boxing Profight | Contacto</title>
-  <meta name="description" content="Contacta con el estudio Southsizetopping en Madrid. WhatsApp, Instagram y email directo.">
+  
+  <title>Contacto | South Size Topping España</title>
+  <meta name="description" content="Contacta con el estudio South Size Topping en Madrid. Asistencia por WhatsApp, Instagram y correo electrónico para pedidos y colaboraciones.">
+  <meta name="author" content="Ángel" />
+  <link rel="canonical" href="https://www.streeturbanwear.com/contactos.html" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -30,60 +34,59 @@
       overflow-x: hidden;
     }
 
-    /* ── BANNER ── */
-    .banner {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 200;
-      background: var(--ink); color: #fff;
-      font-size: .6rem; letter-spacing: .18em; text-align: center;
-      padding: .45rem 1rem; text-transform: uppercase;
-    }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
 
-    /* ── NAV ── */
+    /* ══════════════════════════
+       NAV Y DROPDOWN
+    ══════════════════════════ */
     nav {
-      position: fixed; top: 2rem; left: 0; width: 100%; z-index: 100;
-      display: flex; justify-content: center; padding: 0 1rem;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
     }
 
-    .nav-inner {
-      display: flex; align-items: center; gap: .5rem;
-      background: rgba(250,249,247,.92); backdrop-filter: blur(14px);
-      border: 1.5px solid rgba(13,13,13,.12);
-      border-radius: 999px; padding: .55rem .9rem;
-      flex-wrap: wrap; justify-content: center;
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
     }
 
-    .nav-inner a {
-      text-decoration: none; color: var(--ink);
-      font-size: .62rem; font-weight: 800;
-      letter-spacing: .13em; text-transform: uppercase;
-      padding: .45rem 1.1rem; border-radius: 999px;
-      transition: background .25s var(--ease), color .25s var(--ease);
-      white-space: nowrap;
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
     }
-    .nav-inner a:hover, .nav-inner a.active { background: var(--ink); color: #fff; }
 
-    /* SOLUCIÓN AL PROBLEMA DE LOS ICONOS APLASTADOS */
-    .nav-inner a.nav-icon-btn { padding: 0; }
-
-    .nav-divider { width: 1px; height: 16px; background: rgba(13,13,13,.18); flex-shrink:0; }
-
-    .nav-icon-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px; border-radius: 50%;
-      border: 1.5px solid rgba(13,13,13,.15);
-      background: transparent; cursor: pointer;
-      text-decoration: none; color: var(--ink);
-      transition: background .25s var(--ease), color .25s var(--ease);
-      flex-shrink: 0;
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
     }
-    .nav-icon-btn:hover { background: var(--ink); color: #fff; }
-    .nav-icon-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
+
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
 
     /* ── HERO ── */
     .page-hero {
-      padding: 7.5rem 2rem 3.5rem;
+      padding: 11rem 2rem 3.5rem; /* Ajustado al nav fijo superior */
       text-align: center;
       border-bottom: 1px solid rgba(13,13,13,.08);
+      animation: fadeUp 1s var(--ease) forwards;
     }
     .page-hero .eyebrow {
       font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
@@ -167,7 +170,6 @@
 
     .channel-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
     .channel-btn .ch-detail { font-size: .6rem; font-weight: 700; opacity: .6; margin-top: .15rem; display: block; letter-spacing: .05em; text-transform: none; }
-
     .channel-btn .ch-inner { display: flex; flex-direction: column; }
 
     /* ── FORM COLUMN ── */
@@ -230,12 +232,14 @@
       border: none; border-radius: 999px;
       font-family: 'Montserrat', sans-serif;
       font-size: .65rem; font-weight: 800;
-      letter-spacing: .2em; text-transform: uppercase;
+      letter-spacing: .1em; text-transform: uppercase;
       cursor: pointer;
-      transition: background .28s var(--ease), letter-spacing .28s var(--ease);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: background .28s var(--ease), transform .2s var(--ease);
       margin-top: .5rem;
     }
-    .submit-btn:hover { background: #1a1a1a; letter-spacing: .25em; }
+    .submit-btn:hover { background: #25D366; transform: translateY(-2px); }
+    .submit-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
     /* Success toast */
     .toast {
@@ -248,12 +252,24 @@
       z-index: 999; white-space: nowrap;
       animation: fadeUp .4s var(--ease);
     }
-    @keyframes fadeUp {
-      from { opacity:0; transform: translate(-50%, 12px); }
-      to   { opacity:1; transform: translate(-50%, 0); }
+
+    /* ── ANIMATIONS ── */
+    .animate-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .animate-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* ── CONTACT SECTION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── CONTACT SECTION FINAL ── */
     .contact-section {
       background: var(--ink);
       padding: 5rem 2rem 4rem;
@@ -271,6 +287,7 @@
       color: rgba(255,255,255,.45); margin-bottom: 3rem;
     }
     .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+    
     .contact-pill {
       display: inline-flex; align-items: center; gap: .55rem;
       padding: .75rem 1.8rem; border-radius: 999px;
@@ -297,20 +314,24 @@
 
     /* ── SUPPORT FLOAT ── */
     .support-float {
-      position: fixed; bottom: 2rem; right: 1.5rem; z-index: 300;
+      position: fixed; bottom: 36px; right: 36px;
       width: 52px; height: 52px; border-radius: 50%;
-      background: var(--ink);
+      background: var(--ink); color: var(--cream);
       display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: #fff;
-      box-shadow: 0 4px 20px rgba(13,13,13,.25);
-      transition: transform .3s var(--ease), background .3s var(--ease);
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
+      z-index: 999; border: 1.5px solid var(--ink);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
     }
-    .support-float:hover { transform: scale(1.12); background: #1a1a1a; }
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
     .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+
 
     /* ── RESPONSIVE ── */
     @media (max-width: 820px) {
-      nav { top: 1.6rem; }
+      nav { padding: 10px 20px; gap: 8px; }
+      nav a.nav-pill, .dropbtn { font-size: 8px; padding: 8px 16px; letter-spacing: 0.2em; }
+      
       .content-wrap {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -318,26 +339,29 @@
       }
       .form-col { padding: 2rem 1.5rem; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
-      .page-hero { padding: 7rem 1.5rem 2.5rem; }
+      .page-hero { padding: 9rem 1.5rem 2.5rem; }
+    }
+    
+    @media (max-width: 480px) {
+      nav { gap: 6px; padding: 10px; }
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 12px; letter-spacing: 0.15em; }
+      .contact-links { flex-direction: column; width: 100%; }
+      .contact-pill { width: 100%; justify-content: center; }
+      .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-inner">
-      <a href="index.html">Inicio</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="quienes-somos.html">Sobre la marca</a>
-      <a href="politicas.html">Políticas</a>
-      <a href="contactos.html" class="active">Contactos</a>
-      <div class="nav-divider"></div>
-      <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </a>
-      <a href="carrito.html" class="nav-icon-btn" title="Carrito">
-        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      </a>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    <div class="dropdown">
+      <button class="nav-pill dropbtn active">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
     </div>
   </nav>
 
@@ -349,7 +373,7 @@
 
   <div class="content-wrap">
 
-    <div class="info-col">
+    <div class="info-col animate-up">
       <h2>Contacto Directo</h2>
 
       <div class="info-item">
@@ -368,14 +392,13 @@
       </div>
 
       <div class="channel-btns">
-
         <a href="https://wa.me/34653181905" target="_blank" class="channel-btn">
           <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
           <span class="ch-inner">
             WhatsApp
-            <span class="ch-detail"></span>
+            <span class="ch-detail">Respuesta rápida</span>
           </span>
         </a>
 
@@ -385,7 +408,7 @@
           </svg>
           <span class="ch-inner">
             Instagram
-            <span class="ch-detail"></span>
+            <span class="ch-detail">DM Directo</span>
           </span>
         </a>
 
@@ -396,16 +419,15 @@
           </svg>
           <span class="ch-inner">
             Email
-            <span class="ch-detail"></span>
+            <span class="ch-detail">angelmoretaalcorta01@gmail.com</span>
           </span>
         </a>
-
       </div>
     </div>
 
-    <div class="form-col">
+    <div class="form-col animate-up" style="transition-delay: 0.15s;">
       <h2>Escríbenos</h2>
-      <p class="form-sub">Te respondemos en menos de 24 h</p>
+      <p class="form-sub">Te respondemos por WhatsApp de inmediato</p>
 
       <form id="contactForm">
         <div class="form-row">
@@ -422,9 +444,9 @@
         <div class="form-group">
           <label for="fsubject">Asunto</label>
           <select id="fsubject">
-            <option value="Pedido">Consulta sobre pedido</option>
-            <option value="Devolución">Devolución o cambio</option>
-            <option value="Tallas">Guía de tallas</option>
+            <option value="Consulta sobre pedido">Consulta sobre pedido</option>
+            <option value="Devolución o cambio">Devolución o cambio</option>
+            <option value="Guía de tallas">Guía de tallas</option>
             <option value="Colaboración">Colaboración</option>
             <option value="Otro">Otro</option>
           </select>
@@ -435,7 +457,10 @@
           <textarea id="fmessage" placeholder="Cuéntanos en qué podemos ayudarte…" required></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        <button type="submit" class="submit-btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
       </form>
     </div>
 
@@ -449,10 +474,6 @@
         <svg viewBox="0 0 24 24" stroke="none" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.069-1.646-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         Instagram
       </a>
-      <a href="https://wa.me/34653181905" target="_blank" class="contact-pill">
-        <svg viewBox="0 0 24 24" stroke="none" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
       <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
@@ -461,22 +482,35 @@
   </section>
 
   <footer>
-    <p>© 2026 Southsizetopping × Boxing Profight — Madrid &nbsp;·&nbsp; Todos los derechos reservados</p>
+    <p>© 2026 South Size Topping — Madrid &nbsp;·&nbsp; Todos los derechos reservados</p>
   </footer>
 
   <a href="soporte.html" class="support-float" title="Soporte">
-    <svg viewBox="0 0 24 24">
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-      <line x1="8" y1="21" x2="16" y2="21"/>
-      <line x1="12" y1="17" x2="12" y2="21"/>
-      <circle cx="17" cy="8" r="2.5"/>
-      <path d="M21 17s-1-3-4-3h-1"/>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
     </svg>
   </a>
 
-  <div class="toast" id="toast">✉ Mensaje enviado — Te respondemos pronto 🖤</div>
+  <div class="toast" id="toast">✉ Redirigiendo a WhatsApp...</div>
 
   <script>
+    /* ── ANIMACIONES AL HACER SCROLL (Fade Up) ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+
+    /* ── ENVÍO DE FORMULARIO A WHATSAPP ── */
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -485,23 +519,31 @@
       const subject = document.getElementById('fsubject').value;
       const message = document.getElementById('fmessage').value.trim();
 
-      const mailTo  = 'angelmoretaalcorta01@gmail.com';
-      const mailSub = encodeURIComponent('📩 Contacto web — ' + subject + ' · ' + name);
-      const mailBody = encodeURIComponent(
-        'Nombre: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Asunto: ' + subject + '\n\n' +
-        'Mensaje:\n' + message
-      );
+      // Formatear mensaje para WhatsApp
+      let waMsg = `*NUEVO CONTACTO WEB*\n\n`;
+      waMsg += `👤 *Nombre:* ${name}\n`;
+      waMsg += `✉️ *Email:* ${email}\n`;
+      waMsg += `🏷️ *Asunto:* ${subject}\n\n`;
+      waMsg += `📝 *Mensaje:*\n${message}`;
 
-      window.location.href = 'mailto:' + mailTo + '?subject=' + mailSub + '&body=' + mailBody;
+      const waPhone = '34653181905'; // Tu número de WhatsApp sin el '+'
+      const waLink = `https://wa.me/${waPhone}?text=${encodeURIComponent(waMsg)}`;
 
-      // Show toast
+      // Mostrar toast y abrir WhatsApp
       const toast = document.getElementById('toast');
       toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 3500);
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
 
+      window.open(waLink, '_blank');
       this.reset();
+    });
+
+    /* ── DROPDOWN MÓVIL ── */
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropbtn = document.querySelector('.dropbtn');
+      dropbtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita scroll raro en móviles
+      });
     });
   </script>
 
