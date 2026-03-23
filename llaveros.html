@@ -1,357 +1,907 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>SOUTH SIZE TOPPING ⚡️ | El Llavero S$T</title>
-    <meta name="description" content="Llavero S$T. El accesorio definitivo de la firma. Diseño premium en Madrid.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ═══ VARIABLES DE LUJO ═══ */
-        :root {
-            --bg-pure: #ffffff;
-            --text-primary: #000000;
-            --text-muted: #888888;
-            --accent-gold: #cfa05d;
-            --bg-light: #f9f9f9;
-            --transition-luxury: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Llaveros — South Size Topping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream:   #faf9f7;
+      --ink:     #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --ink-soft:#7a7875;
+      --gold:    #b8975a;
+      --border:  rgba(13,13,13,0.1);
+      --ease:    cubic-bezier(.25,1,.4,1);
+    }
 
-        body {
-            background-color: var(--bg-pure);
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* ═══ BARRA DE ENVÍO ELEGANTE ═══ */
-        .shipping-banner {
-            background-color: var(--text-primary);
-            color: var(--bg-pure);
-            text-align: center;
-            padding: 8px 10px;
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            position: fixed;
-            top: 0; width: 100%; z-index: 1001;
-            font-weight: 300;
-        }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* ═══ NAVEGACIÓN FIJA ═══ */
-        nav {
-            position: fixed;
-            top: 28px;
-            left: 0; width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px);
-            padding: 1.2rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid #eaeaea;
-        }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
 
-        .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; text-decoration: none; color: #000; letter-spacing: 2px; }
-        
-        .nav-links { display: flex; gap: 3rem; list-style: none; }
-        .nav-links a { color: var(--text-primary); text-decoration: none; font-size: 0.6rem; font-weight: 500; text-transform: uppercase; letter-spacing: 3px; transition: var(--transition-luxury); }
-        .nav-links a:hover { color: var(--accent-gold); }
+    /* ══════════════════════════
+       BANNER
+    ══════════════════════════ */
+    .shipping-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
 
-        .nav-icons { display: flex; gap: 1.5rem; align-items: center; }
-        .nav-icons a { color: var(--text-primary); text-decoration: none; position: relative; }
-        .nav-icons svg { width: 20px; height: 20px; transition: var(--transition-luxury); }
-        .nav-icons a:hover svg { color: var(--accent-gold); }
-        
-        .cart-count {
-            position: absolute; top: -5px; right: -8px; background: var(--text-primary); color: #fff;
-            font-size: 9px; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;
-        }
+    /* ══════════════════════════
+       NAV Y DROPDOWN
+    ══════════════════════════ */
+    nav {
+      position: fixed; top: 30px; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
 
-        /* ═══ CABECERA COLECCIÓN ═══ */
-        header { padding: 150px 20px 40px; text-align: center; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
-        header p { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 4px; }
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
+    }
 
-        /* ═══ EXHIBICIÓN DE PRODUCTO ÚNICO ═══ */
-        .single-product-showcase {
-            display: flex;
-            justify-content: center;
-            padding: 0 5% 100px;
-            width: 100%;
-        }
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
+    }
 
-        .product-card { 
-            display: flex; 
-            flex-direction: column; 
-            width: 100%;
-            max-width: 320px; 
-            transition: var(--transition-luxury);
-        }
-        .product-card:hover { transform: translateY(-3px); }
+    .dropdown { position: relative; display: inline-block; }
 
-        /* Carrusel de Imágenes Táctil */
-        .carousel-wrapper {
-            position: relative; width: 100%; aspect-ratio: 4/5; background-color: var(--bg-light);
-            margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #f6f6f6;
-        }
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
+    }
 
-        .carousel-track {
-            display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory;
-            scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none;
-        }
-        .carousel-track::-webkit-scrollbar { display: none; }
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
 
-        .carousel-track img {
-            flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start;
-            object-fit: contain; /* NO RECORTA LA IMAGEN */
-            cursor: zoom-in; padding: 20px; transition: transform 0.6s ease;
-        }
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
 
-        .carousel-arrow {
-            position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8);
-            border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; z-index: 10; font-size: 1rem;
-            transition: var(--transition-luxury); opacity: 0;
-        }
-        .carousel-wrapper:hover .carousel-arrow { opacity: 1; }
-        .carousel-arrow:hover { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .arrow-prev { left: 10px; } .arrow-next { right: 10px; }
+    /* ICONOS NAV */
+    .nav-sep { width: 1px; height: 22px; background: rgba(13,13,13,0.18); flex-shrink: 0; }
 
-        /* Detalles del Producto */
-        .product-info { text-align: center; padding: 0 10px; }
-        .product-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
-        .product-motto { font-size: 0.7rem; color: var(--text-muted); font-style: italic; margin-bottom: 15px; font-weight: 300; }
-        .product-price { font-size: 1.1rem; font-weight: 500; margin-bottom: 2rem; letter-spacing: 1px; }
+    .nav-icon-btn {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent;
+      cursor: pointer; color: var(--ink);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+      flex-shrink: 0;
+    }
 
-        /* Controles: Talla Única y Cantidad */
-        .controls-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; gap: 10px; flex-wrap: wrap; }
-        
-        .sizes-group { display: flex; gap: 8px; }
-        .size-btn {
-            background: #fafafa; border: 1px solid var(--text-primary); color: var(--text-primary);
-            padding: 0 15px; height: 35px; font-family: 'Montserrat', sans-serif; font-size: 0.7rem;
-            font-weight: 600; letter-spacing: 2px; cursor: default;
-        }
+    .nav-icon-btn:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px); }
+    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; transition: fill 0.25s, stroke 0.25s; }
+    .nav-icon-btn:hover svg { stroke: var(--cream); }
+    .nav-icon-btn:hover .heart-svg { fill: var(--cream); stroke: var(--cream); }
 
-        .quantity-group { display: flex; align-items: center; border: 1px solid var(--border-light); height: 35px; }
-        .qty-btn { background: none; border: none; width: 28px; height: 100%; cursor: pointer; font-size: 1rem; color: var(--text-muted); }
-        .qty-btn:hover { color: var(--text-primary); }
-        .qty-num { font-size: 0.8rem; width: 22px; text-align: center; }
+    .cart-count, .fav-count {
+      position: absolute; top: -4px; right: -4px;
+      background: var(--ink); color: var(--cream);
+      font-size: 7px; font-weight: 800;
+      width: 14px; height: 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1.5px solid var(--cream);
+      transition: transform 0.3s;
+      opacity: 0; transform: scale(0);
+    }
+    .cart-count.visible, .fav-count.visible { opacity: 1; transform: scale(1); }
+    .heart-svg { fill: none; stroke: var(--ink); }
+    .heart-svg.has-items { fill: #e03535; stroke: #e03535; }
+    .bag-svg.has-items { stroke: var(--gold); }
 
-        /* Acciones: Comprar y Favorito */
-        .actions-row { display: flex; gap: 10px; height: 42px; }
-        .btn-add-bag {
-            flex-grow: 1; background-color: var(--text-primary); color: #fff; border: none;
-            text-transform: uppercase; font-size: 0.6rem; letter-spacing: 3px; font-weight: 600;
-            cursor: pointer; transition: var(--transition-luxury); font-family: 'Montserrat', sans-serif;
-        }
-        .btn-add-bag:hover { background-color: #333; letter-spacing: 4px; }
-        
-        .btn-fav {
-            width: 42px; background: none; border: 1px solid var(--border-light); display: flex;
-            align-items: center; justify-content: center; cursor: pointer; transition: var(--transition-luxury); color: var(--text-primary);
-        }
-        .btn-fav:hover { border-color: #ff4b4b; color: #ff4b4b; }
-        .btn-fav svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; transition: var(--transition-luxury); }
-        .btn-fav.active svg { fill: #ff4b4b; stroke: #ff4b4b; }
+    /* ══════════════════════════
+       HEADER
+    ══════════════════════════ */
+    header {
+      padding: 148px 20px 44px;
+      text-align: center;
+    }
 
-        /* ═══ LIGHTBOX (Imagen en grande) ═══ */
-        #lightbox {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255,255,255,0.98); z-index: 3000; align-items: center; justify-content: center;
-        }
-        #lightbox.active { display: flex; }
-        #lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.1); cursor: zoom-out;}
-        #lightbox-close {
-            position: absolute; top: 30px; right: 40px; background: none; border: none; font-size: 2.5rem;
-            cursor: pointer; color: #000; transition: transform 0.3s; font-weight: 100;
-        }
-        #lightbox-close:hover { transform: scale(1.2); }
+    .collection-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 6vw, 86px);
+      font-weight: 700; font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
 
-        /* ═══ BOTÓN SOPORTE ═══ */
-        .wa-float {
-            position: fixed; bottom: 30px; right: 30px; background-color: #000; color: white;
-            padding: 12px 25px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 10px;
-            font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2000; transition: var(--transition-luxury); border: 1px solid #000;
-        }
-        .wa-float:hover { transform: translateY(-5px); background-color: #fff; color: #000; }
-        .wa-float svg { width: 18px; height: 18px; fill: currentColor; }
+    .header-sub {
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--ink-soft);
+    }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .carousel-arrow { display: none; } /* En móvil se usa el dedo */
-            .wa-float { bottom: 20px; right: 20px; padding: 10px 20px; }
-            #lightbox-close { top: 20px; right: 25px; font-size: 2rem; }
-        }
-    </style>
+    /* ══════════════════════════
+       GRID PRODUCTOS
+    ══════════════════════════ */
+    .collection-grid {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 48px 28px;
+      padding: 16px 5% 110px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      transition: transform 0.45s cubic-bezier(0.19,1,0.22,1);
+    }
+
+    .product-card:hover { transform: translateY(-4px); }
+
+    /* ── Carrusel ── */
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #f5f4f0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      border-radius: 4px;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%; height: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+    }
+
+    .carousel-track:active { cursor: grabbing; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .carousel-track img {
+      flex: 0 0 100%;
+      width: 100%; height: 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      object-fit: contain;
+      padding: 12px;
+      cursor: zoom-in;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 5px; z-index: 5;
+    }
+
+    .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(13,13,13,0.25);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active { background: var(--ink); transform: scale(1.3); }
+
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(250,249,247,0.9);
+      border: 1px solid var(--border);
+      width: 28px; height: 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; font-size: 13px; color: var(--ink);
+      opacity: 0; transition: opacity 0.3s;
+    }
+
+    .carousel-wrapper:hover .carousel-arrow { opacity: 1; }
+    .arrow-prev { left: 8px; }
+    .arrow-next { right: 8px; }
+
+    /* ── Info ── */
+    .product-info { text-align: center; padding: 0 4px; }
+
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 700; font-style: italic;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink); margin-bottom: 5px;
+    }
+
+    .product-motto {
+      font-size: 8.5px; font-weight: 400;
+      color: var(--ink-soft); font-style: italic;
+      letter-spacing: 0.07em; line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .product-price {
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.1em; color: var(--ink);
+      margin-bottom: 18px;
+    }
+
+    /* ── Controles ── */
+    .controls-row {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 14px;
+      gap: 8px; flex-wrap: wrap;
+    }
+
+    .size-unique {
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--ink-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+    }
+
+    .quantity-group {
+      display: flex; align-items: center;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      height: 30px; overflow: hidden;
+    }
+
+    .qty-btn {
+      background: none; border: none;
+      width: 26px; height: 100%;
+      cursor: pointer; font-size: 15px;
+      color: var(--ink-soft); font-weight: 300;
+      transition: color 0.2s;
+    }
+    .qty-btn:hover { color: var(--ink); }
+    .qty-num { font-size: 9px; font-weight: 700; width: 20px; text-align: center; }
+
+    /* ── Acciones ── */
+    .actions-row { display: flex; gap: 7px; height: 42px; }
+
+    .btn-add-bag {
+      flex-grow: 1;
+      background: var(--ink); color: var(--cream);
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, letter-spacing 0.35s;
+    }
+    .btn-add-bag:hover { background: var(--cream); color: var(--ink); letter-spacing: 0.36em; }
+
+    .btn-fav {
+      width: 42px; background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--ink);
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .btn-fav svg {
+      width: 15px; height: 15px;
+      fill: none; stroke: currentColor; stroke-width: 1.8;
+      transition: fill 0.25s, stroke 0.25s;
+    }
+    .btn-fav:hover { border-color: #e05252; color: #e05252; }
+    .btn-fav.active { border-color: #e05252; background: #fff0f0; }
+    .btn-fav.active svg { fill: #e05252; stroke: #e05252; }
+
+    /* ══════════════════════════
+       LIGHTBOX (Efecto Fade)
+    ══════════════════════════ */
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(250,249,247,0.98);
+      z-index: 3000;
+      align-items: center; justify-content: center;
+      flex-direction: column; touch-action: none;
+    }
+    #lightbox.active { display: flex; }
+
+    #lightbox-img-wrap {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+    }
+
+    #lightbox img {
+      max-width: 94vw; max-height: 88vh;
+      object-fit: contain; border-radius: 4px;
+      user-select: none; -webkit-user-drag: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+    #lightbox img.fading { opacity: 0; }
+
+    #lightbox-close {
+      position: absolute; top: 20px; right: 28px;
+      background: var(--ink); color: var(--cream);
+      border: none; width: 38px; height: 38px;
+      border-radius: 999px; font-size: 1.4rem; font-weight: 300;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: transform 0.25s;
+    }
+    #lightbox-close:hover { transform: scale(1.1); }
+
+    #lightbox-hint {
+      position: absolute; bottom: 28px;
+      font-size: 8px; font-weight: 600;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: rgba(13,13,13,0.3); pointer-events: none;
+    }
+
+    .lb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(13,13,13,0.08); border: none;
+      width: 44px; height: 44px; border-radius: 999px;
+      font-size: 20px; color: var(--ink); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 10;
+    }
+    .lb-arrow:hover { background: rgba(13,13,13,0.15); }
+    .lb-arrow-prev { left: 16px; }
+    .lb-arrow-next { right: 16px; }
+    @media (max-width: 600px) { .lb-arrow { display: none; } }
+
+    /* ══════════════════════════
+       TOAST
+    ══════════════════════════ */
+    #cart-toast {
+      position: fixed;
+      bottom: -130px; left: 50%; transform: translateX(-50%);
+      z-index: 5000;
+      background: var(--ink); color: var(--cream);
+      border-radius: 999px;
+      padding: 14px 28px;
+      display: flex; align-items: center; gap: 14px;
+      font-size: 8.5px; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 12px 32px rgba(13,13,13,0.28);
+      transition: bottom 0.45s cubic-bezier(0.34,1.26,0.64,1);
+      pointer-events: none;
+    }
+    #cart-toast.show { bottom: 32px; pointer-events: auto; }
+    #cart-toast .toast-cta {
+      background: var(--gold); color: var(--ink);
+      padding: 7px 16px; border-radius: 999px;
+      text-decoration: none; font-size: 7.5px; font-weight: 800;
+      letter-spacing: 0.2em; flex-shrink: 0;
+    }
+
+    /* ══════════════════════════
+       SOPORTE FLOTANTE (Solo icono)
+    ══════════════════════════ */
+    .support-float {
+      position: fixed; bottom: 36px; right: 36px;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--ink); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
+      z-index: 999; border: 1.5px solid var(--ink);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
+    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+
+    /* ══════════════════════════
+       CONTACTO
+    ══════════════════════════ */
+    .contact-section {
+      background: var(--ink); padding: 90px 40px 70px; text-align: center;
+    }
+
+    .contact-tag {
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 14px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 60px);
+      font-weight: 700; font-style: italic;
+      letter-spacing: 0.1em; color: var(--cream); margin-bottom: 50px;
+    }
+
+    .contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 11px;
+      padding: 14px 32px; text-decoration: none;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      border-radius: 999px;
+      border: 1.5px solid rgba(250,249,247,0.2);
+      color: rgba(250,249,247,0.65);
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .contact-btn:hover svg { transform: scale(1.2); }
+    .btn-ig:hover    { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; border-color:transparent; }
+    .btn-wa:hover    { background: #25D366; color:#fff; border-color:transparent; }
+    .btn-email:hover { background: var(--gold); color: var(--ink); border-color:transparent; }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(250,249,247,0.06);
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; font-weight: 700; font-style: italic;
+      letter-spacing: 0.22em; color: rgba(250,249,247,0.2);
+    }
+
+    .footer-copy {
+      font-size: 7.5px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(250,249,247,0.12);
+    }
+
+    /* ══════════════════════════
+       ANIMACIONES
+    ══════════════════════════ */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to   { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE & GRID
+    ══════════════════════════ */
+    @media (max-width: 900px) {
+      .collection-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      nav { gap: 6px; padding: 8px 10px; min-height: auto; top: 28px; }
+      nav a.nav-pill, .dropbtn { font-size: 7.5px; padding: 8px 12px; letter-spacing: 0.16em; }
+      .nav-sep { display: none; }
+      header { padding: 130px 16px 36px; }
+      
+      /* 2 COLUMNAS EN MÓVIL */
+      .collection-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 12px;
+        padding: 12px 3% 100px;
+      }
+      
+      .product-info { padding: 0; }
+      .product-title { font-size: 14px; }
+      .product-motto { font-size: 7.5px; }
+      .product-price { font-size: 12px; margin-bottom: 10px; }
+      .controls-row { flex-direction: column; align-items: center; gap: 6px; }
+      .carousel-arrow { display: none; }
+      .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
+      footer { flex-direction: column; text-align: center; padding: 20px; }
+    }
+
+    @media (max-width: 420px) {
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 9px; letter-spacing: 0.12em; }
+      .contact-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="shipping-banner">
-        Envío gratuito a domicilio en Madrid en pedidos superiores a 30€
+  <div class="shipping-banner">Envío gratuito en pedidos superiores a 30€</div>
+
+  <nav>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
     </div>
 
-    <nav>
-        <a href="index.html" class="nav-brand">S$T</a>
-        <ul class="nav-links">
-            <li><a href="catalogo.html">Volver al Catálogo</a></li>
-            <li><a href="contactos.html">Contacto</a></li>
-        </ul>
-        <div class="nav-icons">
-            <a href="#" title="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></a>
-            
-            <a href="carrito.html" title="Bolsa de Compra">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                <span class="cart-count">0</span>
-            </a>
-        </div>
-    </nav>
+    <div class="nav-sep"></div>
 
-    <header>
-        <h1>Colección Llaveros</h1>
-        <p>Accesorios de Autor • Madrid</p>
-    </header>
-
-    <main class="single-product-showcase">
-
-        <article class="product-card">
-            <div class="carousel-wrapper">
-                <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this, -1)">❮</button>
-                <div class="carousel-track">
-                    <img src="l1.jpg" alt="Llavero S$T Frontal" onclick="openLightbox(this.src)">
-                    <img src="l2.jpg" alt="Llavero S$T Detalle" onclick="openLightbox(this.src)">
-                </div>
-                <button class="carousel-arrow arrow-next" onclick="scrollTrack(this, 1)">❯</button>
-            </div>
-            
-            <div class="product-info">
-                <h2 class="product-title">Llavero S$T</h2>
-                <p class="product-motto">"El emblema táctil de la firma. Tu llave de acceso al club South Size."</p>
-                <p class="product-price">11,00 €</p>
-                
-                <div class="controls-row">
-                    <div class="sizes-group">
-                        <button class="size-btn">TALLA ÚNICA</button>
-                    </div>
-                    <div class="quantity-group">
-                        <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
-                        <span class="qty-num">1</span>
-                        <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                </div>
-
-                <div class="actions-row">
-                    <button class="btn-add-bag" onclick="addToCart()">Agregar a la bolsa</button>
-                    <button class="btn-fav" onclick="toggleFav(this)">
-                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </button>
-                </div>
-            </div>
-        </article>
-
-    </main>
-
-    <div id="lightbox" onclick="closeLightbox(event)">
-        <button id="lightbox-close">×</button>
-        <img id="lightbox-img" src="" alt="Vista Previa Llavero South Size">
-    </div>
-
-    <a href="soporte.html" class="wa-float" title="Soporte y Atención al Cliente">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 19H11V17H13V19ZM15.07 11.25L14.17 12.17C13.45 12.9 13 13.5 13 15H11V14.5C11 13.4 11.45 12.4 12.17 11.67L13.41 10.41C13.78 10.05 14 9.55 14 9C14 7.9 13.1 7 12 7C10.9 7 10 7.9 10 9H8C8 6.79 9.79 5 12 5C14.21 5 16 6.79 16 9C16 9.88 15.64 10.68 15.07 11.25Z"/>
-        </svg>
-        SOPORTE
+    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
+      <svg viewBox="0 0 24 24"><path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span class="fav-count" id="fav-badge">0</span>
     </a>
 
-    <script>
-        // Carrusel
-        function scrollTrack(btn, direction) {
-            const track = btn.parentElement.querySelector('.carousel-track');
-            const scrollAmount = track.clientWidth;
-            track.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-        }
+    <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
+      <svg viewBox="0 0 24 24"><path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cart-badge">0</span>
+    </a>
+  </nav>
 
-        // Lightbox
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
+  <header>
+    <h1 class="collection-title">Llaveros</h1>
+    <p class="header-sub">Accesorios de Autor &nbsp;·&nbsp; Madrid</p>
+  </header>
+
+  <main class="collection-grid">
+    <article class="product-card" data-id="llavero-st">
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
+        <div class="carousel-track" onscroll="updateDots(this)">
+          <img src="l1.jpg" alt="Llavero S$T frontal">
+          <img src="l2.jpg" alt="Llavero S$T detalle">
+        </div>
+        <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
+        <div class="carousel-dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h2 class="product-title">Llavero S$T</h2>
+        <p class="product-motto">"Tu llave de acceso al club South Size."</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">24,00 €</s>11,00 €</p>
+
+        <div class="controls-row">
+          <span class="size-unique">Talla única</span>
+          <div class="quantity-group">
+            <button class="qty-btn" onclick="updateQty(this,-1)">−</button>
+            <span class="qty-num">1</span>
+            <button class="qty-btn" onclick="updateQty(this,1)">+</button>
+          </div>
+        </div>
+
+        <div class="actions-row">
+          <button class="btn-add-bag" onclick="addToCart(this, 'llavero-st', 'Llavero S$T', 11, 'l1.jpg')">Agregar a la bolsa</button>
+          <button class="btn-fav" onclick="toggleFav(this, 'llavero-st', 'Llavero S$T')">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div id="cart-toast">
+    <span id="toast-msg">Añadido a tu bolsa</span>
+    <a href="carrito.html" class="toast-cta">Ver bolsa →</a>
+  </div>
+
+  <div id="lightbox">
+    <button id="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lb-arrow lb-arrow-prev" onclick="lbPrev()">&#8249;</button>
+    <div id="lightbox-img-wrap">
+      <img id="lightbox-img" src="" alt="Vista ampliada">
+    </div>
+    <button class="lb-arrow lb-arrow-next" onclick="lbNext()">&#8250;</button>
+    <span id="lightbox-hint">Toca la imagen para cerrar &nbsp;·&nbsp; Desliza para navegar</span>
+  </div>
+
+  <a href="soporte.html" class="support-float" title="Soporte">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
+    </svg>
+  </a>
+
+  <section id="contacto" class="contact-section">
+    <span class="contact-tag">Estamos aquí</span>
+    <h2>Contacto</h2>
+    <div class="contact-buttons">
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-btn btn-email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">South Size Topping</span>
+    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
+  </footer>
+
+  <script>
+    /* ══════════════════════════════════
+       CARRUSEL
+    ══════════════════════════════════ */
+    function scrollTrack(btn, dir) {
+      const track = btn.parentElement.querySelector('.carousel-track');
+      track.scrollBy({ left: track.clientWidth * dir, behavior: 'smooth' });
+    }
+
+    function updateDots(track) {
+      const dots  = track.parentElement.querySelectorAll('.dot');
+      const index = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    /* Swipe táctil sensible en carrusel */
+    document.querySelectorAll('.carousel-track').forEach(track => {
+      let startX, startScroll, dragging = false, moved = false;
+
+      track.addEventListener('pointerdown', e => {
+        dragging = true; moved = false;
+        startX = e.clientX; startScroll = track.scrollLeft;
+        track.setPointerCapture(e.pointerId);
+        track.style.scrollBehavior = 'auto';
+      });
+
+      track.addEventListener('pointermove', e => {
+        if (!dragging) return;
+        const dx = startX - e.clientX;
+        if (Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll + dx;
+        updateDots(track);
+      });
+
+      track.addEventListener('pointerup', e => {
+        dragging = false;
+        track.style.scrollBehavior = 'smooth';
+        const snap = Math.round(track.scrollLeft / track.clientWidth) * track.clientWidth;
+        track.scrollTo({ left: snap, behavior: 'smooth' });
         
-        function openLightbox(src) {
-            lightboxImg.src = src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        if (!moved) {
+          const img = e.target.closest('img');
+          if (img) openLightboxFromImg(img);
         }
-        
-        function closeLightbox(e) {
-            if (e.target !== lightboxImg || e.target.id === 'lightbox-close') {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
+      });
 
-        // Modificar Cantidad
-        function updateQty(btn, change) {
-            const span = btn.parentElement.querySelector('.qty-num');
-            let current = parseInt(span.innerText);
-            let newQty = current + change;
-            if (newQty > 0 && newQty < 10) { span.innerText = newQty; }
-        }
+      track.addEventListener('pointercancel', () => { dragging = false; });
+    });
 
-        // Favoritos
-        function toggleFav(btn) {
-            btn.classList.toggle('active');
-        }
+    /* ══════════════════════════════════
+       LIGHTBOX (Fade Effect + Swipe)
+    ══════════════════════════════════ */
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lbWrap      = document.getElementById('lightbox-img-wrap');
+    let lbSrcs = [], lbIndex = 0;
 
-        // Carrito
-        function addToCart() {
-            const cartSpan = document.querySelector('.cart-count');
-            let current = parseInt(cartSpan.innerText);
-            cartSpan.innerText = current + 1;
-            
-            cartSpan.style.transform = 'scale(1.4)';
-            cartSpan.style.backgroundColor = '#cfa05d';
-            setTimeout(() => {
-                cartSpan.style.transform = 'scale(1)';
-                cartSpan.style.backgroundColor = '#000';
-            }, 350);
-        }
+    window.openLightboxFromImg = function(img) {
+      const track = img.closest('.carousel-track');
+      openLightbox(img.src, track);
+    };
 
-        // Anti-Captura de Pantalla
-        function throwScreenshotAlert() {
-            alert("Si te gusta regálatela, que te lo mereces ⚡️\n\n- South Size Topping • Madrid");
-        }
+    function openLightbox(src, track) {
+      if (track) {
+        lbSrcs  = Array.from(track.querySelectorAll('img')).map(i => i.src);
+        lbIndex = Math.max(0, lbSrcs.indexOf(src));
+      } else { 
+        lbSrcs = [src]; 
+        lbIndex = 0; 
+      }
+      lightboxImg.classList.remove('fading');
+      lightboxImg.src = lbSrcs[lbIndex];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-        document.addEventListener('keyup', (e) => {
-            if (e.key === 'PrintScreen') throwScreenshotAlert();
+    window.closeLightbox = function() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    /* Cambio con efecto fade */
+    window.lbChangeTo = function(newIndex) {
+      lightboxImg.classList.add('fading');
+      setTimeout(() => {
+        lbIndex = (newIndex + lbSrcs.length) % lbSrcs.length;
+        lightboxImg.src = lbSrcs[lbIndex];
+        lightboxImg.classList.remove('fading');
+      }, 300); // 300ms transition delay
+    };
+
+    window.lbPrev = () => lbChangeTo(lbIndex - 1);
+    window.lbNext = () => lbChangeTo(lbIndex + 1);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox || e.target === lbWrap || e.target === lightboxImg) closeLightbox();
+    });
+
+    /* Touch Logic para Fade */
+    let lbTouchX = 0, lbTouchY = 0, lbDeltaX = 0, lbDeltaY = 0, lbSwiping = false;
+
+    lightbox.addEventListener('touchstart', e => {
+      lbTouchX = e.touches[0].clientX;
+      lbTouchY = e.touches[0].clientY;
+      lbDeltaX = 0; lbDeltaY = 0; lbSwiping = true;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchmove', e => {
+      if(!lbSwiping) return;
+      lbDeltaX = e.touches[0].clientX - lbTouchX;
+      lbDeltaY = e.touches[0].clientY - lbTouchY;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', () => {
+      if (!lbSwiping) return;
+      const absX = Math.abs(lbDeltaX), absY = Math.abs(lbDeltaY);
+      
+      if (absX > absY && absX > 40) {
+        lbDeltaX < 0 ? lbNext() : lbPrev();
+      } else if (absY > absX && absY > 60) {
+        closeLightbox();
+      }
+      lbSwiping = false;
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowRight')  lbNext();
+      if (e.key === 'ArrowLeft')   lbPrev();
+    });
+
+    /* ══════════════════════════════════
+       CARRITO & FAVORITOS LOGIC
+    ══════════════════════════════════ */
+    window.updateQty = function(btn, change) {
+      const span = btn.parentElement.querySelector('.qty-num');
+      const v = parseInt(span.innerText) + change;
+      if (v > 0 && v < 10) span.innerText = v;
+    }
+
+    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; } catch { return []; } }
+    function saveCart(c) { localStorage.setItem('sst-cart', JSON.stringify(c)); localStorage.setItem('sst_cart', JSON.stringify(c)); }
+
+    function getFavs() { try { return JSON.parse(localStorage.getItem('sst-fav')) || []; } catch { return []; } }
+    function saveFavs(f) { localStorage.setItem('sst-fav', JSON.stringify(f)); }
+
+    function syncBadges() {
+      // Leer el cart
+      let theCart = getCart();
+      const cartTotal = theCart.reduce((s, i) => s + i.qty, 0);
+      const favTotal  = getFavs().length;
+
+      const cb = document.getElementById('cart-badge');
+      const fb = document.getElementById('fav-badge');
+
+      if (cb) { cb.textContent = cartTotal; cb.classList.toggle('visible', cartTotal > 0); }
+      if (fb) { fb.textContent = favTotal;  fb.classList.toggle('visible', favTotal  > 0); }
+
+      const heartSvg = document.querySelector('.heart-svg');
+      const bagSvg   = document.querySelector('.bag-svg');
+      if (heartSvg) heartSvg.classList.toggle('has-items', favTotal  > 0);
+      if (bagSvg)   bagSvg.classList.toggle('has-items',   cartTotal > 0);
+    }
+
+    let toastTimer = null;
+    function showToast(name) {
+      const toast = document.getElementById('cart-toast');
+      const msg   = document.getElementById('toast-msg');
+      if (!toast || !msg) return;
+      msg.textContent = name + ' añadido a tu bolsa 🛍️';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    window.addToCart = function(btn, id, name, price, image) {
+      const card = btn.closest('.product-card');
+      const qty  = parseInt((card.querySelector('.qty-num') || { innerText: '1' }).innerText) || 1;
+      const key  = id + '-unica';
+      
+      const cart = getCart();
+      const hit  = cart.find(i => i.id === key);
+      
+      if (hit) { hit.qty += qty; } 
+      else { cart.push({ id: key, name, variant: 'Talla Única', price: parseFloat(price), qty, image }); }
+      
+      saveCart(cart);
+
+      const orig = btn.textContent;
+      btn.textContent = '✓ Agregado';
+      btn.style.background = '#1c6b1c'; btn.style.borderColor = '#1c6b1c';
+      setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.borderColor = ''; }, 1800);
+
+      const cb = document.getElementById('cart-badge');
+      if (cb) { cb.style.transform = 'scale(1.9)'; setTimeout(() => cb.style.transform = 'scale(1)', 380); }
+
+      syncBadges();
+      showToast(name);
+    };
+
+    window.toggleFav = function(btn, id, name) {
+      const favs = getFavs();
+      const idx  = favs.findIndex(f => f.id === id);
+      if (idx === -1) {
+        favs.push({ id, name, detail: 'Accesorios' });
+        btn.classList.add('active');
+      } else {
+        favs.splice(idx, 1);
+        btn.classList.remove('active');
+      }
+      saveFavs(favs);
+      syncBadges();
+    };
+
+    function restoreFavState() {
+      getFavs().forEach(f => {
+        document.querySelectorAll('.product-card').forEach(card => {
+          if (card.dataset.id === f.id) {
+            const btn = card.querySelector('.btn-fav');
+            if (btn) btn.classList.add('active');
+          }
         });
+      });
+    }
 
-        document.addEventListener('keydown', (e) => {
-            if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === 's' || e.key === 'S')) {
-                throwScreenshotAlert();
-            }
-            if ((e.metaKey || e.ctrlKey) && e.key === 'p') {
-                e.preventDefault();
-                throwScreenshotAlert();
-            }
-        });
+    /* ── INIT ── */
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropbtn = document.querySelector('.dropbtn');
+      if(dropbtn) dropbtn.addEventListener('click', e => e.preventDefault());
+    });
+    
+    syncBadges();
+    restoreFavState();
+    window.addEventListener('storage', syncBadges);
 
-        document.addEventListener('copy', (e) => {
-            if (e.target.tagName === 'IMG') {
-                 throwScreenshotAlert();
-                 e.preventDefault();
-            }
-        });
-        
-        document.querySelectorAll('.carousel-track img').forEach(img => {
-            img.addEventListener('contextmenu', (e) => e.preventDefault());
-        });
-    </script>
+  </script>
+
 </body>
 </html>
