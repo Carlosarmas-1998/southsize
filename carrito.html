@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Southsizetopping × Boxing Profight | Mi Bolsa</title>
-  <meta name="description" content="Tu bolsa de compra — Southsizetopping × Boxing Profight. Finaliza tu pedido por WhatsApp.">
+  <title>South Size Topping | Mi Bolsa</title>
+  <meta name="description" content="Tu bolsa de compra — South Size Topping. Finaliza tu pedido por WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -34,59 +34,88 @@
       display: flex; flex-direction: column;
     }
 
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
+
     /* ── BANNER ── */
     .banner {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 200;
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 500;
       background: var(--ink); color: #fff;
       font-size: .6rem; letter-spacing: .18em; text-align: center;
       padding: .45rem 1rem; text-transform: uppercase;
     }
 
-    /* ── NAV ── */
+    /* ── NAV Y DROPDOWN MINIMALISTA ── */
     nav {
-      position: fixed; top: 2rem; left: 0; width: 100%; z-index: 100;
-      display: flex; justify-content: center; padding: 0 1rem;
+      position: fixed; top: 28px; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
     }
-    .nav-inner {
-      display: flex; align-items: center; gap: .5rem;
-      background: rgba(250,249,247,.92); backdrop-filter: blur(14px);
-      border: 1.5px solid rgba(13,13,13,.12);
-      border-radius: 999px; padding: .55rem .9rem;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .nav-inner a {
-      text-decoration: none; color: var(--ink);
-      font-size: .62rem; font-weight: 800;
-      letter-spacing: .13em; text-transform: uppercase;
-      padding: .45rem 1.1rem; border-radius: 999px;
-      transition: background .25s var(--ease), color .25s var(--ease);
-      white-space: nowrap;
-    }
-    .nav-inner a:hover, .nav-inner a.active { background: var(--ink); color: #fff; }
-    .nav-divider { width: 1px; height: 16px; background: rgba(13,13,13,.18); flex-shrink:0; }
-    .nav-icon-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px; border-radius: 50%;
-      border: 1.5px solid rgba(13,13,13,.15);
-      background: transparent; cursor: pointer;
-      text-decoration: none; color: var(--ink); position: relative;
-      transition: background .25s var(--ease), color .25s var(--ease);
-      flex-shrink: 0;
-    }
-    .nav-icon-btn:hover { background: var(--ink); color: #fff; }
-    .nav-icon-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
-    .cart-badge {
-      position: absolute; top: -5px; right: -5px;
-      background: var(--ink); color: #fff;
-      font-size: .48rem; width: 16px; height: 16px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      border: 1.5px solid var(--cream);
-    }
-    .nav-icon-btn:hover .cart-badge { background: var(--gold); border-color: var(--ink); }
 
-    /* ── HERO ── */
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
+    }
+
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active, nav a.nav-pill.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
+    }
+
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
+
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
+
+    .nav-sep { width: 1px; height: 22px; background: rgba(13,13,13,0.18); flex-shrink: 0; }
+
+    .nav-icon-btn {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; cursor: pointer; color: var(--ink); text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s; flex-shrink: 0;
+    }
+
+    .nav-icon-btn:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px); }
+    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; transition: fill 0.25s, stroke 0.25s; }
+    .nav-icon-btn:hover svg { stroke: var(--cream); }
+    .nav-icon-btn:hover .heart-svg { fill: var(--cream); stroke: var(--cream); }
+
+    .cart-count, .fav-count {
+      position: absolute; top: -4px; right: -4px;
+      background: var(--ink); color: var(--cream);
+      font-size: 7px; font-weight: 800; width: 14px; height: 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--cream);
+      transition: transform 0.3s; opacity: 0; transform: scale(0);
+    }
+    .cart-count.visible, .fav-count.visible { opacity: 1; transform: scale(1); }
+    .heart-svg { fill: none; stroke: var(--ink); }
+    .heart-svg.has-items { fill: #e03535; stroke: #e03535; }
+    .bag-svg.has-items { stroke: var(--gold); }
+
+    /* ── HERO & URGENT QUOTE ── */
     .page-hero {
-      padding: 7.5rem 2rem 3rem;
+      padding: 140px 2rem 3rem;
       text-align: center;
       border-bottom: 1px solid rgba(13,13,13,.08);
     }
@@ -105,6 +134,22 @@
       font-size: .7rem; font-weight: 700;
       letter-spacing: .2em; text-transform: uppercase;
       color: var(--muted);
+    }
+    .urgent-quote {
+      max-width: 650px; margin: 2rem auto 0;
+      padding: 1.8rem; border: 1px solid rgba(184,151,90,.3);
+      background: rgba(184,151,90,.03); border-radius: 4px;
+    }
+    .urgent-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 700;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--ink); line-height: 1.4;
+    }
+    .urgent-quote span {
+      display: block; margin-top: .8rem;
+      font-size: .55rem; font-weight: 800; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--gold);
     }
 
     /* ── MAIN ── */
@@ -294,6 +339,19 @@
     .gift-text { font-size: .68rem; font-weight: 800; color: var(--gold); letter-spacing: .05em; line-height: 1.4; }
     .gift-text span { display:block; color:var(--muted); font-weight:700; font-size:.6rem; }
 
+    /* Bonus 2 prendas Él */
+    .bonus-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.2rem;
+      border-radius: 4px;
+      background: var(--ink);
+      border: 1.5px solid var(--gold);
+      margin-top: .8rem;
+      animation: riseIn .5s var(--ease) both;
+    }
+    .bonus-row .bonus-text { font-size: .68rem; font-weight: 800; color: var(--gold); letter-spacing: .05em; line-height: 1.4; display: flex; align-items: center; gap: 8px;}
+    .bonus-row .bonus-val { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; font-style: italic; color: #fff;}
+
     /* Summary */
     .cart-summary {
       margin-top: 1.8rem;
@@ -441,70 +499,24 @@
     }
     .secure-note svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    /* ── CONTACT SECTION ── */
-    .contact-section {
-      background: var(--ink);
-      padding: 5rem 2rem 4rem;
-      text-align: center;
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .contact-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 700;
-      font-size: clamp(1.6rem, 4vw, 3rem);
-      color: #fff; margin-bottom: .6rem;
-    }
-    .contact-section .c-sub {
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: rgba(255,255,255,.45); margin-bottom: 3rem;
-    }
-    .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
-    .contact-pill {
-      display: inline-flex; align-items: center; gap: .55rem;
-      padding: .75rem 1.8rem; border-radius: 999px;
-      border: 1.5px solid rgba(255,255,255,.18);
-      color: #fff; text-decoration: none;
-      font-size: .65rem; font-weight: 800;
-      letter-spacing: .12em; text-transform: uppercase;
-      transition: background .28s var(--ease), border-color .28s var(--ease);
-    }
-    .contact-pill:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.45); }
-    .contact-pill svg { width: 15px; height: 15px; flex-shrink: 0; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 2rem; text-align: center;
-    }
-    footer p {
-      font-size: .52rem; font-weight: 700;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.3);
-    }
-
-    /* ── SUPPORT FLOAT ── */
-    .support-float {
-      position: fixed; bottom: 2rem; right: 1.5rem; z-index: 300;
-      width: 52px; height: 52px; border-radius: 50%;
-      background: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: #fff;
-      box-shadow: 0 4px 20px rgba(13,13,13,.25);
-      transition: transform .3s var(--ease);
-    }
-    .support-float:hover { transform: scale(1.12); }
-    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      nav { top: 1.6rem; }
+      nav { padding: 10px 20px; gap: 8px; }
+      nav a.nav-pill, .dropbtn { font-size: 8px; padding: 8px 16px; letter-spacing: 0.2em; }
       .checkout-grid { grid-template-columns: 1fr; gap: 3rem; }
       .form-col { position: static; }
-      .page-hero { padding: 7rem 1.5rem 2.5rem; }
+      .page-hero { padding: 140px 1.5rem 2.5rem; }
       .main-wrap { padding: 2.5rem 1.2rem 5rem; }
     }
     @media (max-width: 560px) {
+      nav { gap: 6px; padding: 8px 10px; min-height: auto; top: 28px; }
+      nav a.nav-pill, .dropbtn { font-size: 7.5px; padding: 8px 12px; letter-spacing: 0.16em; }
+      .nav-sep { display: none; }
       .cart-item { grid-template-columns: 72px 1fr; gap: 1rem; }
       .item-img { width: 72px; height: 90px; }
       .item-right { grid-column: 1/-1; flex-direction: row; justify-content: space-between; align-items: center; }
@@ -514,38 +526,45 @@
 </head>
 <body>
 
-  <!-- BANNER -->
-  <div class="banner">Envío gratis en pedidos superiores a 30 € &nbsp;·&nbsp; +40 € → Llavero de regalo</div>
+  <div class="banner">Envío gratis a partir de 30 € &nbsp;·&nbsp; Bono 10€ en Colección Él &nbsp;·&nbsp; +40 € → Llavero gratis</div>
 
-  <!-- NAV -->
   <nav>
-    <div class="nav-inner">
-      <a href="index.html">Inicio</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="quienes-somos.html">Sobre la marca</a>
-      <a href="politicas.html">Políticas</a>
-      <a href="contactos.html">Contactos</a>
-      <div class="nav-divider"></div>
-      <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </a>
-      <a href="carrito.html" class="nav-icon-btn active" title="Carrito">
-        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-badge" id="navBadge">0</span>
-      </a>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
     </div>
+    
+    <div class="nav-sep"></div>
+
+    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
+      <svg viewBox="0 0 24 24"><path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span class="fav-count" id="fav-badge">0</span>
+    </a>
+
+    <a href="carrito.html" class="nav-icon-btn active" title="Bolsa">
+      <svg viewBox="0 0 24 24"><path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cart-badge">0</span>
+    </a>
   </nav>
 
-  <!-- HERO -->
   <header class="page-hero">
-    <p class="eyebrow">Southsizetopping × Boxing Profight</p>
+    <p class="eyebrow">South Size Topping</p>
     <h1>Mi Bolsa</h1>
     <p class="subtitle" id="heroSub">Revisa tu selección</p>
+    <div class="urgent-quote" id="urgentQuote">
+      <p>"La verdadera exclusividad no espera. Tu selección marca la diferencia; asegura tus piezas antes de que se agoten."</p>
+      <span>El momento es ahora</span>
+    </div>
   </header>
 
   <div class="main-wrap">
 
-    <!-- SHIPPING PROGRESS BAR -->
     <div class="shipping-bar" id="shippingBar">
       <div class="shipping-bar-top">
         <p class="shipping-msg" id="shippingMsg">Cargando…</p>
@@ -558,7 +577,6 @@
 
     <div class="checkout-grid">
 
-      <!-- LEFT: CART -->
       <div>
         <p class="col-title">Artículos</p>
 
@@ -570,7 +588,13 @@
 
         <div class="cart-items" id="cartItems"></div>
 
-        <!-- Gift row (shown when >40€) -->
+        <div class="bonus-row" id="bonusRow" style="display:none;">
+          <div class="bonus-text">
+            <span>🔥</span> Bono 2 Prendas Colección Él:
+          </div>
+          <div class="bonus-val">-10,00 €</div>
+        </div>
+
         <div class="gift-row" id="giftRow" style="display:none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#b8975a" stroke-width="1.6">
             <polyline points="20 12 20 22 4 22 4 12"/>
@@ -581,11 +605,10 @@
           </svg>
           <div class="gift-text">
             🎁 ¡Llavero S$T de regalo incluido!
-            <span>Tu pedido supera los 40 € — te regalamos el Llavero S$T (11 €) gratis.</span>
+            <span>Tu pedido supera los 40 € — te regalamos el Llavero S$T (11,00 €) gratis.</span>
           </div>
         </div>
 
-        <!-- Summary -->
         <div class="cart-summary" id="cartSummary" style="display:none;">
           <div class="sum-row">
             <span class="sum-label">Subtotal</span>
@@ -594,6 +617,10 @@
           <div class="sum-row">
             <span class="sum-label">Envío</span>
             <span class="sum-val" id="sumShipping">—</span>
+          </div>
+          <div class="sum-row" id="sumDiscountRow" style="display:none;">
+            <span class="sum-label">Bono Colección Él</span>
+            <span class="sum-val" style="color:var(--gold);">-10,00 €</span>
           </div>
           <div class="sum-row" id="sumGiftRow" style="display:none;">
             <span class="sum-label">Llavero regalo</span>
@@ -606,10 +633,7 @@
         </div>
       </div>
 
-      <!-- RIGHT: FORM -->
       <div class="form-col" id="formCol">
-
-        <!-- Datos personales -->
         <div class="form-block">
           <div class="form-block-head">
             <span class="fh-label">Datos personales</span>
@@ -629,7 +653,6 @@
           </div>
         </div>
 
-        <!-- Dirección -->
         <div class="form-block">
           <div class="form-block-head">
             <span class="fh-label">Dirección de envío</span>
@@ -673,16 +696,14 @@
           </div>
         </div>
 
-        <!-- GDPR -->
         <div class="gdpr-wrap" id="gdprWrap">
           <input type="checkbox" class="gdpr-check" id="gdprCheck">
           <span class="gdpr-text">
-            He leído y acepto la <a href="politicas.html" target="_blank">Política de Privacidad</a> de Southsizetopping. Mis datos se usarán exclusivamente para gestionar este pedido, conforme al <strong>RGPD (UE 2016/679)</strong> y la <strong>LOPDGDD 3/2018</strong>.
+            He leído y acepto la <a href="politicas.html" target="_blank">Política de Privacidad</a> de South Size Topping. Mis datos se usarán exclusivamente para gestionar este pedido, conforme al <strong>RGPD (UE 2016/679)</strong>.
           </span>
         </div>
         <p class="gdpr-err" id="gdprErr">Debes aceptar la política de privacidad para continuar.</p>
 
-        <!-- SEND -->
         <button class="wa-btn" id="waBtn" onclick="sendOrder()">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Finalizar Pedido por WhatsApp
@@ -697,69 +718,48 @@
     </div>
   </div>
 
-  <!-- CONTACT -->
-  <section class="contact-section">
-    <h2>¿Necesitas ayuda con tu pedido?</h2>
-    <p class="c-sub">Estamos disponibles para ti</p>
-    <div class="contact-links">
-      <a href="https://instagram.com/Street.southsizetopping" target="_blank" class="contact-pill">
-        <svg viewBox="0 0 24 24" stroke="none" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.069-1.646-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        @Street.southsizetopping
-      </a>
-      <a href="https://wa.me/34653181905" target="_blank" class="contact-pill">
-        <svg viewBox="0 0 24 24" stroke="none" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        +34 653 181 905
-      </a>
-      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        angelmoretaalcorta01@gmail.com
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Southsizetopping × Boxing Profight — Madrid &nbsp;·&nbsp; Todos los derechos reservados</p>
-  </footer>
-
-  <a href="soporte.html" class="support-float" title="Soporte">
-    <svg viewBox="0 0 24 24">
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-      <line x1="8" y1="21" x2="16" y2="21"/>
-      <line x1="12" y1="17" x2="12" y2="21"/>
-      <circle cx="17" cy="8" r="2.5"/>
-      <path d="M21 17s-1-3-4-3h-1"/>
-    </svg>
-  </a>
-
   <script>
   (() => {
-    const WA = '34653181905';
+    const WA = '34653181905'; // Tu WhatsApp
 
-    /* ── PRODUCT CATALOG (same IDs used by el.html / llaveros.html) ── */
-    const CATALOG = {
-      'sudadera-class-topping':      { name: 'Sudadera Class Topping',        price: 45, image: 'c1.jpg' },
-      'sudadera-champin-south-size': { name: 'Sudadera Champín South Size',   price: 45, image: 'c3.jpg' },
-      'camiseta-game-over':          { name: 'Camiseta Game Over',            price: 32, image: 'c5.jpg' },
-      'camiseta-boxing-profight':    { name: 'Camiseta Boxing Profight',      price: 50, image: 'c7.jpg' },
-      'camiseta-south-size':         { name: 'Camiseta South Size',           price: 32, image: 'c9.jpg' },
-      'llavero-st':                  { name: 'Llavero S$T',                   price: 11, image: 'l1.jpg' },
-    };
+    /* ── IDs de la Colección Él (para calcular el bono) ── */
+    const EL_COLLECTION_IDS = [
+      'sudadera-class-topping',
+      'sudadera-champion',
+      'camiseta-game-over',
+      'sudadera-boxing-profight',
+      'camiseta-south-size',
+      'camiseta-wear'
+    ];
 
     /* ── THRESHOLDS ── */
     const T_FREE_SHIP  = 30;   // ≥ 30 → free shipping
     const T_GIFT       = 40;   // > 40 → free llavero gift
     const SHIP_COST    = 4.99;
+    const BONO_EL_QTY  = 2;    // A partir de 2 prendas de Él
+    const BONO_EL_VAL  = 10;   // 10€ de descuento
 
     /* ── LOAD / SAVE ── */
     function getCart() {
-      try { return JSON.parse(localStorage.getItem('sst_cart')) || []; }
+      try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; }
       catch { return []; }
     }
-    function saveCart(c) { localStorage.setItem('sst_cart', JSON.stringify(c)); }
+    function saveCart(c) { localStorage.setItem('sst-cart', JSON.stringify(c)); localStorage.setItem('sst_cart', JSON.stringify(c)); }
 
     /* ── CALC ── */
     function calcSubtotal(cart) {
       return cart.reduce((s, i) => s + i.price * i.qty, 0);
+    }
+
+    // Calcula cuántas prendas en el carrito pertenecen a la Colección Él
+    function countElCollectionItems(cart) {
+      return cart.reduce((total, item) => {
+        const baseId = item.id.split('-').slice(0, -1).join('-'); // quita la talla para comprobar
+        if (EL_COLLECTION_IDS.includes(baseId)) {
+          return total + item.qty;
+        }
+        return total;
+      }, 0);
     }
 
     function getShipping(subtotal) {
@@ -783,11 +783,13 @@
         fill.style.width = '0%';
         fill.className = 'progress-fill';
         bar.className = 'shipping-bar';
+        document.getElementById('urgentQuote').style.display = 'none';
         return;
       }
 
+      document.getElementById('urgentQuote').style.display = 'block';
+
       if (subtotal > T_GIFT) {
-        // Gift tier
         msg.className = 'shipping-msg gift';
         msg.innerHTML = '🎁 <span>¡Envío gratis + Llavero S$T de regalo!</span> Tu pedido supera los 40 €.';
         badge.textContent = 'Regalo incluido';
@@ -796,7 +798,6 @@
         fill.className = 'progress-fill gift';
         bar.className = 'shipping-bar gift-active';
       } else if (subtotal >= T_FREE_SHIP) {
-        // Free ship tier
         const needed = (T_GIFT - subtotal).toFixed(2).replace('.', ',');
         msg.className = 'shipping-msg free';
         msg.innerHTML = `✅ <span>¡Envío gratis!</span> Añade <strong>${needed} €</strong> más y te regalamos un Llavero S$T.`;
@@ -807,7 +808,6 @@
         fill.className = 'progress-fill free';
         bar.className = 'shipping-bar free-active';
       } else {
-        // Paid shipping tier
         const needed = (T_FREE_SHIP - subtotal).toFixed(2).replace('.', ',');
         msg.className = 'shipping-msg';
         msg.innerHTML = `Te faltan <span><strong>${needed} €</strong></span> para conseguir <strong>envío gratis</strong>.`;
@@ -821,28 +821,39 @@
     }
 
     /* ── RENDER CART ── */
-    function render() {
+    window.render = function() {
       const cart      = getCart();
       const subtotal  = calcSubtotal(cart);
-      const shipping  = getShipping(subtotal);
-      const gift      = hasGift(subtotal);
-      const total     = subtotal + (shipping || 0);
+      const elQty     = countElCollectionItems(cart);
+      
+      const applyBono = elQty >= BONO_EL_QTY;
+      const discount  = applyBono ? BONO_EL_VAL : 0;
+      
+      const subtotalAfterBono = Math.max(0, subtotal - discount); // Que no baje de 0
+      const shipping  = getShipping(subtotalAfterBono); // El envío se calcula con el subtotal tras el bono o no, como decidas. Lo lógico es después del descuento.
+      const gift      = hasGift(subtotalAfterBono);
+      const total     = subtotalAfterBono + (shipping || 0);
 
       // Nav badge
       const totalQty = cart.reduce((s, i) => s + i.qty, 0);
-      document.getElementById('navBadge').textContent = totalQty;
+      document.querySelectorAll('.cart-count').forEach(el => {
+        el.textContent = totalQty;
+        el.classList.toggle('visible', totalQty > 0);
+      });
 
       // Hero subtitle
       document.getElementById('heroSub').textContent =
         cart.length === 0 ? 'Tu bolsa está vacía' :
         `${totalQty} ${totalQty === 1 ? 'artículo' : 'artículos'} seleccionados`;
 
-      // Empty / filled states
-      const emptyEl   = document.getElementById('cartEmpty');
-      const itemsEl   = document.getElementById('cartItems');
-      const summaryEl = document.getElementById('cartSummary');
-      const giftEl    = document.getElementById('giftRow');
-      const sumGiftRow= document.getElementById('sumGiftRow');
+      // DOM Elements
+      const emptyEl    = document.getElementById('cartEmpty');
+      const itemsEl    = document.getElementById('cartItems');
+      const summaryEl  = document.getElementById('cartSummary');
+      const giftEl     = document.getElementById('giftRow');
+      const bonusRow   = document.getElementById('bonusRow');
+      const sumGiftRow = document.getElementById('sumGiftRow');
+      const sumDiscRow = document.getElementById('sumDiscountRow');
 
       itemsEl.innerHTML = '';
 
@@ -850,6 +861,7 @@
         emptyEl.style.display = 'block';
         summaryEl.style.display = 'none';
         giftEl.style.display = 'none';
+        bonusRow.style.display = 'none';
         updateShippingBar(0);
         return;
       }
@@ -893,7 +905,11 @@
         itemsEl.appendChild(div);
       });
 
-      // Gift row
+      // Bonus visual
+      bonusRow.style.display = applyBono ? 'flex' : 'none';
+      sumDiscRow.style.display = applyBono ? 'flex' : 'none';
+
+      // Gift visual
       giftEl.style.display = gift ? 'flex' : 'none';
       sumGiftRow.style.display = gift ? 'flex' : 'none';
 
@@ -909,10 +925,9 @@
         shipEl.className = 'sum-val cost-ship';
       }
 
-      document.getElementById('sumTotal').textContent =
-        (total + (gift ? 0 : 0)).toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('sumTotal').textContent = total.toFixed(2).replace('.', ',') + ' €';
 
-      updateShippingBar(subtotal);
+      updateShippingBar(subtotalAfterBono);
     }
 
     /* ── CART ACTIONS ── */
@@ -929,7 +944,7 @@
       saveCart(cart); render();
     };
 
-    /* ── CHECKOUT ── */
+    /* ── CHECKOUT Y URGENCIA "BAJAR STOCK" ── */
     window.sendOrder = function() {
       const cart = getCart();
       if (cart.length === 0) return;
@@ -971,6 +986,17 @@
         return;
       }
 
+      // --- LOGICA DE URGENCIA ---
+      // Al comprar, marcamos en localstorage las prendas compradas para "reducir el stock visual" si vuelven a el.html
+      let boughtItems = JSON.parse(localStorage.getItem('sst-bought') || '{}');
+      cart.forEach(item => {
+        const baseId = item.id.split('-').slice(0, -1).join('-');
+        if (!boughtItems[baseId]) boughtItems[baseId] = 0;
+        boughtItems[baseId] += 2; // Le bajamos "2" al stock visible la proxima vez
+      });
+      localStorage.setItem('sst-bought', JSON.stringify(boughtItems));
+      // --------------------------
+
       // Build message
       const name   = document.getElementById('fName').value.trim();
       const phone  = document.getElementById('fPhone').value.trim();
@@ -983,9 +1009,14 @@
       const notes  = document.getElementById('fNotes').value.trim();
 
       const subtotal = calcSubtotal(cart);
-      const shipping = getShipping(subtotal);
-      const gift     = hasGift(subtotal);
-      const total    = subtotal + (shipping || 0);
+      const elQty    = countElCollectionItems(cart);
+      const applyBono= elQty >= BONO_EL_QTY;
+      const discount = applyBono ? BONO_EL_VAL : 0;
+      
+      const subtotalAfterBono = Math.max(0, subtotal - discount);
+      const shipping = getShipping(subtotalAfterBono);
+      const gift     = hasGift(subtotalAfterBono);
+      const total    = subtotalAfterBono + (shipping || 0);
 
       let addr = `${street}, ${num}`;
       if (floor) addr += `, Piso ${floor}`;
@@ -997,21 +1028,18 @@
         itemsBlock += `${i + 1}. *${item.name}*\n   ${item.variant || 'Talla única'} — x${item.qty} — ${(item.price * item.qty).toFixed(2).replace('.', ',')} €\n`;
       });
 
-      const shipLine = shipping === 0
-        ? '✅ Envío GRATIS'
-        : `📦 Envío: 4,99 €`;
+      const shipLine = shipping === 0 ? '✅ Envío GRATIS' : `📦 Envío: 4,99 €`;
+      const bonoLine = applyBono ? `\n🔥 *BONO ÉL APLICADO: -10,00 €*` : '';
+      const giftLine = gift ? '\n🎁 *REGALO: Llavero S$T incluido gratis*' : '';
 
-      const giftLine = gift
-        ? '\n🎁 *REGALO: Llavero S$T incluido gratis*' : '';
-
-      let msg = `🛍️ *NUEVO PEDIDO — SOUTHSIZETOPPING × BOXING PROFIGHT*\n`;
+      let msg = `🛍️ *NUEVO PEDIDO — SOUTH SIZE TOPPING*\n`;
       msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
       msg += `👤 *CLIENTE*\nNombre: ${name}\nTeléfono: ${phone}\n\n`;
       msg += `📦 *ENVÍO*\n${addr}\n`;
       if (notes) msg += `📝 Notas: ${notes}\n`;
       msg += `\n🏷️ *ARTÍCULOS*\n${itemsBlock}\n`;
       msg += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      msg += `${shipLine}${giftLine}\n`;
+      msg += `${shipLine}${bonoLine}${giftLine}\n`;
       msg += `💰 *TOTAL: ${total.toFixed(2).replace('.', ',')} €*\n\n`;
       msg += `✅ _Cliente acepta la Política de Privacidad_`;
 
@@ -1022,7 +1050,7 @@
 
     /* Rerender if another tab/page updated the cart */
     window.addEventListener('storage', function(e) {
-      if (e.key === 'sst_cart') render();
+      if (e.key === 'sst-cart' || e.key === 'sst_cart') render();
     });
 
   })();
