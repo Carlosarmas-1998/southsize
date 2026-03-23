@@ -325,6 +325,24 @@
     .remove-btn:hover { color: var(--danger); }
     .remove-btn svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:2; }
 
+    /* UPSELL 1 PRENDA */
+    .upsell-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1rem 1.2rem; border-radius: 4px;
+      background: rgba(184,151,90,.07); border: 1.5px dashed var(--gold);
+      margin-top: .8rem; animation: riseIn .5s var(--ease) both;
+    }
+    .upsell-text { font-size: .65rem; font-weight: 700; color: var(--ink); line-height: 1.4; }
+    .upsell-text span { font-size: 14px; }
+    .upsell-text strong { color: var(--gold); font-weight: 800; }
+    .upsell-btn {
+      background: var(--ink); color: #fff; text-decoration: none;
+      padding: 8px 16px; border-radius: 999px; font-size: .55rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+      transition: background 0.25s;
+    }
+    .upsell-btn:hover { background: var(--gold); }
+
     /* Gift item row */
     .gift-row {
       display: flex; align-items: center; gap: 1.2rem;
@@ -521,6 +539,8 @@
       .item-img { width: 72px; height: 90px; }
       .item-right { grid-column: 1/-1; flex-direction: row; justify-content: space-between; align-items: center; }
       .fg-row.c2, .fg-row.c3 { grid-template-columns: 1fr; }
+      .upsell-row { flex-direction: column; align-items: flex-start; }
+      .upsell-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -587,6 +607,13 @@
         </div>
 
         <div class="cart-items" id="cartItems"></div>
+
+        <div class="upsell-row" id="upsellBonoRow" style="display:none;">
+          <div class="upsell-text">
+            <span>⚡</span> ¿A qué esperas? Añade otra prenda de la <strong>Colección Él</strong> y llévate un descuentazo de 10,00 €.
+          </div>
+          <a href="el.html" class="upsell-btn">Ver Colección</a>
+        </div>
 
         <div class="bonus-row" id="bonusRow" style="display:none;">
           <div class="bonus-text">
@@ -720,9 +747,9 @@
 
   <script>
   (() => {
-    const WA = '34653181905'; // Tu WhatsApp
+    const WA = '34653181905';
 
-    /* ── IDs de la Colección Él (para calcular el bono) ── */
+    /* ── IDs de la Colección Él (para calcular bonos e upsells) ── */
     const EL_COLLECTION_IDS = [
       'sudadera-class-topping',
       'sudadera-champion',
@@ -733,11 +760,11 @@
     ];
 
     /* ── THRESHOLDS ── */
-    const T_FREE_SHIP  = 30;   // ≥ 30 → free shipping
-    const T_GIFT       = 40;   // > 40 → free llavero gift
+    const T_FREE_SHIP  = 30;
+    const T_GIFT       = 40;
     const SHIP_COST    = 4.99;
-    const BONO_EL_QTY  = 2;    // A partir de 2 prendas de Él
-    const BONO_EL_VAL  = 10;   // 10€ de descuento
+    const BONO_EL_QTY  = 2;
+    const BONO_EL_VAL  = 10;
 
     /* ── LOAD / SAVE ── */
     function getCart() {
@@ -751,10 +778,9 @@
       return cart.reduce((s, i) => s + i.price * i.qty, 0);
     }
 
-    // Calcula cuántas prendas en el carrito pertenecen a la Colección Él
     function countElCollectionItems(cart) {
       return cart.reduce((total, item) => {
-        const baseId = item.id.split('-').slice(0, -1).join('-'); // quita la talla para comprobar
+        const baseId = item.id.split('-').slice(0, -1).join('-');
         if (EL_COLLECTION_IDS.includes(baseId)) {
           return total + item.qty;
         }
@@ -829,29 +855,27 @@
       const applyBono = elQty >= BONO_EL_QTY;
       const discount  = applyBono ? BONO_EL_VAL : 0;
       
-      const subtotalAfterBono = Math.max(0, subtotal - discount); // Que no baje de 0
-      const shipping  = getShipping(subtotalAfterBono); // El envío se calcula con el subtotal tras el bono o no, como decidas. Lo lógico es después del descuento.
+      const subtotalAfterBono = Math.max(0, subtotal - discount);
+      const shipping  = getShipping(subtotalAfterBono);
       const gift      = hasGift(subtotalAfterBono);
       const total     = subtotalAfterBono + (shipping || 0);
 
-      // Nav badge
       const totalQty = cart.reduce((s, i) => s + i.qty, 0);
       document.querySelectorAll('.cart-count').forEach(el => {
         el.textContent = totalQty;
         el.classList.toggle('visible', totalQty > 0);
       });
 
-      // Hero subtitle
       document.getElementById('heroSub').textContent =
         cart.length === 0 ? 'Tu bolsa está vacía' :
         `${totalQty} ${totalQty === 1 ? 'artículo' : 'artículos'} seleccionados`;
 
-      // DOM Elements
       const emptyEl    = document.getElementById('cartEmpty');
       const itemsEl    = document.getElementById('cartItems');
       const summaryEl  = document.getElementById('cartSummary');
       const giftEl     = document.getElementById('giftRow');
       const bonusRow   = document.getElementById('bonusRow');
+      const upsellRow  = document.getElementById('upsellBonoRow');
       const sumGiftRow = document.getElementById('sumGiftRow');
       const sumDiscRow = document.getElementById('sumDiscountRow');
 
@@ -862,6 +886,7 @@
         summaryEl.style.display = 'none';
         giftEl.style.display = 'none';
         bonusRow.style.display = 'none';
+        upsellRow.style.display = 'none';
         updateShippingBar(0);
         return;
       }
@@ -904,6 +929,9 @@
         `;
         itemsEl.appendChild(div);
       });
+
+      // Upsell de 1 prenda Él
+      upsellRow.style.display = (elQty === 1) ? 'flex' : 'none';
 
       // Bonus visual
       bonusRow.style.display = applyBono ? 'flex' : 'none';
@@ -987,17 +1015,15 @@
       }
 
       // --- LOGICA DE URGENCIA ---
-      // Al comprar, marcamos en localstorage las prendas compradas para "reducir el stock visual" si vuelven a el.html
       let boughtItems = JSON.parse(localStorage.getItem('sst-bought') || '{}');
       cart.forEach(item => {
         const baseId = item.id.split('-').slice(0, -1).join('-');
         if (!boughtItems[baseId]) boughtItems[baseId] = 0;
-        boughtItems[baseId] += 2; // Le bajamos "2" al stock visible la proxima vez
+        boughtItems[baseId] += 2; 
       });
       localStorage.setItem('sst-bought', JSON.stringify(boughtItems));
       // --------------------------
 
-      // Build message
       const name   = document.getElementById('fName').value.trim();
       const phone  = document.getElementById('fPhone').value.trim();
       const street = document.getElementById('fStreet').value.trim();
@@ -1048,7 +1074,6 @@
 
     render();
 
-    /* Rerender if another tab/page updated the cart */
     window.addEventListener('storage', function(e) {
       if (e.key === 'sst-cart' || e.key === 'sst_cart') render();
     });
