@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Colección Él — South Size Topping</title>
-  <meta name="description" content="Descubre la colección masculina de South Size Topping × Boxing Profight. Sudaderas y camisetas urbanas de edición limitada." />
+  <meta name="description" content="Descubre la colección masculina de South Size Topping. Sudaderas y camisetas urbanas de edición limitada." />
   <meta name="author" content="Ángel" />
   
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -115,7 +115,7 @@
     .product-card { display: flex; flex-direction: column; width: 100%; transition: transform 0.45s var(--ease); }
     .product-card:hover { transform: translateY(-4px); }
 
-    /* Carrusel */
+    /* Carrusel y Efecto Mágico */
     .carousel-wrapper { position: relative; width: 100%; aspect-ratio: 3/4; background: #f5f4f0; overflow: hidden; border: 1px solid var(--border); margin-bottom: 16px; border-radius: 4px; }
     .carousel-track { 
       display: flex; width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden;
@@ -123,7 +123,13 @@
       touch-action: pan-y pinch-zoom;
     }
     .carousel-track::-webkit-scrollbar { display: none; }
-    .carousel-track img { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; object-fit: contain; padding: 12px; cursor: zoom-in; user-select: none; -webkit-user-drag: none; scroll-snap-stop: always; }
+    
+    .carousel-track img { 
+      flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; object-fit: contain; 
+      padding: 12px; cursor: zoom-in; user-select: none; scroll-snap-stop: always;
+      transition: opacity 0.35s ease, filter 0.35s ease; /* Fade mágico */
+    }
+    .fading-magic { opacity: 0 !important; filter: blur(4px); }
     
     .carousel-dots { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; pointer-events: none; }
     .dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(13,13,13,0.25); transition: all 0.3s; }
@@ -137,7 +143,7 @@
     /* Info producto */
     .product-info { text-align: center; padding: 0 4px; }
     .product-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; font-style: italic; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 5px; }
-    .product-motto { font-size: 8.5px; font-weight: 400; color: var(--ink-soft); font-style: italic; letter-spacing: 0.07em; line-height: 1.75; margin-bottom: 8px; }
+    .product-motto { font-size: 8.5px; font-weight: 400; color: var(--ink-soft); font-style: italic; letter-spacing: 0.07em; line-height: 1.75; margin-bottom: 8px; min-height: 16px;}
     .product-price { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 8px; }
     
     /* ── PUNTITOS DE COLORES ── */
@@ -148,7 +154,7 @@
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); 
       cursor: pointer; transition: transform 0.25s var(--ease), border-color 0.25s;
     }
-    .color-dot:hover { transform: scale(1.2); border-color: var(--ink); }
+    .color-dot:hover, .color-dot.active { transform: scale(1.2); border-color: var(--ink); border-width: 2px; }
     .dot-beige { background-color: #eaddcf; }
     .dot-negro { background-color: #1a1a1a; }
     .dot-gris  { background-color: #8c8c8c; }
@@ -207,11 +213,20 @@
     #cart-toast.show { bottom: 32px; pointer-events: auto; }
     #cart-toast .toast-cta { background: var(--gold); color: var(--ink); padding: 7px 16px; border-radius: 999px; text-decoration: none; font-size: 7.5px; font-weight: 800; letter-spacing: 0.2em; }
 
-    #lightbox { display: none; position: fixed; inset: 0; background: rgba(250,249,247,0.98); z-index: 3000; align-items: center; justify-content: center; flex-direction: column; touch-action: none; }
-    #lightbox.active { display: flex; }
+    /* Lightbox con Faded Mágico */
+    #lightbox { 
+      opacity: 0; pointer-events: none; visibility: hidden; 
+      position: fixed; inset: 0; background: rgba(250,249,247,0.98); 
+      z-index: 3000; display: flex; align-items: center; justify-content: center; 
+      flex-direction: column; touch-action: none; 
+      transition: opacity 0.4s ease, visibility 0.4s ease; 
+    }
+    #lightbox.active { opacity: 1; pointer-events: auto; visibility: visible; }
+    
     #lightbox-img-wrap { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; transition: transform 0.25s ease; }
-    #lightbox img { max-width: 94vw; max-height: 88vh; object-fit: contain; border-radius: 4px; user-select: none; -webkit-user-drag: none; cursor: pointer; transition: opacity 0.28s ease; }
-    #lightbox img.fading { opacity: 0; }
+    #lightbox img { max-width: 94vw; max-height: 88vh; object-fit: contain; border-radius: 4px; user-select: none; cursor: pointer; transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease; }
+    #lightbox img.fading { opacity: 0; transform: scale(0.96); filter: blur(3px); }
+    
     #lightbox-close { position: absolute; top: 20px; right: 28px; background: var(--ink); color: var(--cream); border: none; width: 38px; height: 38px; border-radius: 999px; font-size: 1.4rem; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: transform 0.25s; }
     #lightbox-close:hover { transform: scale(1.1); }
     #lightbox-hint { position: absolute; bottom: 28px; font-size: 8px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(13,13,13,0.3); pointer-events: none; }
@@ -326,7 +341,7 @@
     <p class="header-sub">Selección Exclusiva &nbsp;·&nbsp; Madrid</p>
     
     <div class="promo-banner">
-      <span>✦</span> Compra 2 prendas y recibe un bono de L 10.00 en tu bolsa <span>✦</span>
+      <span>✦</span> Compra 2 prendas y recibe un bono de 10.00€ en tu bolsa <span>✦</span>
     </div>
 
     <div class="badge-container">
@@ -342,26 +357,23 @@
 
   <main class="collection-grid">
 
-    <article class="product-card" data-id="sudadera-class-topping">
+    <article class="product-card" data-id="sudadera-negra">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c1.jpg" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
-          <img src="c2.png" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
+          <img src="c1.jpg" alt="Sudadera">
+          <img src="c2.png" alt="Sudadera Detalle">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
       </div>
       <div class="product-info">
-        <h2 class="product-title">Sudadera Class Topping</h2>
-        <p class="product-motto">"La redefinición del streetwear clásico."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 65.00</s>L 52.00</p>
+        <h2 class="product-title">Sudadera</h2>
+        <p class="product-motto">"La esencia inconfundible de las calles."</p>
+        <p class="product-price">49.00€</p>
         
-        <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-beige" title="Beige"></div>
-          <div class="color-dot dot-negro" title="Negro"></div>
-          <div class="color-dot dot-gris" title="Gris"></div>
-          <div class="color-dot dot-marron" title="Marrón"></div>
+        <div class="color-dots" title="Color disponible">
+          <div class="color-dot dot-negro active" title="Negro"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 3 udes.</span></p>
@@ -370,10 +382,8 @@
           <div class="select-wrapper">
             <select class="size-select" aria-label="Talla">
               <option value="" disabled selected>Talla</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
             </select>
           </div>
           <div class="quantity-group">
@@ -383,14 +393,14 @@
           </div>
         </div>
         <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this,'sudadera-class-topping','Sudadera Class Topping',52,'c1.jpg')">
+          <button class="btn-add-bag" onclick="addToCart(this,'sudadera-negra','Sudadera',49)">
             <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
           </button>
-          <button class="btn-fav" onclick="toggleFav(this,'sudadera-class-topping','Sudadera Class Topping')">
+          <button class="btn-fav" onclick="toggleFav(this,'sudadera-negra','Sudadera')">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
         </div>
-        <p class="size-warn" id="warn-sudadera-class-topping"></p>
+        <p class="size-warn" id="warn-sudadera-negra"></p>
       </div>
     </article>
 
@@ -398,22 +408,19 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c3.jpg" alt="Sudadera Champion" onclick="openLightboxFromImg(this)">
-          <img src="c4.jpg" alt="Sudadera Champion" onclick="openLightboxFromImg(this)">
+          <img src="c3.jpg" alt="Sudadera Champion">
+          <img src="c4.png" alt="Sudadera Champion Detalle">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
       </div>
       <div class="product-info">
         <h2 class="product-title">Sudadera Champion</h2>
-        <p class="product-motto">"El legado de los campeones. Diseñada para Madrid."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 65.00</s>L 52.00</p>
+        <p class="product-motto">"El legado de los campeones del asfalto."</p>
+        <p class="product-price">49.00€</p>
         
-        <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-beige" title="Beige"></div>
-          <div class="color-dot dot-negro" title="Negro"></div>
-          <div class="color-dot dot-gris" title="Gris"></div>
-          <div class="color-dot dot-marron" title="Marrón"></div>
+        <div class="color-dots" title="Color disponible">
+          <div class="color-dot dot-negro active" title="Negro"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 7 udes.</span></p>
@@ -422,10 +429,8 @@
           <div class="select-wrapper">
             <select class="size-select" aria-label="Talla">
               <option value="" disabled selected>Talla</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
             </select>
           </div>
           <div class="quantity-group">
@@ -435,7 +440,7 @@
           </div>
         </div>
         <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this,'sudadera-champion','Sudadera Champion',52,'c3.jpg')">
+          <button class="btn-add-bag" onclick="addToCart(this,'sudadera-champion','Sudadera Champion',49)">
              <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
           </button>
           <button class="btn-fav" onclick="toggleFav(this,'sudadera-champion','Sudadera Champion')">
@@ -446,38 +451,34 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camiseta-game-over">
+    <article class="product-card" data-id="sudadera-boxing">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c5.jpg" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
-          <img src="c6.png" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
+          <img src="c7.png" alt="Sudadera Boxing">
+          <img src="c8.jpg" alt="Sudadera Boxing Detalle">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
       </div>
       <div class="product-info">
-        <h2 class="product-title">Camiseta Game Over</h2>
-        <p class="product-motto">"Último nivel. Algodón premium. Pura actitud."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 55.00</s>L 42.00</p>
+        <h2 class="product-title">Sudadera Boxing</h2>
+        <p class="product-motto">"Golpea fuerte, viste con superioridad."</p>
+        <p class="product-price">49.00€</p>
         
         <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-beige" title="Beige"></div>
-          <div class="color-dot dot-negro" title="Negro"></div>
-          <div class="color-dot dot-gris" title="Gris"></div>
-          <div class="color-dot dot-marron" title="Marrón"></div>
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'c7.png', 'c8.jpg')"></div>
+          <div class="color-dot dot-beige" title="Beige" onclick="changeColor(this, 'c7.1.png', 'c7.2.png')"></div>
         </div>
 
-        <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 4 udes.</span></p>
+        <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 9 udes.</span></p>
 
         <div class="controls-row">
           <div class="select-wrapper">
             <select class="size-select" aria-label="Talla">
               <option value="" disabled selected>Talla</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
             </select>
           </div>
           <div class="quantity-group">
@@ -487,7 +488,54 @@
           </div>
         </div>
         <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-game-over','Camiseta Game Over',42,'c5.jpg')">
+          <button class="btn-add-bag" onclick="addToCart(this,'sudadera-boxing','Sudadera Boxing',49)">
+             <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
+          </button>
+          <button class="btn-fav" onclick="toggleFav(this,'sudadera-boxing','Sudadera Boxing')">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <p class="size-warn" id="warn-sudadera-boxing"></p>
+      </div>
+    </article>
+
+    <article class="product-card" data-id="camiseta-game-over">
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
+        <div class="carousel-track" onscroll="updateDots(this)">
+          <img src="c5.jpg" alt="Camiseta Game Over">
+          <img src="c6.png" alt="Camiseta Game Over Detalle">
+        </div>
+        <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
+        <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
+      </div>
+      <div class="product-info">
+        <h2 class="product-title">Camiseta Game Over</h2>
+        <p class="product-motto">"Tu nivel final de actitud urbana."</p>
+        <p class="product-price">32.00€</p>
+        
+        <div class="color-dots" title="Color disponible">
+          <div class="color-dot dot-negro active" title="Negro"></div>
+        </div>
+
+        <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 4 udes.</span></p>
+
+        <div class="controls-row">
+          <div class="select-wrapper">
+            <select class="size-select" aria-label="Talla">
+              <option value="" disabled selected>Talla</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
+            </select>
+          </div>
+          <div class="quantity-group">
+            <button class="qty-btn" onclick="updateQty(this,-1)">−</button>
+            <span class="qty-num">1</span>
+            <button class="qty-btn" onclick="updateQty(this,1)">+</button>
+          </div>
+        </div>
+        <div class="actions-row">
+          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-game-over','Camiseta Game Over',32)">
              <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
           </button>
           <button class="btn-fav" onclick="toggleFav(this,'camiseta-game-over','Camiseta Game Over')">
@@ -498,78 +546,24 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="sudadera-boxing-profight">
+    <article class="product-card" data-id="camiseta-smile-street">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c7.png" alt="Sudadera Boxing Profight" onclick="openLightboxFromImg(this)">
-          <img src="c8.jpg" alt="Sudadera Boxing Profight" onclick="openLightboxFromImg(this)">
+          <img src="c9.jpg" alt="Camiseta Smile Street">
+          <img src="c10.png" alt="Camiseta Smile Street Detalle">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
       </div>
       <div class="product-info">
-        <h2 class="product-title">Sudadera Boxing Profight</h2>
-        <p class="product-motto">"Resistencia y estilo inquebrantable."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 68.00</s>L 55.00</p>
+        <h2 class="product-title">Camiseta Smile Street</h2>
+        <p class="product-motto">"Sonríe, la ciudad es tu pasarela."</p>
+        <p class="product-price">32.00€</p>
         
         <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-beige" title="Beige"></div>
-          <div class="color-dot dot-negro" title="Negro"></div>
-          <div class="color-dot dot-gris" title="Gris"></div>
-          <div class="color-dot dot-marron" title="Marrón"></div>
-        </div>
-
-        <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 9 udes.</span></p>
-
-        <div class="controls-row">
-          <div class="select-wrapper">
-            <select class="size-select" aria-label="Talla">
-              <option value="" disabled selected>Talla</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
-          </div>
-          <div class="quantity-group">
-            <button class="qty-btn" onclick="updateQty(this,-1)">−</button>
-            <span class="qty-num">1</span>
-            <button class="qty-btn" onclick="updateQty(this,1)">+</button>
-          </div>
-        </div>
-        <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this,'sudadera-boxing-profight','Sudadera Boxing Profight',55,'c7.jpg')">
-             <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
-          </button>
-          <button class="btn-fav" onclick="toggleFav(this,'sudadera-boxing-profight','Sudadera Boxing Profight')">
-            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </button>
-        </div>
-        <p class="size-warn" id="warn-sudadera-boxing-profight"></p>
-      </div>
-    </article>
-
-    <article class="product-card" data-id="camiseta-south-size">
-      <div class="carousel-wrapper">
-        <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
-        <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="C9.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
-          <img src="c10.png" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
-        </div>
-        <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
-        <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
-      </div>
-      <div class="product-info">
-        <h2 class="product-title">Camiseta South Size</h2>
-        <p class="product-motto">"No sigues tendencias. Las defines."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 55.00</s>L 42.00</p>
-        
-        <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-beige" title="Beige"></div>
-          <div class="color-dot dot-negro" title="Negro"></div>
-          <div class="color-dot dot-gris" title="Gris"></div>
-          <div class="color-dot dot-marron" title="Marrón"></div>
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'c9.jpg', 'c10.png')"></div>
+          <div class="color-dot dot-marron" title="Marrón" onclick="changeColor(this, 'c9.1.jpeg', 'c10.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Últimas 2 udes.</span></p>
@@ -578,10 +572,8 @@
           <div class="select-wrapper">
             <select class="size-select" aria-label="Talla">
               <option value="" disabled selected>Talla</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
             </select>
           </div>
           <div class="quantity-group">
@@ -591,7 +583,102 @@
           </div>
         </div>
         <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-south-size','Camiseta South Size',42,'C9.jpg')">
+          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-smile-street','Camiseta Smile Street',32)">
+             <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
+          </button>
+          <button class="btn-fav" onclick="toggleFav(this,'camiseta-smile-street','Camiseta Smile Street')">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <p class="size-warn" id="warn-camiseta-smile-street"></p>
+      </div>
+    </article>
+
+    <article class="product-card" data-id="camiseta-energy-street">
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
+        <div class="carousel-track" onscroll="updateDots(this)">
+          <img src="c11.jpg" alt="Camiseta Energy Street">
+          <img src="c10.png" alt="Camiseta Energy Street Detalle">
+        </div>
+        <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
+        <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
+      </div>
+      <div class="product-info">
+        <h2 class="product-title">Camiseta Energy Street</h2>
+        <p class="product-motto">"Pura energía vibrando en el barrio."</p>
+        <p class="product-price">32.00€</p>
+        
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'c11.jpg', 'c10.png')"></div>
+          <div class="color-dot dot-marron" title="Marrón" onclick="changeColor(this, 'c11.1.jpeg', 'c10.png')"></div>
+        </div>
+
+        <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 5 udes.</span></p>
+
+        <div class="controls-row">
+          <div class="select-wrapper">
+            <select class="size-select" aria-label="Talla">
+              <option value="" disabled selected>Talla</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
+            </select>
+          </div>
+          <div class="quantity-group">
+            <button class="qty-btn" onclick="updateQty(this,-1)">−</button>
+            <span class="qty-num">1</span>
+            <button class="qty-btn" onclick="updateQty(this,1)">+</button>
+          </div>
+        </div>
+        <div class="actions-row">
+          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-energy-street','Camiseta Energy Street',32)">
+             <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
+          </button>
+          <button class="btn-fav" onclick="toggleFav(this,'camiseta-energy-street','Camiseta Energy Street')">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <p class="size-warn" id="warn-camiseta-energy-street"></p>
+      </div>
+    </article>
+
+    <article class="product-card" data-id="camiseta-south-size">
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
+        <div class="carousel-track" onscroll="updateDots(this)">
+          <img src="c13.jpeg" alt="Camiseta South Size">
+          <img src="c14.png" alt="Camiseta South Size Detalle">
+        </div>
+        <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
+        <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
+      </div>
+      <div class="product-info">
+        <h2 class="product-title">Camiseta South Size</h2>
+        <p class="product-motto">"La talla de los que marcan las reglas."</p>
+        <p class="product-price">32.00€</p>
+        
+        <div class="color-dots" title="Color disponible">
+          <div class="color-dot dot-gris active" title="Gris"></div>
+        </div>
+
+        <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Últimas 2 udes.</span></p>
+
+        <div class="controls-row">
+          <div class="select-wrapper">
+            <select class="size-select" aria-label="Talla">
+              <option value="" disabled selected>Talla</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
+            </select>
+          </div>
+          <div class="quantity-group">
+            <button class="qty-btn" onclick="updateQty(this,-1)">−</button>
+            <span class="qty-num">1</span>
+            <button class="qty-btn" onclick="updateQty(this,1)">+</button>
+          </div>
+        </div>
+        <div class="actions-row">
+          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-south-size','Camiseta South Size',32)">
              <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
           </button>
           <button class="btn-fav" onclick="toggleFav(this,'camiseta-south-size','Camiseta South Size')">
@@ -602,26 +689,23 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camiseta-wear">
+    <article class="product-card" data-id="camisa-exclusiva">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c11.jpg" alt="Camiseta Wear" onclick="openLightboxFromImg(this)">
-          <img src="c12.png" alt="Camiseta Wear Detalle" onclick="openLightboxFromImg(this)">
+          <img src="c15.jpeg" alt="Camisa Exclusiva">
+          <img src="c15.jpg" alt="Camisa Exclusiva Detalle">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
       </div>
       <div class="product-info">
-        <h2 class="product-title">Camiseta Wear</h2>
-        <p class="product-motto">"El código de la calle, hecho a medida."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 60.00</s>L 45.00</p>
+        <h2 class="product-title">Camisa South Exclusiva</h2>
+        <p class="product-motto">"Exclusividad rompedora en cada hilo."</p>
+        <p class="product-price">32.00€</p>
         
-        <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-beige" title="Beige"></div>
-          <div class="color-dot dot-negro" title="Negro"></div>
-          <div class="color-dot dot-gris" title="Gris"></div>
-          <div class="color-dot dot-marron" title="Marrón"></div>
+        <div class="color-dots" title="Color disponible">
+          <div class="color-dot dot-negro active" title="Negro"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 5 udes.</span></p>
@@ -630,10 +714,8 @@
           <div class="select-wrapper">
             <select class="size-select" aria-label="Talla">
               <option value="" disabled selected>Talla</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
+              <option value="S">S</option><option value="M">M</option>
+              <option value="L">L</option><option value="XL">XL</option>
             </select>
           </div>
           <div class="quantity-group">
@@ -643,14 +725,14 @@
           </div>
         </div>
         <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this,'camiseta-wear','Camiseta Wear',45,'c11.jpg')">
+          <button class="btn-add-bag" onclick="addToCart(this,'camisa-exclusiva','Camisa South Exclusiva',32)">
              <span class="txt-desktop">Agregar a la bolsa</span><span class="txt-mobile">Añadir</span>
           </button>
-          <button class="btn-fav" onclick="toggleFav(this,'camiseta-wear','Camiseta Wear')">
+          <button class="btn-fav" onclick="toggleFav(this,'camisa-exclusiva','Camisa South Exclusiva')">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
         </div>
-        <p class="size-warn" id="warn-camiseta-wear"></p>
+        <p class="size-warn" id="warn-camisa-exclusiva"></p>
       </div>
     </article>
 
@@ -665,7 +747,7 @@
     <button id="lightbox-close" onclick="closeLightbox()">×</button>
     <button class="lb-arrow lb-arrow-prev" onclick="lbPrev()">&#8249;</button>
     <div id="lightbox-img-wrap">
-      <img id="lightbox-img" src="" alt="Vista ampliada" onclick="closeLightbox()">
+      <img id="lightbox-img" src="" alt="Vista ampliada">
     </div>
     <button class="lb-arrow lb-arrow-next" onclick="lbNext()">&#8250;</button>
     <span id="lightbox-hint">Toca la imagen para cerrar &nbsp;·&nbsp; Desliza para navegar</span>
@@ -709,7 +791,29 @@
     document.addEventListener("DOMContentLoaded", () => {
       const dropbtn = document.querySelector('.dropbtn');
       if(dropbtn) dropbtn.addEventListener('click', e => e.preventDefault());
+      
+      // Chequear estado del llavero al cargar la página
+      verifyLlaveroPromo();
     });
+
+    // Función para cambiar colores dinámicamente con Faded Mágico
+    function changeColor(dot, img1, img2) {
+      const card = dot.closest('.product-card');
+      const dots = card.querySelectorAll('.color-dot');
+      dots.forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+
+      const track = card.querySelector('.carousel-track');
+      const imgs = track.querySelectorAll('img');
+      
+      imgs.forEach(img => img.classList.add('fading-magic'));
+      
+      setTimeout(() => {
+        if(imgs.length >= 1 && img1) imgs[0].src = img1;
+        if(imgs.length >= 2 && img2) imgs[1].src = img2;
+        imgs.forEach(img => img.classList.remove('fading-magic'));
+      }, 350);
+    }
 
     function scrollTrack(btn, dir) {
       const track = btn.parentElement.querySelector('.carousel-track');
@@ -724,6 +828,10 @@
 
     document.querySelectorAll('.carousel-track').forEach(track => {
       let startX, startScroll, dragging = false, moved = false;
+      
+      // Evita que en PC el navegador intente "arrastrar" la foto y bloquee el clic
+      track.addEventListener('dragstart', e => e.preventDefault());
+
       track.addEventListener('pointerdown', e => {
         if (e.pointerType === 'touch') return; 
         dragging = true; moved = false;
@@ -734,7 +842,7 @@
       track.addEventListener('pointermove', e => {
         if (!dragging || e.pointerType === 'touch') return;
         const dx = startX - e.clientX;
-        if (Math.abs(dx) > 4) moved = true;
+        if (Math.abs(dx) > 5) moved = true; // Tolerancia para que no lo cuente como arrastre si solo mueves 1 píxel al hacer clic
         track.scrollLeft = startScroll + dx;
         updateDots(track);
       });
@@ -744,12 +852,20 @@
         track.style.scrollBehavior = 'smooth';
         const snap = Math.round(track.scrollLeft / track.clientWidth) * track.clientWidth;
         track.scrollTo({ left: snap, behavior: 'smooth' });
-        if (!moved) {
-          const img = e.target.closest('img');
-          if (img) openLightboxFromImg(img);
-        }
       });
       track.addEventListener('pointercancel', () => { dragging = false; });
+      
+      // Lógica de clic universal y limpia para PC y Móvil
+      track.addEventListener('click', e => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        if (moved) {
+          e.preventDefault();
+          e.stopPropagation();
+        } else {
+          openLightboxFromImg(img);
+        }
+      });
     });
 
     const lightbox    = document.getElementById('lightbox');
@@ -771,22 +887,28 @@
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
+    
+    // Cierra el Lightbox con Faded Mágico
     function closeLightbox() {
       lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      lbWrap.style.transform = 'translateY(0)';
+      setTimeout(() => {
+        document.body.style.overflow = '';
+        lbWrap.style.transform = 'translateY(0)';
+      }, 400); // Tiempo del CSS transition
     }
+    
     function lbChangeTo(newIndex) {
       lightboxImg.classList.add('fading');
       setTimeout(() => {
         lbIndex = (newIndex + lbSrcs.length) % lbSrcs.length;
         lightboxImg.src = lbSrcs[lbIndex];
         lightboxImg.classList.remove('fading');
-      }, 200);
+      }, 350);
     }
     function lbPrev() { lbChangeTo(lbIndex - 1); }
     function lbNext() { lbChangeTo(lbIndex + 1); }
 
+    // Click dentro o fuera de la imagen lo cerrará con Fade
     lightbox.addEventListener('click', e => {
       if (e.target === lightbox || e.target === lbWrap || e.target === lightboxImg) closeLightbox();
     });
@@ -822,6 +944,7 @@
       const v = parseInt(span.innerText) + change;
       if (v > 0 && v < 10) span.innerText = v;
     }
+    
     function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; } catch { return []; } }
     function saveCart(c) { localStorage.setItem('sst-cart', JSON.stringify(c)); localStorage.setItem('sst_cart', JSON.stringify(c)); }
     function getFavs() { try { return JSON.parse(localStorage.getItem('sst-fav')) || []; } catch { return []; } }
@@ -851,7 +974,26 @@
       toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    function addToCart(btn, id, name, price, image) {
+    // Lógica para verificar el estado del llavero en cualquier momento
+    function verifyLlaveroPromo() {
+      let cart = getCart();
+      const hasEl = cart.some(item => item.collection === 'el');
+      const llaveroIndex = cart.findIndex(item => item.id === 'llavero-nfc');
+      
+      if (llaveroIndex !== -1) {
+        let changed = false;
+        if (hasEl && cart[llaveroIndex].price !== 0) {
+          cart[llaveroIndex].price = 0;
+          changed = true;
+        } else if (!hasEl && cart[llaveroIndex].price !== 12) {
+          cart[llaveroIndex].price = 12;
+          changed = true;
+        }
+        if(changed) saveCart(cart);
+      }
+    }
+
+    function addToCart(btn, id, name, price) {
       const card   = btn.closest('.product-card');
       const select = card ? card.querySelector('.size-select') : null;
 
@@ -873,9 +1015,31 @@
       const size = select.value;
       const qty  = parseInt((card.querySelector('.qty-num') || { innerText: '1' }).innerText) || 1;
       const key  = id + '-' + size.toLowerCase();
-      const cart = getCart();
+      
+      // Obtener imagen dinámica actual del carrusel
+      const currentImage = card.querySelector('.carousel-track img').getAttribute('src');
+      
+      let cart = getCart();
+      
+      // Agregar el producto principal a la bolsa
       const hit  = cart.find(i => i.id === key);
-      if (hit) hit.qty += qty; else cart.push({ id: key, name, variant: 'Talla ' + size, price: parseFloat(price), qty, image });
+      if (hit) {
+        hit.qty += qty; 
+      } else {
+        cart.push({ id: key, name: name, variant: 'Talla ' + size, price: parseFloat(price), qty: qty, image: currentImage, collection: 'el' });
+      }
+      
+      // Lógica automática del Llavero NFC
+      const hasEl = cart.some(item => item.collection === 'el');
+      const llaveroIndex = cart.findIndex(item => item.id === 'llavero-nfc');
+      
+      if (hasEl && llaveroIndex === -1) {
+        // Se añade el llavero promocional a 0€
+        cart.push({ id: 'llavero-nfc', name: 'Llavero NFC', variant: 'Talla Única', price: 0, qty: 1, image: 'l1.png' });
+      } else if (hasEl && llaveroIndex !== -1) {
+        cart[llaveroIndex].price = 0; // Se asegura de que esté a 0€
+      }
+
       saveCart(cart);
 
       const warn = document.getElementById('warn-' + id);
@@ -918,7 +1082,10 @@
 
     syncBadges(); restoreFavState();
     window.addEventListener('storage', function(e) {
-      if(e.key === 'sst-fav' || e.key === 'sst-cart' || e.key === 'sst_cart') syncBadges();
+      if(e.key === 'sst-fav' || e.key === 'sst-cart' || e.key === 'sst_cart') {
+        syncBadges();
+        verifyLlaveroPromo();
+      }
     });
 
     document.addEventListener("DOMContentLoaded", () => {
