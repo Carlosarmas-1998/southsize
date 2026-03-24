@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Colección Él — South Size Topping</title>
   <meta name="description" content="Descubre la colección masculina de South Size Topping. Sudaderas y camisetas urbanas de edición limitada." />
-  <meta name="author" content="Ángel" />
+  <meta name="author" content="Abril Armas" />
   
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -357,7 +357,7 @@
 
   <main class="collection-grid">
 
-    <article class="product-card" data-id="sudadera-negra">
+    <article class="product-card" data-id="sudadera-negra" data-all-images='["c1.jpg", "c2.png"]' data-selected-color="Negro">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -369,11 +369,11 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Sudadera</h2>
-        <p class="product-motto">"La esencia inconfundible de las calles."</p>
+        <p class="product-motto">"Estilo pro street urban, domina la oscuridad."</p>
         <p class="product-price">49.00€</p>
         
         <div class="color-dots" title="Color disponible">
-          <div class="color-dot dot-negro active" title="Negro"></div>
+          <div class="color-dot dot-negro active" title="Negro" onclick="changeColor(this, 'Negro', 'c1.jpg', 'c2.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 3 udes.</span></p>
@@ -404,7 +404,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="sudadera-champion">
+    <article class="product-card" data-id="sudadera-champion" data-all-images='["c3.jpg", "c4.png"]' data-selected-color="Negro">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -416,11 +416,11 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Sudadera Champion</h2>
-        <p class="product-motto">"El legado de los campeones del asfalto."</p>
+        <p class="product-motto">"Actitud pro street urban para campeones del asfalto."</p>
         <p class="product-price">49.00€</p>
         
         <div class="color-dots" title="Color disponible">
-          <div class="color-dot dot-negro active" title="Negro"></div>
+          <div class="color-dot dot-negro active" title="Negro" onclick="changeColor(this, 'Negro', 'c3.jpg', 'c4.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 7 udes.</span></p>
@@ -451,7 +451,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="sudadera-boxing">
+    <article class="product-card" data-id="sudadera-boxing" data-all-images='["c7.png", "c8.jpg", "c7.1.png", "c7.2.png"]' data-selected-color="Gris">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -463,12 +463,12 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Sudadera Boxing</h2>
-        <p class="product-motto">"Golpea fuerte, viste con superioridad."</p>
+        <p class="product-motto">"Golpea duro con el auténtico flow pro street urban."</p>
         <p class="product-price">49.00€</p>
         
         <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'c7.png', 'c8.jpg')"></div>
-          <div class="color-dot dot-beige" title="Beige" onclick="changeColor(this, 'c7.1.png', 'c7.2.png')"></div>
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'Gris', 'c7.png', 'c8.jpg')"></div>
+          <div class="color-dot dot-beige" title="Beige" onclick="changeColor(this, 'Beige', 'c7.1.png', 'c7.2.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 9 udes.</span></p>
@@ -499,7 +499,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camiseta-game-over">
+    <article class="product-card" data-id="camiseta-game-over" data-all-images='["c5.jpg", "c6.png"]' data-selected-color="Negro">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -511,11 +511,11 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Camiseta Game Over</h2>
-        <p class="product-motto">"Tu nivel final de actitud urbana."</p>
+        <p class="product-motto">"El nivel final del diseño pro street urban."</p>
         <p class="product-price">32.00€</p>
         
         <div class="color-dots" title="Color disponible">
-          <div class="color-dot dot-negro active" title="Negro"></div>
+          <div class="color-dot dot-negro active" title="Negro" onclick="changeColor(this, 'Negro', 'c5.jpg', 'c6.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 4 udes.</span></p>
@@ -546,7 +546,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camiseta-smile-street">
+    <article class="product-card" data-id="camiseta-smile-street" data-all-images='["c9.jpg", "c10.png", "c9.1.jpeg"]' data-selected-color="Gris">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -558,12 +558,12 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Camiseta Smile Street</h2>
-        <p class="product-motto">"Sonríe, la ciudad es tu pasarela."</p>
+        <p class="product-motto">"Sonríe a la ciudad. Pura esencia pro street urban."</p>
         <p class="product-price">32.00€</p>
         
         <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'c9.jpg', 'c10.png')"></div>
-          <div class="color-dot dot-marron" title="Marrón" onclick="changeColor(this, 'c9.1.jpeg', 'c10.png')"></div>
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'Gris', 'c9.jpg', 'c10.png')"></div>
+          <div class="color-dot dot-marron" title="Marrón" onclick="changeColor(this, 'Marrón', 'c9.1.jpeg', 'c10.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Últimas 2 udes.</span></p>
@@ -594,7 +594,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camiseta-energy-street">
+    <article class="product-card" data-id="camiseta-energy-street" data-all-images='["c11.jpg", "c10.png", "c11.1.jpeg"]' data-selected-color="Gris">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -606,12 +606,12 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Camiseta Energy Street</h2>
-        <p class="product-motto">"Pura energía vibrando en el barrio."</p>
+        <p class="product-motto">"Vibra con la energía pro street urban de la calle."</p>
         <p class="product-price">32.00€</p>
         
         <div class="color-dots" title="Colores disponibles">
-          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'c11.jpg', 'c10.png')"></div>
-          <div class="color-dot dot-marron" title="Marrón" onclick="changeColor(this, 'c11.1.jpeg', 'c10.png')"></div>
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'Gris', 'c11.jpg', 'c10.png')"></div>
+          <div class="color-dot dot-marron" title="Marrón" onclick="changeColor(this, 'Marrón', 'c11.1.jpeg', 'c10.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 5 udes.</span></p>
@@ -642,7 +642,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camiseta-south-size">
+    <article class="product-card" data-id="camiseta-south-size" data-all-images='["c13.jpeg", "c14.png"]' data-selected-color="Gris">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -654,11 +654,11 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Camiseta South Size</h2>
-        <p class="product-motto">"La talla de los que marcan las reglas."</p>
+        <p class="product-motto">"La talla exacta de la cultura pro street urban."</p>
         <p class="product-price">32.00€</p>
         
         <div class="color-dots" title="Color disponible">
-          <div class="color-dot dot-gris active" title="Gris"></div>
+          <div class="color-dot dot-gris active" title="Gris" onclick="changeColor(this, 'Gris', 'c13.jpeg', 'c14.png')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Últimas 2 udes.</span></p>
@@ -689,7 +689,7 @@
       </div>
     </article>
 
-    <article class="product-card" data-id="camisa-exclusiva">
+    <article class="product-card" data-id="camisa-exclusiva" data-all-images='["c15.jpeg", "c15.jpg"]' data-selected-color="Negro">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
@@ -701,11 +701,11 @@
       </div>
       <div class="product-info">
         <h2 class="product-title">Camisa South Exclusiva</h2>
-        <p class="product-motto">"Exclusividad rompedora en cada hilo."</p>
+        <p class="product-motto">"Exclusividad y elegancia en modo pro street urban."</p>
         <p class="product-price">32.00€</p>
         
         <div class="color-dots" title="Color disponible">
-          <div class="color-dot dot-negro active" title="Negro"></div>
+          <div class="color-dot dot-negro active" title="Negro" onclick="changeColor(this, 'Negro', 'c15.jpeg', 'c15.jpg')"></div>
         </div>
 
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 5 udes.</span></p>
@@ -784,7 +784,7 @@
 
   <footer>
     <span class="footer-brand">South Size Topping</span>
-    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
+    <span class="footer-copy">© 2026 Abril Armas — Todos los derechos reservados</span>
   </footer>
 
   <script>
@@ -796,9 +796,11 @@
       verifyLlaveroPromo();
     });
 
-    // Función para cambiar colores dinámicamente con Faded Mágico
-    function changeColor(dot, img1, img2) {
+    // Función para cambiar colores dinámicamente guardando la selección
+    function changeColor(dot, colorName, img1, img2) {
       const card = dot.closest('.product-card');
+      card.dataset.selectedColor = colorName; // Guarda el color para el carrito
+
       const dots = card.querySelectorAll('.color-dot');
       dots.forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
@@ -810,7 +812,14 @@
       
       setTimeout(() => {
         if(imgs.length >= 1 && img1) imgs[0].src = img1;
-        if(imgs.length >= 2 && img2) imgs[1].src = img2;
+        if(imgs.length >= 2) {
+          if(img2) {
+            imgs[1].style.display = 'block';
+            imgs[1].src = img2;
+          } else {
+            imgs[1].style.display = 'none'; // Por si la prenda tiene solo 1 foto en ese color
+          }
+        }
         imgs.forEach(img => img.classList.remove('fading-magic'));
       }, 350);
     }
@@ -829,7 +838,6 @@
     document.querySelectorAll('.carousel-track').forEach(track => {
       let startX, startScroll, dragging = false, moved = false;
       
-      // Evita que en PC el navegador intente "arrastrar" la foto y bloquee el clic
       track.addEventListener('dragstart', e => e.preventDefault());
 
       track.addEventListener('pointerdown', e => {
@@ -842,7 +850,7 @@
       track.addEventListener('pointermove', e => {
         if (!dragging || e.pointerType === 'touch') return;
         const dx = startX - e.clientX;
-        if (Math.abs(dx) > 5) moved = true; // Tolerancia para que no lo cuente como arrastre si solo mueves 1 píxel al hacer clic
+        if (Math.abs(dx) > 5) moved = true; 
         track.scrollLeft = startScroll + dx;
         updateDots(track);
       });
@@ -855,7 +863,6 @@
       });
       track.addEventListener('pointercancel', () => { dragging = false; });
       
-      // Lógica de clic universal y limpia para PC y Móvil
       track.addEventListener('click', e => {
         const img = e.target.closest('img');
         if (!img) return;
@@ -874,27 +881,33 @@
     let lbSrcs = [], lbIndex = 0;
 
     function openLightboxFromImg(img) {
-      const track = img.closest('.carousel-track');
-      openLightbox(img.src, track);
-    }
-    function openLightbox(src, track) {
-      if (track) {
-        lbSrcs  = Array.from(track.querySelectorAll('img')).map(i => i.src);
-        lbIndex = Math.max(0, lbSrcs.indexOf(src));
-      } else { lbSrcs = [src]; lbIndex = 0; }
+      const card = img.closest('.product-card');
+      const allImagesStr = card.getAttribute('data-all-images');
+      
+      // Mostrar todas las imágenes del producto en el lightbox
+      if (allImagesStr) {
+        lbSrcs = JSON.parse(allImagesStr);
+        const currentSrc = img.getAttribute('src');
+        lbIndex = Math.max(0, lbSrcs.findIndex(src => src === currentSrc));
+        if (lbIndex === -1) lbIndex = 0;
+      } else {
+        const track = img.closest('.carousel-track');
+        lbSrcs = Array.from(track.querySelectorAll('img')).map(i => i.getAttribute('src'));
+        lbIndex = Math.max(0, lbSrcs.indexOf(img.getAttribute('src')));
+      }
+
       lightboxImg.classList.remove('fading');
       lightboxImg.src = lbSrcs[lbIndex];
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
     
-    // Cierra el Lightbox con Faded Mágico
     function closeLightbox() {
       lightbox.classList.remove('active');
       setTimeout(() => {
         document.body.style.overflow = '';
         lbWrap.style.transform = 'translateY(0)';
-      }, 400); // Tiempo del CSS transition
+      }, 400); 
     }
     
     function lbChangeTo(newIndex) {
@@ -908,7 +921,6 @@
     function lbPrev() { lbChangeTo(lbIndex - 1); }
     function lbNext() { lbChangeTo(lbIndex + 1); }
 
-    // Click dentro o fuera de la imagen lo cerrará con Fade
     lightbox.addEventListener('click', e => {
       if (e.target === lightbox || e.target === lbWrap || e.target === lightboxImg) closeLightbox();
     });
@@ -1014,9 +1026,12 @@
 
       const size = select.value;
       const qty  = parseInt((card.querySelector('.qty-num') || { innerText: '1' }).innerText) || 1;
-      const key  = id + '-' + size.toLowerCase();
       
-      // Obtener imagen dinámica actual del carrusel
+      // Leer el color que el usuario dejó seleccionado
+      const color = card.dataset.selectedColor || 'Único'; 
+      const key  = id + '-' + size.toLowerCase() + '-' + color.toLowerCase();
+      
+      // Obtener imagen dinámica actual del carrusel para el carrito
       const currentImage = card.querySelector('.carousel-track img').getAttribute('src');
       
       let cart = getCart();
@@ -1026,18 +1041,26 @@
       if (hit) {
         hit.qty += qty; 
       } else {
-        cart.push({ id: key, name: name, variant: 'Talla ' + size, price: parseFloat(price), qty: qty, image: currentImage, collection: 'el' });
+        cart.push({ 
+          id: key, 
+          name: name, 
+          variant: 'Talla ' + size + ' | Color ' + color, 
+          price: parseFloat(price), 
+          qty: qty, 
+          image: currentImage, 
+          collection: 'el' 
+        });
       }
       
-      // Lógica automática del Llavero NFC
+      // Lógica automática del Llavero NFC promocional
       const hasEl = cart.some(item => item.collection === 'el');
       const llaveroIndex = cart.findIndex(item => item.id === 'llavero-nfc');
       
       if (hasEl && llaveroIndex === -1) {
         // Se añade el llavero promocional a 0€
-        cart.push({ id: 'llavero-nfc', name: 'Llavero NFC', variant: 'Talla Única', price: 0, qty: 1, image: 'l1.png' });
+        cart.push({ id: 'llavero-nfc', name: 'Llavero NFC', variant: 'Talla Única', price: 0, qty: 1, image: 'l1.png', link: 'llaveros.html' });
       } else if (hasEl && llaveroIndex !== -1) {
-        cart[llaveroIndex].price = 0; // Se asegura de que esté a 0€
+        cart[llaveroIndex].price = 0; 
       }
 
       saveCart(cart);
