@@ -4,24 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Ropa Urbana y Streetwear Exclusivo | South Size Topping España</title>
-  <meta name="description" content="Descubre South Size Topping × Boxing Profight. Ropa urbana, moda casual y streetwear de edición limitada para hombre y mujer. Lanzamientos exclusivos por fechas en Madrid, España." />
-  <meta name="keywords" content="ropa urbana, moda casual, ropa streetwear, ropa hombre, ropa mujer, sudaderas oversize, camisetas urbanas, llaveros exclusivos, moda Madrid, South Size Topping, Boxing Profight" />
+  <title>Streetwear y Moda Urbana Exclusiva | South Size Topping España</title>
+  <meta name="description" content="Descubre South Size Topping × Boxing Profight. Streetwear de edición limitada para hombre y mujer en Madrid, España." />
   <meta name="author" content="Ángel" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://www.streeturbanwear.com/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.streeturbanwear.com/" />
-  <meta property="og:title" content="Ropa Urbana y Streetwear Exclusivo | South Size Topping" />
-  <meta property="og:description" content="Descubre la moda urbana de edición limitada. Colecciones para él y ella con lanzamientos exclusivos por fechas. Nació en Madrid. Vestirá el mundo." />
-  <meta property="og:image" content="https://www.streeturbanwear.com/sello.jpg" />
+  <meta property="og:title" content="Moda Urbana de Edición Limitada | South Size Topping" />
+  <meta property="og:description" content="Nació en Madrid. Vestirá el mundo. Streetwear de edición limitada, lanzamientos exclusivos por fechas." />
+  <meta property="og:image" content="https://www.streeturbanwear.com/portada.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.streeturbanwear.com/" />
-  <meta name="twitter:title" content="Ropa Urbana y Streetwear Exclusivo | South Size Topping" />
-  <meta name="twitter:description" content="Moda urbana de edición limitada en España. Lanzamientos exclusivos por fechas." />
-  <meta name="twitter:image" content="https://www.streeturbanwear.com/sello.jpg" />
+  <meta name="twitter:title" content="Moda Urbana Exclusiva | South Size Topping" />
+  <meta name="twitter:image" content="https://www.streeturbanwear.com/portada.png" />
 
   <script type="application/ld+json">
   {
@@ -29,17 +27,12 @@
     "@type": "ClothingStore",
     "name": "South Size Topping",
     "url": "https://www.streeturbanwear.com",
-    "logo": "https://www.streeturbanwear.com/sello.jpg",
+    "logo": "https://www.streeturbanwear.com/logo.png",
     "founder": {
       "@type": "Person",
       "name": "Ángel"
     },
-    "description": "Firma de moda de ropa urbana y casual de alta calidad. Sudaderas, camisetas y accesorios de edición limitada con lanzamientos por fechas en España.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Madrid",
-      "addressCountry": "ES"
-    },
+    "description": "Firma de moda de ropa urbana y casual de alta calidad. Sudaderas, camisetas y accesorios de edición limitada con lanzamientos por fechas.",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+34653181905",
@@ -52,30 +45,59 @@
     ]
   }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --cream:   #faf9f7;
       --ink:     #0d0d0d;
-      --ink-mid: #3a3a3a;
       --gold:    #b8975a;
       --ease:    cubic-bezier(.25,1,.4,1);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       background: var(--cream);
       color: var(--ink);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
+      position: relative;
     }
 
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--cream); }
     ::-webkit-scrollbar-thumb { background: var(--ink); }
+
+    /* ══════════════════════════
+       FONDO GENERAL DE LA WEB (40% Opacidad, Uncropped)
+    ══════════════════════════ */
+    .bg-portada {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('portada.png');
+      background-size: contain; /* THE KEY CHANGE: Muestra la imagen entera sin recortar */
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.4;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Velo radial sutil */
+    .bg-veil {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(250,249,247,0.3) 0%, rgba(250,249,247,0.7) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
 
     /* ══════════════════════════
        NAV Y DROPDOWN
@@ -92,15 +114,14 @@
       min-height: 70px;
       padding: 10px 40px;
       background: rgba(250,249,247,0.88);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border-bottom: 1px solid rgba(13,13,13,0.08);
     }
 
     nav a.nav-pill, .dropbtn {
       color: var(--ink);
       text-decoration: none;
-      font-family: 'Montserrat', sans-serif;
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.3em;
@@ -109,29 +130,19 @@
       border-radius: 999px;
       border: 1.5px solid rgba(13,13,13,0.18);
       background: transparent;
-      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
       white-space: nowrap;
       cursor: pointer;
     }
 
-    nav a.nav-pill:hover {
-      background: var(--ink);
-      color: var(--cream);
-      border-color: var(--ink);
-      transform: translateY(-1px);
-    }
+    nav a.nav-pill:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px); }
 
     /* DROPDOWN */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
+    .dropdown { position: relative; display: inline-block; }
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 100%;
-      left: 50%;
+      top: 100%; left: 50%;
       transform: translateX(-50%);
       background-color: var(--cream);
       min-width: 180px;
@@ -143,7 +154,6 @@
       flex-direction: column;
       overflow: hidden;
     }
-
     .dropdown-content a {
       color: var(--ink);
       padding: 14px 20px;
@@ -157,264 +167,134 @@
       transition: background 0.2s ease, color 0.2s ease;
       border-bottom: 1px solid rgba(13,13,13,0.05);
     }
-
-    .dropdown-content a:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown-content a:hover {
-      background-color: var(--ink);
-      color: var(--cream);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: flex;
-      animation: fadeUp 0.3s ease;
-    }
-
-    .dropdown:hover .dropbtn {
-      background: var(--ink);
-      color: var(--cream);
-      border-color: var(--ink);
-      transform: translateY(-1px);
-    }
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
+    .dropdown:hover .dropbtn { background: var(--ink); color: var(--cream); transform: translateY(-1px); }
 
     /* ══════════════════════════
-       HERO
+       HERO - Texto Central Limpio
     ══════════════════════════ */
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
-      min-height: 680px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: var(--cream);
-    }
-
-    /* Sello como imagen pequeña centrada al fondo */
-    .hero-sello {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: clamp(180px, 28vw, 340px);
-      height: clamp(180px, 28vw, 340px);
-      object-fit: contain;
-      opacity: 0.18;
-      filter: saturate(0.7);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .hero-veil {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        160deg,
-        rgba(250,249,247,0.55) 0%,
-        rgba(250,249,247,0.25) 50%,
-        rgba(250,249,247,0.58) 100%
-      );
-      z-index: 1;
-    }
-
-    .hero-link {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 100px 20px 60px; /* Padding dinámico para evitar solapamientos */
+      z-index: 10;
       text-decoration: none;
-      cursor: pointer;
-      padding: 0 20px;
     }
 
     .hero-eyebrow {
-      font-size: 8.5px;
+      font-size: clamp(8px, 1.5vw, 10px);
       font-weight: 800;
-      letter-spacing: 0.5em;
+      letter-spacing: 0.55em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       opacity: 0;
       animation: riseIn 1s ease 0.3s forwards;
       text-align: center;
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 7.5vw, 108px);
+      font-family: 'Antonio', sans-serif; 
+      font-size: clamp(40px, 12vw, 180px);
       font-weight: 700;
-      font-style: italic;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.12em; 
       text-transform: uppercase;
-      text-align: center;
       color: var(--ink);
-      line-height: 1.1;
+      line-height: 1.05;
+      margin-bottom: 15px;
       opacity: 0;
       animation: riseIn 1.1s ease 0.55s forwards;
       transition: letter-spacing 0.5s ease;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      max-width: 100%;
+      text-align: center;
+      max-width: 95vw;
     }
 
-    .hero-link:hover .hero-title { letter-spacing: 0.18em; }
+    .hero:hover .hero-title { letter-spacing: 0.15em; }
 
     .hero-sub {
-      font-size: 8px;
-      font-weight: 600;
+      font-size: clamp(7.5px, 1.2vw, 9.5px);
+      font-weight: 700;
       letter-spacing: 0.5em;
       text-transform: uppercase;
-      color: var(--ink-mid);
-      margin-top: 18px;
+      color: rgba(13,13,13,0.7);
+      margin-bottom: 55px;
       opacity: 0;
       animation: riseIn 1s ease 0.8s forwards;
       text-align: center;
+      max-width: 80vw;
     }
 
-    /* ══════════════════════════
-       SELLO LANZAMIENTO (Integrado al centro)
-    ══════════════════════════ */
     .badge-container {
-      opacity: 0;
-      animation: riseIn 1s ease 0.9s forwards;
-      margin-top: 35px;
-      margin-bottom: 10px;
       display: flex;
       justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      animation: riseIn 1s ease 0.9s forwards;
+      margin-bottom: 50px;
     }
 
     .launch-badge {
       position: relative;
-      width: 110px;
-      height: 110px;
+      width: clamp(100px, 12vw, 140px);
+      height: clamp(100px, 12vw, 140px);
       border-radius: 50%;
       background: linear-gradient(145deg, var(--ink) 0%, #1a1a1a 100%);
       border: 1.5px solid var(--gold);
       color: var(--cream);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 10px;
       box-shadow: 0 8px 25px rgba(184,151,90,0.2), inset 0 0 10px rgba(0,0,0,0.5);
       animation: floatBadge 4s ease-in-out infinite;
-      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
     }
 
-    .hero-link:hover .launch-badge {
-      transform: scale(1.05) rotate(-3deg);
-      box-shadow: 0 10px 30px rgba(184,151,90,0.3), inset 0 0 12px rgba(0,0,0,0.5);
-    }
+    .lb-tag { font-size: 5px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 4px; }
+    .lb-title { font-family: 'Montserrat', sans-serif; font-size: clamp(12px, 1.5vw, 16px); font-weight: 700; color: var(--gold); margin-bottom: 4px; animation: textSparkle 2.5s infinite alternate; }
+    .lb-sub { font-size: 4.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,249,247,0.75); line-height: 1.5; }
 
-    .lb-tag {
-      font-size: 5px;
-      font-weight: 800;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--cream);
-      margin-bottom: 4px;
-    }
-
-    .lb-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
-      font-weight: 700;
-      font-style: italic;
-      line-height: 1.1;
-      color: var(--gold);
-      margin-bottom: 4px;
-      animation: textSparkle 2.5s infinite alternate;
-    }
-
-    .lb-sub {
-      font-size: 4.5px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(250,249,247,0.75);
-      line-height: 1.5;
-    }
-
-    .sparkle-icon {
-      position: absolute;
-      color: var(--gold);
-      animation: blinkSparkle 1.8s infinite alternate;
-      pointer-events: none;
-    }
+    .sparkle-icon { position: absolute; color: var(--gold); animation: blinkSparkle 1.8s infinite alternate; pointer-events: none; }
     .sp-1 { top: 15%; left: 15%; font-size: 9px; animation-delay: 0s; }
     .sp-2 { bottom: 20%; right: 12%; font-size: 7px; animation-delay: 0.6s; }
 
-    /* Botón final del Hero */
+    /* Botón CTA - Totalmente protegido de solapamientos */
     .hero-cta {
-      margin-top: 24px;
       display: inline-flex;
       align-items: center;
       gap: 14px;
-      font-size: 9px;
+      font-size: clamp(8px, 1.2vw, 10px);
       font-weight: 700;
       letter-spacing: 0.38em;
       text-transform: uppercase;
       color: var(--cream);
       background: var(--ink);
-      padding: 14px 36px;
+      padding: 16px 45px;
       border-radius: 999px;
+      text-decoration: none;
       opacity: 0;
-      animation: riseIn 1s ease 1s forwards;
+      animation: riseInCTA 1s ease 1s forwards;
       transition: background 0.3s, color 0.3s, gap 0.35s, transform 0.25s;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(13,13,13,0.2);
     }
 
-    .hero-link:hover .hero-cta {
-      background: var(--gold);
-      color: var(--cream);
-      gap: 20px;
-      transform: translateY(-2px);
-    }
-
-    /* Scroll indicator */
-    .hero-scroll {
-      position: absolute;
-      bottom: 34px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      opacity: 0;
-      animation: fadeIn 1s ease 1.8s forwards;
-    }
-
-    .hero-scroll span {
-      font-size: 6.5px;
-      font-weight: 600;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: rgba(13,13,13,0.35);
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 44px;
-      background: linear-gradient(to bottom, rgba(13,13,13,0.4), transparent);
-      animation: pulse 2.2s ease infinite;
-    }
+    .hero-cta:hover { background: var(--gold); gap: 20px; transform: translateY(-2px); box-shadow: 0 12px 35px rgba(184,151,90,0.3); }
 
     /* ══════════════════════════
        CONTACTO
     ══════════════════════════ */
     .contact-section {
-      background: var(--ink);
+      position: relative;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(10px);
       padding: 100px 40px 80px;
       text-align: center;
+      z-index: 10;
     }
 
     .contact-tag {
@@ -428,11 +308,9 @@
     }
 
     .contact-section h2 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(32px, 5vw, 64px);
       font-weight: 700;
-      font-style: italic;
-      letter-spacing: 0.1em;
       color: var(--cream);
       margin-bottom: 56px;
     }
@@ -463,106 +341,35 @@
       transition: all 0.3s ease;
     }
 
-    .contact-btn svg {
-      width: 18px; height: 18px;
-      stroke: currentColor;
-      stroke-width: 1.5;
-      fill: none;
-      flex-shrink: 0;
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    }
-
-    .contact-btn:hover svg { transform: scale(1.2); }
+    .contact-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; flex-shrink: 0; }
 
     .btn-ig:hover  { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color: #fff; border-color: transparent; }
     .btn-wa:hover  { background: #25D366; color: #fff; border-color: transparent; }
     .btn-email:hover { background: var(--gold); color: var(--ink); border-color: transparent; }
 
     /* ══════════════════════════
-       FOOTER
+       FOOTER Y SOPORTE FLOTANTE
     ══════════════════════════ */
-    footer {
-      background: var(--ink);
-      border-top: 1px solid rgba(250,249,247,0.06);
-      padding: 26px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
-      font-weight: 700;
-      font-style: italic;
-      letter-spacing: 0.25em;
-      color: rgba(250,249,247,0.2);
-    }
-
-    .footer-copy {
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(250,249,247,0.12);
-    }
-
-    /* ══════════════════════════
-       SOPORTE FLOTANTE
-    ══════════════════════════ */
-    .support-float {
-      position: fixed; bottom: 36px; right: 36px;
-      width: 52px; height: 52px; border-radius: 50%;
-      background: var(--ink); color: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
-      z-index: 999; border: 1.5px solid var(--ink);
-      transition: background 0.25s, color 0.25s, transform 0.25s;
-    }
+    footer { position: relative; z-index: 10; background: var(--ink); border-top: 1px solid rgba(250,249,247,0.06); padding: 26px 50px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(250,249,247,0.2); }
+    .footer-copy { font-size: 8px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(250,249,247,0.12); }
+    
+    .support-float { position: fixed; bottom: 36px; right: 36px; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: var(--cream); display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 28px rgba(13,13,13,0.16); z-index: 999; border: 1.5px solid var(--ink); transition: background 0.25s, color 0.25s, transform 0.2s; }
     .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
-    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
 
     /* ══════════════════════════
        KEYFRAMES
     ══════════════════════════ */
-    @keyframes riseIn {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translate(-50%, 10px); }
-      to   { opacity: 1; transform: translate(-50%, 0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; } to { opacity: 1; }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
-    }
-
-    @keyframes floatBadge {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes textSparkle {
-      0% { text-shadow: 0 0 4px rgba(184,151,90,0.3); }
-      100% { text-shadow: 0 0 10px rgba(184,151,90,0.8), 0 0 15px rgba(255,255,255,0.3); }
-    }
-
-    @keyframes blinkSparkle {
-      0% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
-      100% { opacity: 1; transform: scale(1.3) rotate(45deg); }
-    }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes riseInCTA { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+    @keyframes floatBadge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes textSparkle { 0% { text-shadow: 0 0 4px rgba(184,151,90,0.3); } 100% { text-shadow: 0 0 10px rgba(184,151,90,0.8), 0 0 15px rgba(255,255,255,0.3); } }
+    @keyframes blinkSparkle { 0% { opacity: 0.2; transform: scale(0.8) rotate(0deg); } 100% { opacity: 1; transform: scale(1.3) rotate(45deg); } }
 
     /* ══════════════════════════
-       RESPONSIVE
+       RESPONSIVE - Optimizado sin solapamientos
     ══════════════════════════ */
     @media (max-width: 768px) {
       nav { padding: 10px 20px; gap: 8px; }
@@ -573,24 +380,20 @@
 
     @media (max-width: 480px) {
       nav { gap: 6px; padding: 10px; }
-      /* Botones más pequeños en móvil */
       nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 12px; letter-spacing: 0.15em; }
       
-      .hero-eyebrow { font-size: 7.5px; letter-spacing: 0.4em; margin-bottom: 12px; }
-      .hero-sub { font-size: 7px; letter-spacing: 0.3em; line-height: 1.5; margin-top: 14px; }
-      .badge-container { margin-top: 25px; margin-bottom: 5px; }
+      .hero { padding: 110px 15px 60px; justify-content: flex-start; } /* Alineado arriba en móvil para usar el espacio */
+      .hero-title { letter-spacing: 0.08em; margin-bottom: 12px; margin-top: 5vh; }
+      .hero-sub { letter-spacing: 0.25em; line-height: 1.5; margin-bottom: 35px; }
       
-      /* Ajuste del sello en móvil para que encaje perfecto */
-      .launch-badge { width: 95px; height: 95px; padding: 8px; }
-      .lb-tag { font-size: 4px; margin-bottom: 3px; }
+      .badge-container { margin-bottom: 35px; }
+      .launch-badge { width: 100px; height: 100px; padding: 8px; }
       .lb-title { font-size: 11px; line-height: 1.1; margin-bottom: 4px; }
-      .lb-sub { font-size: 4px; line-height: 1.2; }
-      .sp-1, .sp-2 { font-size: 7px; }
-
-      .hero-cta { font-size: 7.5px; padding: 12px 24px; letter-spacing: 0.2em; margin-top: 15px;}
+      
+      .hero-cta { font-size: 7.5px; padding: 16px 28px; letter-spacing: 0.2em; width: 90%; justify-content: center; }
       
       .contact-buttons { flex-direction: column; width: 100%; }
-      .contact-btn { font-size: 7.5px; width: 100%; justify-content: center; padding: 12px 20px;}
+      .contact-btn { font-size: 7.5px; width: 100%; justify-content: center; padding: 14px 20px;}
       
       .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
     }
@@ -598,9 +401,11 @@
 </head>
 <body>
 
+  <div class="bg-portada"></div>
+  <div class="bg-veil"></div>
+
   <nav>
     <a href="catalogo.html" class="nav-pill">Catálogo</a>
-    
     <div class="dropdown">
       <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
       <div class="dropdown-content">
@@ -611,72 +416,41 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <a href="catalogo.html" class="hero">
+    <span class="hero-eyebrow">Lanzamientos Limitados por Fechas</span>
 
-    <img src="sello.jpg" alt="Sello South Size Topping" class="hero-sello" />
+    <h1 class="hero-title">South Size<br>Topping</h1>
+    <p class="hero-sub">Streetwear &nbsp;·&nbsp; Ropa Urbana &nbsp;·&nbsp; Alta Costura Casual</p>
 
-    <div class="hero-veil"></div>
-
-    <a href="catalogo.html" class="hero-link">
-      <span class="hero-eyebrow">Lanzamientos Limitados por Fechas</span>
-
-      <h1 class="hero-title">South Size Topping</h1>
-
-      <p class="hero-sub">Streetwear &nbsp;·&nbsp; Ropa Urbana &nbsp;·&nbsp; Alta Costura Urbana</p>
-
-      <div class="badge-container">
-        <div class="launch-badge">
-          <span class="sparkle-icon sp-1">✨</span>
-          <span class="sparkle-icon sp-2">✨</span>
-          <span class="lb-tag">Lanzamiento</span>
-          <div class="lb-title">Sólo 20<br>piezas</div>
-          <span class="lb-sub">Máximo por diseño</span>
-        </div>
+    <div class="badge-container">
+      <div class="launch-badge">
+        <span class="sparkle-icon sp-1">✨</span>
+        <span class="sparkle-icon sp-2">✨</span>
+        <span class="lb-tag">Edición</span>
+        <div class="lb-title">Sólo 20<br>piezas</div>
+        <span class="lb-sub">Lanzamiento Único</span>
       </div>
-
-      <div class="hero-cta">
-        Explorar colecciones
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </div>
-    </a>
-
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
     </div>
-  </section>
+
+    <div class="hero-cta">
+      Explorar colecciones
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </div>
+  </a>
 
   <section id="contacto" class="contact-section">
     <span class="contact-tag">Estamos aquí</span>
     <h2>Contacto</h2>
     <div class="contact-buttons">
-
-      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
-        <svg viewBox="0 0 24 24">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <circle cx="12" cy="12" r="4.5"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-        Instagram
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram</a>
+      
+      <a href="https://wa.me/34653181905?text=Hola%20%C3%81ngel.%20Vengo%20de%20la%20web%20y%20quiero%20acceso%20a%20los%20lanzamientos%20exclusivos%20de%20South%20Size%20Topping." target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg> WhatsApp
       </a>
-
-      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
-        <svg viewBox="0 0 24 24">
-          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
-        </svg>
-        WhatsApp
-      </a>
-
-      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-btn btn-email">
-        <svg viewBox="0 0 24 24">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        Email
-      </a>
-
+      
+      <a href="mailto:angelmoretaalcorta01@gmail.com" class="contact-btn btn-email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
     </div>
   </section>
 
@@ -685,23 +459,14 @@
     <span class="footer-copy">© 2026 — Todos los derechos reservados</span>
   </footer>
 
-  <a href="soporte.html" class="support-float" title="Soporte">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="5" r="2.2"/>
-      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
-      <path d="M1 22h22"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
-      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
-    </svg>
-  </a>
+  <a href="soporte.html" class="support-float" title="Soporte"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><rect x="3" y="11" width="18" height="11" rx="1.5"/><path d="M1 22h22"/><line x1="3" y1="18" x2="21" y2="18"/><path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/></svg></a>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const dropbtn = document.querySelector('.dropbtn');
-      dropbtn.addEventListener('click', (e) => {
-        // En móviles previene que haga cosas raras y fuerza el focus
-        e.preventDefault();
-      });
+      if (dropbtn) {
+        dropbtn.addEventListener('click', (e) => { e.preventDefault(); });
+      }
     });
   </script>
 
