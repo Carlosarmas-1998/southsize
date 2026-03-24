@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Llaveros — South Size Topping</title>
+  <meta name="author" content="Abril Armas" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -135,7 +136,7 @@
        HEADER
     ══════════════════════════ */
     header {
-      padding: 148px 20px 44px;
+      padding: 148px 20px 24px;
       text-align: center;
     }
 
@@ -153,6 +154,20 @@
       font-size: 8px; font-weight: 700;
       letter-spacing: 0.5em; text-transform: uppercase;
       color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+
+    .promo-alert {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 999px;
+      animation: riseIn 1s ease;
     }
 
     /* ══════════════════════════
@@ -269,7 +284,13 @@
       font-size: 14px; font-weight: 700;
       letter-spacing: 0.1em; color: var(--ink);
       margin-bottom: 18px;
+      display: flex; justify-content: center; align-items: center; gap: 8px;
     }
+
+    .original-price {
+      color: var(--ink-soft); font-size: 0.75em; text-decoration: line-through; display: none;
+    }
+    .original-price.show { display: inline-block; }
 
     /* ── Controles ── */
     .controls-row {
@@ -419,7 +440,7 @@
     }
 
     /* ══════════════════════════
-       SOPORTE FLOTANTE (Solo icono)
+       SOPORTE FLOTANTE
     ══════════════════════════ */
     .support-float {
       position: fixed; bottom: 36px; right: 36px;
@@ -518,8 +539,10 @@
       nav { gap: 6px; padding: 8px 10px; min-height: auto; top: 28px; }
       nav a.nav-pill, .dropbtn { font-size: 7.5px; padding: 8px 12px; letter-spacing: 0.16em; }
       .nav-sep { display: none; }
-      header { padding: 130px 16px 36px; }
+      header { padding: 130px 16px 24px; }
       
+      .promo-alert { font-size: 6.5px; padding: 6px 14px; max-width: 90%; line-height: 1.4; }
+
       /* 2 COLUMNAS EN MÓVIL */
       .collection-grid {
         grid-template-columns: 1fr 1fr;
@@ -575,14 +598,15 @@
   <header>
     <h1 class="collection-title">Llaveros</h1>
     <p class="header-sub">Accesorios de Autor &nbsp;·&nbsp; Madrid</p>
+    <div class="promo-alert">✦ ¡Llévatelo a 0€ al comprar ropa de la Colección Él! ✦</div>
   </header>
 
   <main class="collection-grid">
-    <article class="product-card" data-id="llavero-st">
+    <article class="product-card" data-id="llavero-nfc">
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="l1.jpeg" alt="Llavero S$T frontal">
+          <img src="l1.png" alt="Llavero S$T frontal">
           <img src="l2.jpeg" alt="Llavero S$T detalle">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
@@ -593,9 +617,12 @@
       </div>
 
       <div class="product-info">
-        <h2 class="product-title">Llavero S$T</h2>
+        <h2 class="product-title">Llavero S$T NFC</h2>
         <p class="product-motto">"Tu llave de acceso al club South Size."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">24,00 €</s>11,00 €</p>
+        <p class="product-price">
+          <s id="original-price" class="original-price">12,00 €</s>
+          <span id="current-price">12,00 €</span>
+        </p>
 
         <div class="controls-row">
           <span class="size-unique">Talla única</span>
@@ -607,8 +634,8 @@
         </div>
 
         <div class="actions-row">
-          <button class="btn-add-bag" onclick="addToCart(this, 'llavero-st', 'Llavero S$T', 11, 'l1.jpg')">Agregar a la bolsa</button>
-          <button class="btn-fav" onclick="toggleFav(this, 'llavero-st', 'Llavero S$T')">
+          <button class="btn-add-bag" onclick="addLlaveroToCart(this)">Agregar a la bolsa</button>
+          <button class="btn-fav" onclick="toggleFav(this, 'llavero-nfc', 'Llavero S$T NFC')">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
         </div>
@@ -662,7 +689,7 @@
 
   <footer>
     <span class="footer-brand">South Size Topping</span>
-    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
+    <span class="footer-copy">© 2026 Abril Armas — Todos los derechos reservados</span>
   </footer>
 
   <script>
@@ -798,7 +825,7 @@
     });
 
     /* ══════════════════════════════════
-       CARRITO & FAVORITOS LOGIC
+       CARRITO, FAVORITOS Y PROMOCIÓN LÓGICA
     ══════════════════════════════════ */
     window.updateQty = function(btn, change) {
       const span = btn.parentElement.querySelector('.qty-num');
@@ -812,10 +839,11 @@
     function getFavs() { try { return JSON.parse(localStorage.getItem('sst-fav')) || []; } catch { return []; } }
     function saveFavs(f) { localStorage.setItem('sst-fav', JSON.stringify(f)); }
 
+    let currentLlaveroPrice = 12; // Base price
+
     function syncBadges() {
-      // Leer el cart
-      let theCart = getCart();
-      const cartTotal = theCart.reduce((s, i) => s + i.qty, 0);
+      let cart = getCart();
+      const cartTotal = cart.reduce((s, i) => s + i.qty, 0);
       const favTotal  = getFavs().length;
 
       const cb = document.getElementById('cart-badge');
@@ -828,6 +856,24 @@
       const bagSvg   = document.querySelector('.bag-svg');
       if (heartSvg) heartSvg.classList.toggle('has-items', favTotal  > 0);
       if (bagSvg)   bagSvg.classList.toggle('has-items',   cartTotal > 0);
+
+      updateLlaveroPriceDisplay(cart);
+    }
+
+    function updateLlaveroPriceDisplay(cart) {
+      const hasEl = cart.some(item => item.collection === 'el');
+      const priceSpan = document.getElementById('current-price');
+      const origPrice = document.getElementById('original-price');
+      
+      if(hasEl) {
+        currentLlaveroPrice = 0;
+        if(priceSpan) priceSpan.textContent = '0.00 €';
+        if(origPrice) origPrice.classList.add('show');
+      } else {
+        currentLlaveroPrice = 12;
+        if(priceSpan) priceSpan.textContent = '12.00 €';
+        if(origPrice) origPrice.classList.remove('show');
+      }
     }
 
     let toastTimer = null;
@@ -841,16 +887,30 @@
       toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    window.addToCart = function(btn, id, name, price, image) {
+    // Función específica para el llavero
+    window.addLlaveroToCart = function(btn) {
       const card = btn.closest('.product-card');
       const qty  = parseInt((card.querySelector('.qty-num') || { innerText: '1' }).innerText) || 1;
-      const key  = id + '-unica';
+      const key  = 'llavero-nfc'; // ID exacto para coordinar con coleccion-el.html
       
       const cart = getCart();
       const hit  = cart.find(i => i.id === key);
       
-      if (hit) { hit.qty += qty; } 
-      else { cart.push({ id: key, name, variant: 'Talla Única', price: parseFloat(price), qty, image }); }
+      if (hit) { 
+        hit.qty += qty; 
+        hit.price = currentLlaveroPrice; // Actualiza el precio por si cambió
+      } 
+      else { 
+        cart.push({ 
+          id: key, 
+          name: 'Llavero S$T NFC', 
+          variant: 'Talla Única', 
+          price: currentLlaveroPrice, 
+          qty: qty, 
+          image: 'l1.png',
+          link: 'llaveros.html'
+        }); 
+      }
       
       saveCart(cart);
 
@@ -863,7 +923,7 @@
       if (cb) { cb.style.transform = 'scale(1.9)'; setTimeout(() => cb.style.transform = 'scale(1)', 380); }
 
       syncBadges();
-      showToast(name);
+      showToast('Llavero S$T NFC');
     };
 
     window.toggleFav = function(btn, id, name) {
@@ -895,9 +955,10 @@
     document.addEventListener("DOMContentLoaded", () => {
       const dropbtn = document.querySelector('.dropbtn');
       if(dropbtn) dropbtn.addEventListener('click', e => e.preventDefault());
+      
+      syncBadges();
     });
     
-    syncBadges();
     restoreFavState();
     window.addEventListener('storage', syncBadges);
 
