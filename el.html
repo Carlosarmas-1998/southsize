@@ -115,12 +115,12 @@
     .product-card { display: flex; flex-direction: column; width: 100%; transition: transform 0.45s var(--ease); }
     .product-card:hover { transform: translateY(-4px); }
 
-    /* Carrusel - SCROLL VERTICAL LIBERADO */
+    /* Carrusel */
     .carousel-wrapper { position: relative; width: 100%; aspect-ratio: 3/4; background: #f5f4f0; overflow: hidden; border: 1px solid var(--border); margin-bottom: 16px; border-radius: 4px; }
     .carousel-track { 
       display: flex; width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden;
       scroll-snap-type: x mandatory; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; 
-      touch-action: pan-y pinch-zoom; /* CLAVE: Permite scroll vertical nativo en móvil */
+      touch-action: pan-y pinch-zoom;
     }
     .carousel-track::-webkit-scrollbar { display: none; }
     .carousel-track img { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; object-fit: contain; padding: 12px; cursor: zoom-in; user-select: none; -webkit-user-drag: none; scroll-snap-stop: always; }
@@ -138,7 +138,22 @@
     .product-info { text-align: center; padding: 0 4px; }
     .product-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; font-style: italic; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 5px; }
     .product-motto { font-size: 8.5px; font-weight: 400; color: var(--ink-soft); font-style: italic; letter-spacing: 0.07em; line-height: 1.75; margin-bottom: 8px; }
-    .product-price { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 6px; }
+    .product-price { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink); margin-bottom: 8px; }
+    
+    /* ── PUNTITOS DE COLORES ── */
+    .color-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; }
+    .color-dot { 
+      width: 12px; height: 12px; border-radius: 50%; 
+      border: 1px solid rgba(13,13,13,0.15); 
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); 
+      cursor: pointer; transition: transform 0.25s var(--ease), border-color 0.25s;
+    }
+    .color-dot:hover { transform: scale(1.2); border-color: var(--ink); }
+    .dot-beige { background-color: #eaddcf; }
+    .dot-negro { background-color: #1a1a1a; }
+    .dot-gris  { background-color: #8c8c8c; }
+    .dot-marron { background-color: #6b4423; }
+
     .urgency-label { font-size: 7.5px; font-weight: 800; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; display: block;}
     .urgency-label span { color: #e03535; }
 
@@ -255,9 +270,12 @@
       .product-info { padding: 0; }
       .product-title { font-size: 14px; }
       .product-motto { font-size: 7.5px; }
-      .product-price { font-size: 12px; margin-bottom: 6px; }
+      .product-price { font-size: 12px; margin-bottom: 8px; }
       .urgency-label { font-size: 6.5px; margin-bottom: 10px; line-height: 1.4;}
       
+      .color-dots { gap: 6px; margin-bottom: 10px; }
+      .color-dot { width: 10px; height: 10px; }
+
       .controls-row { height: 28px; margin-bottom: 8px; }
       .size-select { font-size: 7.5px; padding: 0 20px 0 10px; }
       .select-wrapper::after { right: 8px; }
@@ -308,7 +326,7 @@
     <p class="header-sub">Selección Exclusiva &nbsp;·&nbsp; Madrid</p>
     
     <div class="promo-banner">
-      <span>✦</span> Compra 2 prendas y recibe un bono de 10,00 € en tu bolsa <span>✦</span>
+      <span>✦</span> Compra 2 prendas y recibe un bono de L 10.00 en tu bolsa <span>✦</span>
     </div>
 
     <div class="badge-container">
@@ -329,7 +347,7 @@
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
           <img src="c1.jpg" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
-          <img src="c2.jpg" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
+          <img src="c2.png" alt="Sudadera Class Topping" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -337,8 +355,15 @@
       <div class="product-info">
         <h2 class="product-title">Sudadera Class Topping</h2>
         <p class="product-motto">"La redefinición del streetwear clásico."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">65,00 €</s>52,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 65.00</s>L 52.00</p>
         
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-beige" title="Beige"></div>
+          <div class="color-dot dot-negro" title="Negro"></div>
+          <div class="color-dot dot-gris" title="Gris"></div>
+          <div class="color-dot dot-marron" title="Marrón"></div>
+        </div>
+
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 3 udes.</span></p>
 
         <div class="controls-row">
@@ -382,8 +407,15 @@
       <div class="product-info">
         <h2 class="product-title">Sudadera Champion</h2>
         <p class="product-motto">"El legado de los campeones. Diseñada para Madrid."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">65,00 €</s>52,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 65.00</s>L 52.00</p>
         
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-beige" title="Beige"></div>
+          <div class="color-dot dot-negro" title="Negro"></div>
+          <div class="color-dot dot-gris" title="Gris"></div>
+          <div class="color-dot dot-marron" title="Marrón"></div>
+        </div>
+
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 7 udes.</span></p>
 
         <div class="controls-row">
@@ -419,7 +451,7 @@
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
           <img src="c5.jpg" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
-          <img src="c6.jpg" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
+          <img src="c6.png" alt="Camiseta Game Over" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -427,8 +459,15 @@
       <div class="product-info">
         <h2 class="product-title">Camiseta Game Over</h2>
         <p class="product-motto">"Último nivel. Algodón premium. Pura actitud."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">55,00 €</s>42,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 55.00</s>L 42.00</p>
         
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-beige" title="Beige"></div>
+          <div class="color-dot dot-negro" title="Negro"></div>
+          <div class="color-dot dot-gris" title="Gris"></div>
+          <div class="color-dot dot-marron" title="Marrón"></div>
+        </div>
+
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 4 udes.</span></p>
 
         <div class="controls-row">
@@ -463,7 +502,7 @@
       <div class="carousel-wrapper">
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
-          <img src="c7.jpg" alt="Sudadera Boxing Profight" onclick="openLightboxFromImg(this)">
+          <img src="c7.png" alt="Sudadera Boxing Profight" onclick="openLightboxFromImg(this)">
           <img src="c8.jpg" alt="Sudadera Boxing Profight" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
@@ -472,8 +511,15 @@
       <div class="product-info">
         <h2 class="product-title">Sudadera Boxing Profight</h2>
         <p class="product-motto">"Resistencia y estilo inquebrantable."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">68,00 €</s>55,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 68.00</s>L 55.00</p>
         
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-beige" title="Beige"></div>
+          <div class="color-dot dot-negro" title="Negro"></div>
+          <div class="color-dot dot-gris" title="Gris"></div>
+          <div class="color-dot dot-marron" title="Marrón"></div>
+        </div>
+
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 9 udes.</span></p>
 
         <div class="controls-row">
@@ -509,7 +555,7 @@
         <button class="carousel-arrow arrow-prev" onclick="scrollTrack(this,-1)">&#8249;</button>
         <div class="carousel-track" onscroll="updateDots(this)">
           <img src="C9.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
-          <img src="c10.jpg" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
+          <img src="c10.png" alt="Camiseta South Size" onclick="openLightboxFromImg(this)">
         </div>
         <button class="carousel-arrow arrow-next" onclick="scrollTrack(this,1)">&#8250;</button>
         <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div></div>
@@ -517,8 +563,15 @@
       <div class="product-info">
         <h2 class="product-title">Camiseta South Size</h2>
         <p class="product-motto">"No sigues tendencias. Las defines."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">55,00 €</s>42,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 55.00</s>L 42.00</p>
         
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-beige" title="Beige"></div>
+          <div class="color-dot dot-negro" title="Negro"></div>
+          <div class="color-dot dot-gris" title="Gris"></div>
+          <div class="color-dot dot-marron" title="Marrón"></div>
+        </div>
+
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Últimas 2 udes.</span></p>
 
         <div class="controls-row">
@@ -562,8 +615,15 @@
       <div class="product-info">
         <h2 class="product-title">Camiseta Wear</h2>
         <p class="product-motto">"El código de la calle, hecho a medida."</p>
-        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">60,00 €</s>45,00 €</p>
+        <p class="product-price"><s style="color: var(--ink-soft); font-size: 0.8em; margin-right: 8px;">L 60.00</s>L 45.00</p>
         
+        <div class="color-dots" title="Colores disponibles">
+          <div class="color-dot dot-beige" title="Beige"></div>
+          <div class="color-dot dot-negro" title="Negro"></div>
+          <div class="color-dot dot-gris" title="Gris"></div>
+          <div class="color-dot dot-marron" title="Marrón"></div>
+        </div>
+
         <p class="urgency-label">Firmada por diseñador &nbsp;·&nbsp; <span>Quedan 5 udes.</span></p>
 
         <div class="controls-row">
