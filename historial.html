@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Historial de Pedidos | South Size Topping España</title>
+  <meta name="description" content="Consulta tu historial de pedidos en South Size Topping. Descarga justificantes y sigue el estado de tus compras.">
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#faf9f7;--ink:#0d0d0d;--ink-mid:#3a3a3a;--ink-soft:#7a7875;--gold:#b8975a;--border:rgba(13,13,13,0.1);--ease:cubic-bezier(.25,1,.4,1);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:'Montserrat',sans-serif;font-weight:700;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+    ::-webkit-scrollbar{width:3px;} ::-webkit-scrollbar-track{background:var(--cream);} ::-webkit-scrollbar-thumb{background:var(--ink);}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;min-height:70px;padding:10px 40px;background:rgba(250,249,247,0.88);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(13,13,13,0.08);}
+    nav a.nav-pill,.dropbtn{color:var(--ink);text-decoration:none;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 24px;border-radius:999px;border:1.5px solid rgba(13,13,13,0.18);background:transparent;transition:all 0.25s ease;white-space:nowrap;cursor:pointer;}
+    nav a.nav-pill:hover,nav a.nav-pill.active{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-1px);}
+    .dropdown{position:relative;display:inline-block;} .dropdown-content{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background-color:var(--cream);min-width:180px;box-shadow:0 10px 30px rgba(13,13,13,0.15);border-radius:8px;border:1px solid rgba(13,13,13,0.08);z-index:500;margin-top:10px;flex-direction:column;overflow:hidden;}
+    .dropdown-content a{color:var(--ink);padding:14px 20px;text-decoration:none;display:block;font-size:7.5px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;text-align:center;transition:all 0.2s;border-bottom:1px solid rgba(13,13,13,0.05);}
+    .dropdown-content a:last-child{border-bottom:none;} .dropdown-content a:hover{background:var(--ink);color:var(--cream);} .dropdown:hover .dropdown-content{display:flex;animation:fadeUp 0.3s ease;}
+    .nav-sep{width:1px;height:22px;background:rgba(13,13,13,0.18);flex-shrink:0;}
+    .nav-icon-btn{position:relative;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;border:1.5px solid rgba(13,13,13,0.18);background:transparent;cursor:pointer;color:var(--ink);text-decoration:none;transition:all 0.25s;flex-shrink:0;}
+    .nav-icon-btn:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-1px);}
+    .nav-icon-btn svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;transition:all 0.25s;}
+    .nav-icon-btn:hover svg{stroke:var(--cream);}
+    .nav-icon-btn:hover .heart-svg{fill:var(--cream);stroke:var(--cream);}
+    .cart-count,.fav-count{position:absolute;top:-4px;right:-4px;background:var(--ink);color:var(--cream);font-size:7px;font-weight:800;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--cream);transition:transform 0.3s;opacity:0;transform:scale(0);}
+    .cart-count.visible,.fav-count.visible{opacity:1;transform:scale(1);}
+    .heart-svg{fill:none;stroke:var(--ink);} .heart-svg.has-items{fill:#e03535;stroke:#e03535;} .bag-svg.has-items{stroke:var(--gold);}
+
+    /* HEADER */
+    .page-header{padding:140px 20px 40px;text-align:center;}
+    .page-header h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(32px,6vw,64px);color:var(--ink);margin-bottom:10px;}
+    .page-header p{font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-soft);}
+
+    /* ORDERS LIST */
+    .orders-container{max-width:800px;margin:0 auto;padding:0 20px 80px;}
+    .order-card{background:#fff;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden;transition:box-shadow 0.3s,transform 0.3s;}
+    .order-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-2px);}
+    .order-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;cursor:pointer;}
+    .order-id{font-size:14px;font-weight:800;color:var(--gold);}
+    .order-date{font-size:9px;color:var(--ink-soft);font-weight:600;}
+    .order-status{display:inline-block;padding:5px 16px;border-radius:999px;font-size:8px;font-weight:700;letter-spacing:0.1em;color:#fff;}
+    .order-total{font-size:16px;font-weight:800;}
+    .order-body{display:none;padding:16px 20px;background:rgba(250,249,247,0.5);}
+    .order-body.open{display:block;}
+    .order-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.04);}
+    .order-item:last-child{border-bottom:none;}
+    .order-item-img{width:50px;height:50px;border-radius:6px;object-fit:cover;background:#eee;}
+    .order-item-info{flex:1;}
+    .order-item-name{font-size:11px;font-weight:700;}
+    .order-item-meta{font-size:9px;color:var(--ink-soft);margin-top:2px;}
+    .order-item-price{font-size:12px;font-weight:800;}
+
+    /* STATUS TIMELINE */
+    .status-timeline{margin-top:16px;padding-top:12px;border-top:1px solid var(--border);}
+    .status-timeline-title{font-size:8px;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+    .timeline-step{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+    .timeline-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .timeline-label{font-size:10px;font-weight:700;}
+    .timeline-date{font-size:9px;color:var(--ink-soft);margin-left:auto;}
+
+    /* ACTIONS */
+    .order-actions{display:flex;gap:8px;margin-top:16px;padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap;}
+    .btn-receipt{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:10px 24px;border:1.5px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--cream);cursor:pointer;transition:all 0.25s;}
+    .btn-receipt:hover{background:var(--gold);border-color:var(--gold);}
+
+    /* EMPTY */
+    .empty{text-align:center;padding:80px 20px;}
+    .empty h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;margin-bottom:12px;}
+    .empty p{font-size:10px;color:var(--ink-soft);margin-bottom:24px;}
+    .empty a{display:inline-block;padding:12px 32px;background:var(--ink);color:var(--cream);border-radius:999px;text-decoration:none;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;transition:all 0.25s;}
+    .empty a:hover{background:var(--gold);}
+
+    /* FOOTER */
+    footer{margin-top:auto;background:var(--ink);border-top:1px solid rgba(250,249,247,0.06);padding:26px 50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;font-style:italic;letter-spacing:0.25em;color:rgba(250,249,247,0.2);}
+    .footer-copy{font-size:8px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(250,249,247,0.12);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translate(-50%,10px);}to{opacity:1;transform:translate(-50%,0);}}
+    @media(max-width:600px){nav{padding:10px;gap:8px;} nav a.nav-pill,.dropbtn{font-size:7px;padding:8px 14px;} .page-header{padding:120px 16px 30px;} .orders-container{padding:0 12px 60px;} footer{flex-direction:column;text-align:center;padding:20px;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="catalogo.html" class="nav-pill">Catálogo</a>
+  <div class="dropdown">
+    <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+    <div class="dropdown-content">
+      <a href="index.html">Inicio</a>
+      <a href="quienes-somos.html">Sobre la marca</a>
+      <a href="contactos.html">Contactos</a>
+      <a href="politicas.html">Políticas</a>
+    </div>
+  </div>
+  <a href="historial.html" class="nav-pill active">Mis Pedidos</a>
+  <div class="nav-sep"></div>
+  <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
+    <svg viewBox="0 0 24 24"><path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="fav-count" id="fav-badge">0</span>
+  </a>
+  <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
+    <svg viewBox="0 0 24 24"><path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+    <span class="cart-count" id="cart-badge">0</span>
+  </a>
+</nav>
+
+<div class="page-header">
+  <h1>Mis Pedidos</h1>
+  <p>Historial de compras y justificantes</p>
+</div>
+
+<div class="orders-container" id="orders-list"></div>
+
+<footer>
+  <span class="footer-brand">South Size Topping</span>
+  <span class="footer-copy">&copy; 2026 — Todos los derechos reservados</span>
+</footer>
+
+<script src="sst-core.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  function getCart(){try{return JSON.parse(localStorage.getItem('sst-cart'))||JSON.parse(localStorage.getItem('sst_cart'))||[];}catch(e){return[];}}
+  function getFavs(){try{return JSON.parse(localStorage.getItem('sst-fav'))||[];}catch(e){return[];}}
+
+  function syncBadges(){
+    var c=getCart().reduce(function(s,i){return s+i.qty;},0);
+    var f=getFavs().length;
+    var cb=document.getElementById('cart-badge'),fb=document.getElementById('fav-badge');
+    if(cb){cb.textContent=c;cb.classList.toggle('visible',c>0);}
+    if(fb){fb.textContent=f;fb.classList.toggle('visible',f>0);}
+    var hs=document.querySelector('.heart-svg'),bs=document.querySelector('.bag-svg');
+    if(hs)hs.classList.toggle('has-items',f>0);
+    if(bs)bs.classList.toggle('has-items',c>0);
+  }
+  syncBadges();
+  window.addEventListener('storage',function(e){if(e.key==='sst-fav'||e.key==='sst-cart'||e.key==='sst_cart')syncBadges();});
+
+  function formatDate(iso){
+    if(!iso)return '—';
+    var d=new Date(iso);
+    return d.toLocaleDateString('es-ES',{day:'2-digit',month:'long',year:'numeric'})+' · '+d.toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});
+  }
+
+  function renderOrders(){
+    var container=document.getElementById('orders-list');
+    var orders=SST.getOrders();
+
+    if(orders.length===0){
+      container.innerHTML='<div class="empty"><h2>Sin pedidos todavía</h2><p>Cuando realices tu primera compra, aparecerá aquí con todos los detalles.</p><a href="catalogo.html">Explorar colecciones</a></div>';
+      return;
+    }
+
+    container.innerHTML=orders.map(function(o,idx){
+      var itemsHtml=o.items.map(function(it){
+        return '<div class="order-item">'+
+          (it.img?'<img src="'+it.img+'" class="order-item-img" alt="'+it.name+'"/>':'<div class="order-item-img"></div>')+
+          '<div class="order-item-info"><div class="order-item-name">'+it.name+'</div><div class="order-item-meta">'+(it.size?'Talla: '+it.size:'')+(it.color?' · Color: '+it.color:'')+ ' · Ud: '+it.qty+'</div></div>'+
+          '<div class="order-item-price">'+(it.price*it.qty).toFixed(2)+'€</div>'+
+        '</div>';
+      }).join('');
+
+      var timelineHtml=o.statusHistory.map(function(sh){
+        return '<div class="timeline-step">'+
+          '<div class="timeline-dot" style="background:'+SST.getStatusColor(sh.status)+'"></div>'+
+          '<span class="timeline-label">'+SST.getStatusIcon(sh.status)+' '+sh.status+'</span>'+
+          '<span class="timeline-date">'+formatDate(sh.date)+'</span>'+
+        '</div>';
+      }).join('');
+
+      return '<div class="order-card">'+
+        '<div class="order-header" onclick="this.nextElementSibling.classList.toggle(\'open\')">'+
+          '<div><span class="order-id">'+o.id+'</span><br><span class="order-date">'+formatDate(o.createdAt)+'</span></div>'+
+          '<span class="order-status" style="background:'+SST.getStatusColor(o.status)+'">'+SST.getStatusIcon(o.status)+' '+o.status+'</span>'+
+          '<span class="order-total">'+o.total.toFixed(2)+'€</span>'+
+        '</div>'+
+        '<div class="order-body'+(idx===0?' open':'')+'">'+
+          itemsHtml+
+          '<div class="status-timeline"><div class="status-timeline-title">Seguimiento</div>'+timelineHtml+'</div>'+
+          '<div class="order-actions"><button class="btn-receipt" onclick="SST.openReceipt(\''+o.id+'\')">Ver Justificante</button></div>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+  }
+
+  renderOrders();
+
+  // Auto-refresh para cambios de estado
+  setInterval(renderOrders, 5000);
+  window.addEventListener('storage',function(e){if(e.key==='sst-orders')renderOrders();});
+
+  document.querySelector('.dropbtn').addEventListener('click',function(e){e.preventDefault();});
+})();
+</script>
+</body>
+</html>

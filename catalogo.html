@@ -48,6 +48,30 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo South Size Topping",
+    "description": "Colecciones de streetwear exclusivo para hombre y mujer. Ediciones limitadas.",
+    "numberOfItems": 3,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Colección Él", "url": "https://www.streeturbanwear.com/el.html" },
+      { "@type": "ListItem", "position": 2, "name": "Colección Ella", "url": "https://www.streeturbanwear.com/ella.html" },
+      { "@type": "ListItem", "position": 3, "name": "Accesorios", "url": "https://www.streeturbanwear.com/llaveros.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.streeturbanwear.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Catálogo", "item": "https://www.streeturbanwear.com/catalogo.html" }
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -615,6 +639,7 @@
       </div>
     </div>
     
+    <a href="historial.html" class="nav-pill">Mis Pedidos</a>
     <div class="nav-sep"></div>
 
     <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
@@ -697,11 +722,12 @@
     </svg>
   </a>
 
+  <script src="sst-core.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const dropbtn = document.querySelector('.dropbtn');
       dropbtn.addEventListener('click', (e) => {
-        e.preventDefault(); // En móviles previene que haga cosas raras y fuerza el focus
+        e.preventDefault();
       });
     });
 

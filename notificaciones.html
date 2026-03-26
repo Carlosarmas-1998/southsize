@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Notificaciones | South Size Topping España</title>
+  <meta name="description" content="Centro de notificaciones de South Size Topping. Estado de pedidos, recordatorios y novedades.">
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#faf9f7;--ink:#0d0d0d;--ink-mid:#3a3a3a;--ink-soft:#7a7875;--gold:#b8975a;--border:rgba(13,13,13,0.1);--ease:cubic-bezier(.25,1,.4,1);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:'Montserrat',sans-serif;font-weight:700;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+    ::-webkit-scrollbar{width:3px;} ::-webkit-scrollbar-track{background:var(--cream);} ::-webkit-scrollbar-thumb{background:var(--ink);}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;min-height:70px;padding:10px 40px;background:rgba(250,249,247,0.88);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(13,13,13,0.08);}
+    nav a.nav-pill,.dropbtn{color:var(--ink);text-decoration:none;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 24px;border-radius:999px;border:1.5px solid rgba(13,13,13,0.18);background:transparent;transition:all 0.25s ease;white-space:nowrap;cursor:pointer;}
+    nav a.nav-pill:hover,nav a.nav-pill.active{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-1px);}
+    .dropdown{position:relative;display:inline-block;} .dropdown-content{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background-color:var(--cream);min-width:180px;box-shadow:0 10px 30px rgba(13,13,13,0.15);border-radius:8px;border:1px solid rgba(13,13,13,0.08);z-index:500;margin-top:10px;flex-direction:column;overflow:hidden;}
+    .dropdown-content a{color:var(--ink);padding:14px 20px;text-decoration:none;display:block;font-size:7.5px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;text-align:center;transition:all 0.2s;border-bottom:1px solid rgba(13,13,13,0.05);}
+    .dropdown-content a:last-child{border-bottom:none;} .dropdown-content a:hover{background:var(--ink);color:var(--cream);} .dropdown:hover .dropdown-content{display:flex;animation:fadeUp 0.3s ease;}
+    .nav-sep{width:1px;height:22px;background:rgba(13,13,13,0.18);flex-shrink:0;}
+    .nav-icon-btn{position:relative;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;border:1.5px solid rgba(13,13,13,0.18);background:transparent;cursor:pointer;color:var(--ink);text-decoration:none;transition:all 0.25s;flex-shrink:0;}
+    .nav-icon-btn:hover,.nav-icon-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-1px);}
+    .nav-icon-btn svg{width:15px;height:15px;stroke:currentColor;stroke-width:1.8;fill:none;transition:all 0.25s;}
+    .nav-icon-btn:hover svg{stroke:var(--cream);}
+    .nav-icon-btn:hover .heart-svg{fill:var(--cream);stroke:var(--cream);}
+    .cart-count,.fav-count{position:absolute;top:-4px;right:-4px;background:var(--ink);color:var(--cream);font-size:7px;font-weight:800;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--cream);transition:transform 0.3s;opacity:0;transform:scale(0);}
+    .cart-count.visible,.fav-count.visible{opacity:1;transform:scale(1);}
+    .heart-svg{fill:none;stroke:var(--ink);} .heart-svg.has-items{fill:#e03535;stroke:#e03535;} .bag-svg.has-items{stroke:var(--gold);}
+
+    /* HEADER */
+    .page-header{padding:140px 20px 32px;text-align:center;}
+    .page-header h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(32px,6vw,64px);color:var(--ink);margin-bottom:10px;}
+    .page-header p{font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-soft);}
+
+    /* TOOLBAR */
+    .notif-toolbar{max-width:700px;margin:0 auto 16px;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+    .notif-toolbar .count{font-size:11px;color:var(--ink-soft);}
+    .notif-toolbar .count strong{color:var(--gold);}
+    .btn-mark-all{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:8px 20px;border:1.5px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--cream);cursor:pointer;transition:all 0.25s;}
+    .btn-mark-all:hover{background:var(--gold);border-color:var(--gold);}
+
+    /* NOTIFICATIONS */
+    .notif-container{max-width:700px;margin:0 auto;padding:0 20px 80px;}
+    .notif-card{background:#fff;border:1px solid var(--border);border-radius:10px;margin-bottom:10px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:all 0.3s;cursor:pointer;position:relative;}
+    .notif-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.04);transform:translateY(-1px);}
+    .notif-card.unread{border-left:3px solid var(--gold);background:rgba(184,151,90,0.03);}
+    .notif-card.unread::after{content:'';position:absolute;top:12px;right:14px;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+    .notif-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+    .notif-icon.order{background:rgba(52,152,219,0.1);}
+    .notif-icon.status{background:rgba(46,204,113,0.1);}
+    .notif-icon.reminder{background:rgba(230,126,34,0.1);}
+    .notif-icon.info{background:rgba(184,151,90,0.1);}
+    .notif-body{flex:1;min-width:0;}
+    .notif-title{font-size:12px;font-weight:800;margin-bottom:4px;color:var(--ink);}
+    .notif-message{font-size:10px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
+    .notif-time{font-size:8px;font-weight:600;color:rgba(122,120,117,0.6);margin-top:6px;letter-spacing:0.05em;}
+
+    /* EMPTY */
+    .empty{text-align:center;padding:80px 20px;}
+    .empty h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;margin-bottom:12px;}
+    .empty p{font-size:10px;color:var(--ink-soft);}
+
+    /* FOOTER */
+    footer{margin-top:auto;background:var(--ink);border-top:1px solid rgba(250,249,247,0.06);padding:26px 50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;font-style:italic;letter-spacing:0.25em;color:rgba(250,249,247,0.2);}
+    .footer-copy{font-size:8px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(250,249,247,0.12);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translate(-50%,10px);}to{opacity:1;transform:translate(-50%,0);}}
+    @media(max-width:600px){nav{padding:10px;gap:8px;} nav a.nav-pill,.dropbtn{font-size:7px;padding:8px 14px;} .page-header{padding:120px 16px 24px;} .notif-container{padding:0 12px 60px;} footer{flex-direction:column;text-align:center;padding:20px;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="catalogo.html" class="nav-pill">Catálogo</a>
+  <div class="dropdown">
+    <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+    <div class="dropdown-content">
+      <a href="index.html">Inicio</a>
+      <a href="quienes-somos.html">Sobre la marca</a>
+      <a href="contactos.html">Contactos</a>
+      <a href="politicas.html">Políticas</a>
+    </div>
+  </div>
+  <a href="historial.html" class="nav-pill">Mis Pedidos</a>
+  <div class="nav-sep"></div>
+  <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
+    <svg viewBox="0 0 24 24"><path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="fav-count" id="fav-badge">0</span>
+  </a>
+  <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
+    <svg viewBox="0 0 24 24"><path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+    <span class="cart-count" id="cart-badge">0</span>
+  </a>
+</nav>
+
+<div class="page-header">
+  <h1>Notificaciones</h1>
+  <p>Estado de pedidos, recordatorios y novedades</p>
+</div>
+
+<div class="notif-toolbar">
+  <div class="count" id="notif-count"></div>
+  <button class="btn-mark-all" id="btn-mark-all">Marcar todo leído</button>
+</div>
+
+<div class="notif-container" id="notif-list"></div>
+
+<footer>
+  <span class="footer-brand">South Size Topping</span>
+  <span class="footer-copy">&copy; 2026 — Todos los derechos reservados</span>
+</footer>
+
+<script src="sst-core.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  function getCart(){try{return JSON.parse(localStorage.getItem('sst-cart'))||JSON.parse(localStorage.getItem('sst_cart'))||[];}catch(e){return[];}}
+  function getFavs(){try{return JSON.parse(localStorage.getItem('sst-fav'))||[];}catch(e){return[];}}
+  function syncBadges(){
+    var c=getCart().reduce(function(s,i){return s+i.qty;},0),f=getFavs().length;
+    var cb=document.getElementById('cart-badge'),fb=document.getElementById('fav-badge');
+    if(cb){cb.textContent=c;cb.classList.toggle('visible',c>0);}
+    if(fb){fb.textContent=f;fb.classList.toggle('visible',f>0);}
+    var hs=document.querySelector('.heart-svg'),bs=document.querySelector('.bag-svg');
+    if(hs)hs.classList.toggle('has-items',f>0);
+    if(bs)bs.classList.toggle('has-items',c>0);
+  }
+  syncBadges();
+  window.addEventListener('storage',function(e){if(e.key==='sst-fav'||e.key==='sst-cart'||e.key==='sst_cart')syncBadges();});
+
+  var typeIcons = { order: '🛍️', status: '📋', reminder: '🔔', info: '✨' };
+
+  function timeAgo(iso) {
+    var d = new Date(iso);
+    var now = Date.now();
+    var diff = now - d.getTime();
+    var mins = Math.floor(diff / 60000);
+    if(mins < 1) return 'Ahora mismo';
+    if(mins < 60) return 'Hace ' + mins + ' min';
+    var hours = Math.floor(mins / 60);
+    if(hours < 24) return 'Hace ' + hours + 'h';
+    var days = Math.floor(hours / 24);
+    if(days < 7) return 'Hace ' + days + ' día' + (days > 1 ? 's' : '');
+    return d.toLocaleDateString('es-ES', {day:'2-digit',month:'short',year:'numeric'});
+  }
+
+  function render() {
+    var notifs = SST.getNotifications();
+    var unread = notifs.filter(function(n){ return !n.read; }).length;
+
+    document.getElementById('notif-count').innerHTML = '<strong>' + unread + '</strong> sin leer · ' + notifs.length + ' total';
+
+    var container = document.getElementById('notif-list');
+    if(notifs.length === 0) {
+      container.innerHTML = '<div class="empty"><h2>Todo al día</h2><p>No tienes notificaciones. Cuando haya novedades, aparecerán aquí.</p></div>';
+      return;
+    }
+
+    container.innerHTML = notifs.map(function(n) {
+      return '<div class="notif-card' + (n.read ? '' : ' unread') + '" data-id="' + n.id + '" onclick="markRead(this, \'' + n.id + '\')">' +
+        '<div class="notif-icon ' + (n.type || 'info') + '">' + (typeIcons[n.type] || '✨') + '</div>' +
+        '<div class="notif-body">' +
+          '<div class="notif-title">' + n.title + '</div>' +
+          '<div class="notif-message">' + n.message + '</div>' +
+          '<div class="notif-time">' + timeAgo(n.date) + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  window.markRead = function(el, id) {
+    SST.markNotificationRead(id);
+    el.classList.remove('unread');
+    var dot = el.querySelector('::after');
+    render();
+  };
+
+  document.getElementById('btn-mark-all').addEventListener('click', function(){
+    SST.markAllRead();
+    render();
+  });
+
+  render();
+
+  // Auto-refresh
+  setInterval(render, 5000);
+  window.addEventListener('storage', function(e){ if(e.key === 'sst-notifications') render(); });
+
+  document.querySelector('.dropbtn').addEventListener('click', function(e){ e.preventDefault(); });
+})();
+</script>
+</body>
+</html>

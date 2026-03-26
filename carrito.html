@@ -601,6 +601,7 @@
       </div>
     </div>
     
+    <a href="historial.html" class="nav-pill">Mis Pedidos</a>
     <div class="nav-sep"></div>
 
     <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
@@ -1182,7 +1183,23 @@
       msg += `💰 *TOTAL: ${total.toFixed(2).replace('.', ',')} €*\n\n`;
       msg += `✅ _Cliente acepta la Política de Privacidad_`;
 
-      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      // ── CREAR PEDIDO EN EL SISTEMA ──
+      if (typeof SST !== 'undefined') {
+        SST.ensureUserRegistered(function(user) {
+          // Actualizar usuario con datos del formulario
+          SST.saveUser({ name: name, email: user.email || '', phone: phone, city: city, registeredAt: user.registeredAt || new Date().toISOString() });
+          const order = SST.createOrder(cart, total);
+          if (order) {
+            msg = `🛍️ *PEDIDO ${order.id} — SOUTH SIZE TOPPING*\n` + msg.substring(msg.indexOf('━'));
+          }
+          window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+          // Limpiar carrito tras pedido
+          saveCart([]);
+          render();
+        });
+      } else {
+        window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
+      }
     };
 
     /* ── CHECKOUT CON TARJETA (PREPARADO PARA buy.xxx) ── */
@@ -1237,9 +1254,33 @@
       localStorage.setItem('sst-bought', JSON.stringify(boughtItems));
       // --------------------------
 
-      // AQUÍ IRÁ TU FUNCIÓN buy.xxx()
-      console.log("Validación correcta y stock actualizado. Ejecutando pasarela de pago...");
-      alert("Aquí irá tu script buy.xxx() para procesar la tarjeta.");
+      // ── CREAR PEDIDO EN EL SISTEMA ──
+      const name   = document.getElementById('fName').value.trim();
+      const phone  = document.getElementById('fPhone').value.trim();
+      const city   = document.getElementById('fCity').value.trim();
+      const subtotal = calcSubtotal(cart);
+      const elQty    = countElCollectionItems(cart);
+      const applyBono= elQty >= BONO_EL_QTY;
+      const discount = applyBono ? BONO_EL_VAL : 0;
+      const subtotalAfterBono = Math.max(0, subtotal - discount);
+      const shipping = getShipping(subtotalAfterBono);
+      const total    = subtotalAfterBono + (shipping || 0);
+
+      if (typeof SST !== 'undefined') {
+        SST.ensureUserRegistered(function(user) {
+          SST.saveUser({ name: name, email: user.email || '', phone: phone, city: city, registeredAt: user.registeredAt || new Date().toISOString() });
+          const order = SST.createOrder(cart, total);
+          if (order) {
+            alert('Pedido ' + order.id + ' registrado correctamente. Total: ' + total.toFixed(2) + '€\n\nAquí se conectará tu pasarela de pago.');
+            saveCart([]);
+            render();
+            // Redirigir al historial
+            setTimeout(function(){ window.location.href = 'historial.html'; }, 1500);
+          }
+        });
+      } else {
+        alert("Aquí irá tu script buy.xxx() para procesar la tarjeta.");
+      }
 
     };
 
@@ -1251,6 +1292,7 @@
 
   })();
   </script>
+  <script src="sst-core.js"></script>
 
 </body>
 </html>
