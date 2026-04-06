@@ -539,15 +539,16 @@
     var sb = getSupabase();
     if(!sb || !email) return { eligible: false, discountPercent: 0 };
     try {
-      var { data: customer } = await sb.from('customers').select('id, first_order_discount_used').eq('email', email.toLowerCase()).single();
-      // Cliente nuevo o que nunca ha usado el descuento
+      var { data: customer, error } = await sb.from('customers').select('id, first_order_discount_used').eq('email', email.toLowerCase()).maybeSingle();
+      if(error) { console.error('SST DB: Error verificando descuento', error); return { eligible: false, discountPercent: 0 }; }
+      // Cliente nuevo (no existe) o que nunca ha usado el descuento
       if(!customer || !customer.first_order_discount_used) {
         return { eligible: true, discountPercent: 9 };
       }
       return { eligible: false, discountPercent: 0 };
     } catch(e) {
-      // Si no existe el cliente, es nuevo → elegible
-      return { eligible: true, discountPercent: 9 };
+      console.error('SST DB: Error de red verificando descuento', e);
+      return { eligible: false, discountPercent: 0 };
     }
   }
 
@@ -650,7 +651,45 @@
   }
 
   /* ──────────────────────────
-     13. API PÚBLICA
+     13. INTENTOS DE PEDIDO (ORDER ATTEMPTS)
+  ────────────────────────── */
+  async function saveOrderAttempt(data) {
+    var sb = getSupabase();
+    if(!sb || !data.email) return null;
+    try {
+      var { data: attempt, error } = await sb.from('order_attempts').insert({
+        email: data.email.toLowerCase(),
+        name: data.name || null,
+        phone: data.phone || null,
+        items: data.items || [],
+        subtotal: data.subtotal || 0,
+        status: 'abandoned'
+      }).select().single();
+      if(error) { console.error('SST DB: Error guardando intento', error); return null; }
+      return attempt;
+    } catch(e) { console.error('SST DB:', e); return null; }
+  }
+
+  async function getOrderAttempts() {
+    var sb = getSupabase();
+    if(!sb) return [];
+    try {
+      var { data, error } = await sb.from('order_attempts').select('*').order('created_at', { ascending: false });
+      if(error) return [];
+      return data || [];
+    } catch(e) { return []; }
+  }
+
+  async function markAttemptRecovered(email) {
+    var sb = getSupabase();
+    if(!sb || !email) return;
+    try {
+      await sb.from('order_attempts').update({ status: 'recovered' }).eq('email', email.toLowerCase()).eq('status', 'abandoned');
+    } catch(e) { console.error('SST DB:', e); }
+  }
+
+  /* ──────────────────────────
+     14. API PÚBLICA
   ────────────────────────── */
   window.SST = {
     // Usuario
@@ -690,7 +729,11 @@
     getOrdersFromDB: getOrdersFromDB,
     getCustomersFromDB: getCustomersFromDB,
     sendEmail: sendEmail,
-    SUPABASE_URL: SUPABASE_URL
+    SUPABASE_URL: SUPABASE_URL,
+    // Intentos de pedido
+    saveOrderAttempt: saveOrderAttempt,
+    getOrderAttempts: getOrderAttempts,
+    markAttemptRecovered: markAttemptRecovered
   };
 
 })();

@@ -828,6 +828,8 @@
     <img id="modalImg" src="" alt="Zoom">
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="sst-core.js"></script>
   <script>
   (() => {
     const WA = '34653181905';
@@ -953,14 +955,14 @@
     let firstOrderDiscountPct = 0;
     let firstOrderDiscountAmt = 0;
 
-    // Verificar descuento al escribir email
+    // Verificar descuento al escribir email + guardar intento de pedido
     (function() {
       const emailField = document.getElementById('fEmail');
       if (!emailField) return;
       let debounceTimer = null;
       emailField.addEventListener('blur', async function() {
         const email = emailField.value.trim();
-        if (!email || !email.includes('@')) {
+        if (!email || !email.includes('@') || !email.includes('.')) {
           firstOrderDiscountPct = 0;
           firstOrderDiscountAmt = 0;
           document.getElementById('discountBanner').style.display = 'none';
@@ -968,10 +970,28 @@
           render();
           return;
         }
-        if (typeof SST !== 'undefined' && SST.checkFirstOrderDiscount) {
-          const result = await SST.checkFirstOrderDiscount(email);
-          firstOrderDiscountPct = result.eligible ? result.discountPercent : 0;
-          render();
+        if (typeof SST !== 'undefined') {
+          // Verificar descuento
+          if (SST.checkFirstOrderDiscount) {
+            try {
+              const result = await SST.checkFirstOrderDiscount(email);
+              firstOrderDiscountPct = result.eligible ? result.discountPercent : 0;
+              render();
+            } catch(e) { console.error('Error verificando descuento:', e); }
+          }
+          // Guardar intento de pedido (carrito abandonado)
+          const cart = getCart();
+          if (cart.length > 0 && SST.saveOrderAttempt) {
+            const name = document.getElementById('fName') ? document.getElementById('fName').value.trim() : '';
+            const phone = document.getElementById('fPhone') ? document.getElementById('fPhone').value.trim() : '';
+            SST.saveOrderAttempt({
+              email: email,
+              name: name,
+              phone: phone,
+              items: cart,
+              subtotal: calcSubtotal(cart)
+            }).catch(function(e) { console.error('Error guardando intento:', e); });
+          }
         }
       });
     })();
@@ -1277,13 +1297,15 @@
               paymentMethod: 'whatsapp',
               shippingAddress: { street, num, floor, door, postal, city, notes }
             }).then(function() {
+              // Marcar intento como recuperado
+              if (SST.markAttemptRecovered) SST.markAttemptRecovered(email);
               // Enviar emails
               if (foDiscount > 0) {
                 SST.sendEmail('welcome_discount', { name, email, discountPercent: 9, orderId: order.id, total, discountAmount: foDiscount });
               } else {
                 SST.sendEmail('order_confirmation', { name, email, orderId: order.id, items: cart, subtotal, shipping, discountAmount: foDiscount, total });
               }
-            });
+            }).catch(function(e) { console.error('Error guardando pedido en Supabase:', e); });
           }
         }
         window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -1389,12 +1411,13 @@
               paymentMethod: 'card',
               shippingAddress: { street, num, floor, door, postal, city, notes }
             }).then(function() {
+              if (SST.markAttemptRecovered) SST.markAttemptRecovered(email);
               if (foDiscount > 0) {
                 SST.sendEmail('welcome_discount', { name, email, discountPercent: 9, orderId: order.id, total, discountAmount: foDiscount });
               } else {
                 SST.sendEmail('order_confirmation', { name, email, orderId: order.id, items: cart, subtotal, shipping, discountAmount: foDiscount, total });
               }
-            });
+            }).catch(function(e) { console.error('Error guardando pedido en Supabase:', e); });
           }
           alert('Pedido ' + order.id + ' registrado correctamente. Total: ' + total.toFixed(2) + '€\n\nAquí se conectará tu pasarela de pago.');
           saveCart([]);
@@ -1415,8 +1438,6 @@
 
   })();
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="sst-core.js"></script>
 
 </body>
 </html>
