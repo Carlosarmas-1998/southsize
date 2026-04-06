@@ -265,7 +265,7 @@
             <span class="section-title">Intentos de Pedido (Carritos Abandonados)</span>
           </div>
           <div class="table-wrap overflow-x">
-            <table class="tbl"><thead><tr><th>Email</th><th>Nombre</th><th>Articulos</th><th>Subtotal</th><th>Estado</th><th>Fecha</th></tr></thead>
+            <table class="tbl"><thead><tr><th>Email</th><th>Nombre</th><th>Articulos</th><th>Subtotal</th><th>Estado</th><th>Fecha</th><th>Accion</th></tr></thead>
             <tbody id="attempts-body"></tbody></table>
           </div>
         </div>
@@ -488,16 +488,17 @@
   /* ── ATTEMPTS ── */
   async function renderAttempts(){
     var tbody=document.getElementById('attempts-body');
-    if(typeof SST==='undefined'||!SST.getOrderAttempts){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--muted);">Conectando con base de datos...</td></tr>';return;}
+    if(typeof SST==='undefined'||!SST.getOrderAttempts){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--muted);">Conectando con base de datos...</td></tr>';return;}
     try{
       var att=await SST.getOrderAttempts();
-      if(!att.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--muted);">No hay intentos de pedido registrados</td></tr>';return;}
+      if(!att.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--muted);">No hay intentos de pedido registrados</td></tr>';return;}
       tbody.innerHTML=att.map(function(a){
         var items=(a.items||[]).map(function(i){return (i.name||'Articulo')+' x'+(i.qty||1);}).join(', ');
         if(items.length>50)items=items.substring(0,50)+'...';
-        return '<tr><td style="font-weight:600;">'+a.email+'</td><td>'+(a.name||'—')+'</td><td style="font-size:10px;max-width:150px;overflow:hidden;text-overflow:ellipsis;">'+items+'</td><td style="font-weight:700;">'+(parseFloat(a.subtotal)||0).toFixed(2)+'&euro;</td><td>'+attemptBadge(a.status)+'</td><td style="font-size:10px;color:var(--muted);">'+fmt(a.created_at)+'</td></tr>';
+        var actionBtn=a.status==='abandoned'?'<button class="btn btn-primary btn-sm" onclick="sendCartReminder(\''+a.email+'\',\''+((a.name||'').replace(/'/g,"\\\'"))+'\')"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Recordatorio</button>':'<span style="font-size:10px;color:var(--success);">Enviado</span>';
+        return '<tr><td style="font-weight:600;">'+a.email+'</td><td>'+(a.name||'—')+'</td><td style="font-size:10px;max-width:150px;overflow:hidden;text-overflow:ellipsis;">'+items+'</td><td style="font-weight:700;">'+(parseFloat(a.subtotal)||0).toFixed(2)+'&euro;</td><td>'+attemptBadge(a.status)+'</td><td style="font-size:10px;color:var(--muted);">'+fmt(a.created_at)+'</td><td>'+actionBtn+'</td></tr>';
       }).join('');
-    }catch(e){console.error(e);tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--danger);">Error cargando datos</td></tr>';}
+    }catch(e){console.error(e);tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--danger);">Error cargando datos</td></tr>';}
   }
 
   /* ── DISCOUNTS ── */
@@ -556,6 +557,21 @@
   document.getElementById('btn-export-carts').addEventListener('click',function(){var cart=getCart();var user=getUser();var city=(user&&user.city)?user.city:'Sin ciudad';SST.exportToExcel(cart.map(function(c){return[c.name||'Articulo',c.size||'—',c.qty||1,(c.price||0).toFixed(2)+'EUR',((c.price||0)*(c.qty||1)).toFixed(2)+'EUR',city];}),'SST_Carritos_'+new Date().toISOString().slice(0,10),['Producto','Talla','Cantidad','Precio','Subtotal','Ciudad']);});
 
   document.getElementById('btn-export-users').addEventListener('click',async function(){var users=await getAllUsers();SST.exportToExcel(users.map(function(u){return[u.name,u.email,u.phone||'—',u.city,u.orders];}),'SST_Usuarios_'+new Date().toISOString().slice(0,10),['Nombre','Email','Telefono','Ciudad','Pedidos']);});
+
+  /* ── SEND CART REMINDER ── */
+  window.sendCartReminder=async function(email,name){
+    var btn=event.target.closest('button');
+    var origHtml=btn.innerHTML;
+    btn.innerHTML='Enviando...';btn.disabled=true;
+    try{
+      if(typeof SST!=='undefined'&&SST.sendEmail){
+        await SST.sendEmail('cart_reminder',{email:email,name:name||'crack'});
+        btn.innerHTML='<svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Enviado';
+        btn.classList.remove('btn-primary');btn.classList.add('btn-success');
+        btn.style.pointerEvents='none';
+      }
+    }catch(e){console.error(e);btn.innerHTML='Error';setTimeout(function(){btn.innerHTML=origHtml;btn.disabled=false;},2000);}
+  };
 
   /* ── AUTO REFRESH ── */
   setInterval(async function(){if(sessionStorage.getItem(ADMIN_KEY)==='true'){try{await renderOverview();await renderOrders(document.getElementById('order-search').value,document.getElementById('order-status-filter').value);}catch(e){}}},8000);

@@ -621,8 +621,8 @@
         <h2 class="product-title">Llavero S$T NFC</h2>
         <p class="product-motto">"Tu llave de acceso al club South Size."</p>
         <p class="product-price">
-          <s id="original-price" class="original-price">12,00 €</s>
-          <span id="current-price">12,00 €</span>
+          <s id="original-price" class="original-price">14,00 €</s>
+          <span id="current-price">14,00 €</span>
         </p>
 
         <div class="controls-row">
@@ -840,7 +840,7 @@
     function getFavs() { try { return JSON.parse(localStorage.getItem('sst-fav')) || []; } catch { return []; } }
     function saveFavs(f) { localStorage.setItem('sst-fav', JSON.stringify(f)); }
 
-    let currentLlaveroPrice = 12; // Base price
+    let currentLlaveroPrice = 14; // Base price
 
     function syncBadges() {
       let cart = getCart();
@@ -871,8 +871,8 @@
         if(priceSpan) priceSpan.textContent = '0.00 €';
         if(origPrice) origPrice.classList.add('show');
       } else {
-        currentLlaveroPrice = 12;
-        if(priceSpan) priceSpan.textContent = '12.00 €';
+        currentLlaveroPrice = 14;
+        if(priceSpan) priceSpan.textContent = '14,00 €';
         if(origPrice) origPrice.classList.remove('show');
       }
     }

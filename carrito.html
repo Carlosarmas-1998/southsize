@@ -674,7 +674,7 @@
           </svg>
           <div class="gift-text">
             🎁 ¡Llavero S$T de regalo incluido!
-            <span>Tu pedido supera los 40 € — te regalamos el Llavero S$T (11,00 €) gratis.</span>
+            <span>Tu pedido supera los 40 € — te regalamos el Llavero S$T (14,00 €) gratis.</span>
           </div>
         </div>
 
@@ -883,20 +883,34 @@
 
     function hasGift(subtotal) { return subtotal > T_GIFT; }
 
-    /* ── TRUCO STOCK LLAVERO ── */
+    /* ── LLAVERO AUTOMATICO: gratis con Coleccion El, 14€ solo ── */
     function applyKeychainTrick(cart) {
       const elQty = countElCollectionItems(cart);
+      const llaveroIdx = cart.findIndex(i => i.id === 'llavero-nfc');
       let boughtItems = JSON.parse(localStorage.getItem('sst-bought') || '{}');
+      let changed = false;
 
       if (elQty > 0) {
-        // Agotar virtualmente el llavero si hay artículos de la colección Él
-        boughtItems[LLAVERO_ID] = 9999; 
+        boughtItems[LLAVERO_ID] = 9999;
+        // Si hay items El y el llavero esta en el carrito, forzar precio 0
+        if (llaveroIdx !== -1 && cart[llaveroIdx].price !== 0) {
+          cart[llaveroIdx].price = 0;
+          changed = true;
+        }
+        // Si hay items El y NO hay llavero, añadirlo gratis
+        if (llaveroIdx === -1) {
+          cart.push({ id: 'llavero-nfc', name: 'Llavero S$T NFC', variant: 'Talla Unica', price: 0, qty: 1, image: 'l1.png', link: 'llaveros.html' });
+          changed = true;
+        }
       } else {
-        // Restaurar si quitan la colección de Él
-        if (boughtItems[LLAVERO_ID] === 9999) {
-          delete boughtItems[LLAVERO_ID];
+        if (boughtItems[LLAVERO_ID] === 9999) delete boughtItems[LLAVERO_ID];
+        // Si NO hay items El y el llavero tiene precio 0, quitarlo del carrito
+        if (llaveroIdx !== -1 && cart[llaveroIdx].price === 0) {
+          cart.splice(llaveroIdx, 1);
+          changed = true;
         }
       }
+      if (changed) saveCart(cart);
       localStorage.setItem('sst-bought', JSON.stringify(boughtItems));
     }
 
