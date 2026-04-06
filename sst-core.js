@@ -452,21 +452,61 @@
   }
 
   /* ──────────────────────────
-     9. EXPORTAR A EXCEL (CSV con BOM para Excel)
+     9. EXPORTAR A EXCEL (XLS con formato profesional)
   ────────────────────────── */
   function exportToExcel(data, filename, headers) {
-    var BOM = '\uFEFF';
-    var csv = headers.join(';') + '\n';
+    var now = new Date();
+    var dateStr = now.toLocaleDateString('es-ES', {day:'2-digit', month:'long', year:'numeric'}) + ' ' + now.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+    var title = filename.replace(/_/g, ' ').replace(/SST /i, '');
+
+    var html = '<!DOCTYPE html><html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:spreadsheet" xmlns="http://www.w3.org/TR/REC-html40">' +
+      '<head><meta charset="UTF-8">' +
+      '<style>' +
+        'body{font-family:Calibri,Arial,sans-serif;margin:0;padding:0;}' +
+        'table{border-collapse:collapse;width:100%;margin-top:0;}' +
+        /* Brand header row */
+        '.brand-row td{background:#0f172a;color:#ffffff;font-size:18px;font-weight:700;padding:16px 14px;letter-spacing:1px;border:none;}' +
+        '.brand-row .sub{font-size:10px;font-weight:400;color:#94a3b8;letter-spacing:0;}' +
+        /* Column headers */
+        '.header-row td{background:#1e40af;color:#ffffff;font-size:11px;font-weight:700;padding:10px 14px;border:1px solid #1e3a8a;text-transform:uppercase;letter-spacing:0.5px;}' +
+        /* Data rows */
+        '.data-row td{font-size:11px;padding:9px 14px;border:1px solid #e2e8f0;color:#1e293b;vertical-align:middle;}' +
+        '.data-row:nth-child(even) td{background:#f0f4f8;}' +
+        '.data-row:nth-child(odd) td{background:#ffffff;}' +
+        /* Number cells */
+        '.num{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;}' +
+        /* Footer */
+        '.footer-row td{background:#0f172a;color:#94a3b8;font-size:9px;padding:10px 14px;border:none;letter-spacing:0.3px;}' +
+        /* Print optimization */
+        '@page{size:landscape;margin:1cm;}' +
+      '</style></head><body>' +
+      '<table>' +
+        /* Brand header */
+        '<tr class="brand-row"><td colspan="' + headers.length + '">SOUTH SIZE TOPPING<br><span class="sub">' + title + ' &mdash; Generado: ' + dateStr + '</span></td></tr>' +
+        /* Spacer */
+        '<tr><td colspan="' + headers.length + '" style="height:4px;background:#1e40af;border:none;padding:0;"></td></tr>' +
+        /* Column headers */
+        '<tr class="header-row">' + headers.map(function(h){ return '<td>' + h + '</td>'; }).join('') + '</tr>';
+
+    /* Data rows */
     data.forEach(function(row){
-      csv += row.map(function(cell){
-        var str = String(cell).replace(/"/g, '""');
-        return '"' + str + '"';
-      }).join(';') + '\n';
+      html += '<tr class="data-row">' + row.map(function(cell, idx){
+        var val = String(cell);
+        var isNum = /^\d+([.,]\d+)?\s*(\u20ac|EUR|%)?$/.test(val.trim()) || /^\-?\d/.test(val.trim()) && /\u20ac|EUR/.test(val);
+        return '<td' + (isNum ? ' class="num"' : '') + '>' + val + '</td>';
+      }).join('') + '</tr>';
     });
-    var blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8;' });
+
+    /* Summary row */
+    html += '<tr><td colspan="' + headers.length + '" style="height:4px;background:#1e40af;border:none;padding:0;"></td></tr>';
+    html += '<tr class="footer-row"><td colspan="' + headers.length + '">South Size Topping &bull; info@streeturbanwear.com &bull; +34 653 181 905 &bull; Total registros: ' + data.length + '</td></tr>';
+
+    html += '</table></body></html>';
+
+    var blob = new Blob(['\uFEFF' + html], { type: 'application/vnd.ms-excel;charset=utf-8;' });
     var link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = filename + '.csv';
+    link.download = filename + '.xls';
     link.click();
     URL.revokeObjectURL(link.href);
   }
