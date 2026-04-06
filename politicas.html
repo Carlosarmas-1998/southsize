@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
+  <title>Políticas y Privacidad — South Size Topping</title>
+  <meta name="description" content="Términos legales, política de devoluciones y protección de datos de South Size Topping. Moda urbana exclusiva desde Madrid.">
+  <meta name="author" content="Ángel" />
+  <link rel="canonical" href="https://www.streeturbanwear.com/politicas.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:   #faf9f7;
+      --ink:     #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --ink-soft:#7a7875;
+      --gold:    #b8975a;
+      --border:  rgba(13,13,13,0.1);
+      --ease:    cubic-bezier(.25,1,.4,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
+
+    /* ══════════════════════════
+       NAV Y DROPDOWN MINIMALISTA
+    ══════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
+    }
+
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
+    }
+
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
+
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
+
+    .nav-sep { width: 1px; height: 22px; background: rgba(13,13,13,0.18); flex-shrink: 0; }
+
+    .nav-icon-btn {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; cursor: pointer; color: var(--ink); text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s; flex-shrink: 0;
+    }
+
+    .nav-icon-btn:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px); }
+    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; transition: fill 0.25s, stroke 0.25s; }
+    .nav-icon-btn:hover svg { stroke: var(--cream); }
+    .nav-icon-btn:hover .heart-svg { fill: var(--cream); stroke: var(--cream); }
+
+    .cart-count, .fav-count {
+      position: absolute; top: -4px; right: -4px;
+      background: var(--ink); color: var(--cream);
+      font-size: 7px; font-weight: 800; width: 14px; height: 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--cream);
+      transition: transform 0.3s; opacity: 0; transform: scale(0);
+    }
+    .cart-count.visible, .fav-count.visible { opacity: 1; transform: scale(1); }
+    .heart-svg { fill: none; stroke: var(--ink); }
+    .heart-svg.has-items { fill: #e03535; stroke: #e03535; }
+    .bag-svg.has-items { stroke: var(--gold); }
+
+    /* ══════════════════════════
+       HERO
+    ══════════════════════════ */
+    .page-hero {
+      padding: 160px 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+      animation: fadeUp 1s var(--ease) forwards;
+    }
+
+    .page-hero .eyebrow {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .page-hero .subtitle {
+      margin-top: 1.2rem;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       CONTENT
+    ══════════════════════════ */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 7rem;
+      flex-grow: 1;
+    }
+
+    .legal-section {
+      margin-bottom: 4.5rem;
+      padding-bottom: 4.5rem;
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s var(--ease) forwards;
+    }
+    .legal-section:nth-child(1) { animation-delay: 0.1s; }
+    .legal-section:nth-child(2) { animation-delay: 0.2s; }
+    .legal-section:nth-child(3) { animation-delay: 0.3s; }
+    .legal-section:nth-child(4) { animation-delay: 0.4s; }
+    .legal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-num {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .section-rule {
+      height: 1px; flex: 1; background: rgba(13,13,13,0.1);
+    }
+
+    .legal-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--ink); margin-bottom: 1.8rem; line-height: 1.15;
+    }
+
+    .legal-section p {
+      font-size: 13px; font-weight: 500; line-height: 2.1;
+      color: var(--ink-mid); margin-bottom: 1.3rem; text-align: justify;
+    }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section em { font-style: italic; color: var(--ink-soft); }
+    .legal-section strong { font-weight: 800; color: var(--ink); }
+
+    /* Lista */
+    .legal-list {
+      list-style: none; margin: 1.5rem 0; padding: 0;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .legal-list li {
+      font-size: 13px; font-weight: 500; line-height: 1.9;
+      color: var(--ink-mid); padding-left: 1.6rem; position: relative;
+    }
+    .legal-list li::before {
+      content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 10px; top: 4px;
+    }
+
+    /* Caja destacada */
+    .highlight-box {
+      background: var(--ink); border-radius: 6px;
+      padding: 2.5rem; margin: 2.5rem 0;
+      box-shadow: 0 10px 30px rgba(13,13,13,0.15);
+    }
+    .highlight-box p {
+      color: rgba(250,249,247,0.9) !important;
+      font-size: 13px !important; margin-bottom: 0 !important; text-align: center !important;
+    }
+    .highlight-box strong { color: var(--gold) !important; }
+
+    /* ══════════════════════════
+       CONTACTO FINAL Y FOOTER
+    ══════════════════════════ */
+    .contact-section { background: var(--ink); padding: 90px 40px 70px; text-align: center; }
+    .contact-tag { font-size: 7.5px; font-weight: 700; letter-spacing: 0.55em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
+    .contact-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 5vw, 60px); font-weight: 700; font-style: italic; letter-spacing: 0.1em; color: var(--cream); margin-bottom: 50px; }
+    .contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 11px; padding: 14px 32px; text-decoration: none; font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; border-radius: 999px; border: 1.5px solid rgba(250,249,247,0.2); color: rgba(250,249,247,0.65); transition: all 0.3s ease; }
+    .contact-btn svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; transition: transform 0.3s var(--ease); }
+    .contact-btn:hover svg { transform: scale(1.2); }
+    .btn-ig:hover    { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; border-color:transparent; }
+    .btn-wa:hover    { background: #25D366; color:#fff; border-color:transparent; }
+    .btn-email:hover { background: var(--gold); color: var(--ink); border-color:transparent; }
+
+    footer { background: var(--ink); border-top: 1px solid rgba(250,249,247,0.06); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 700; font-style: italic; letter-spacing: 0.22em; color: rgba(250,249,247,0.2); }
+    .footer-copy { font-size: 7.5px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(250,249,247,0.12); }
+
+    /* SOPORTE FLOTANTE */
+    .support-float { position: fixed; bottom: 36px; right: 36px; background: var(--ink); color: var(--cream); padding: 13px 22px; border-radius: 999px; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 8px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; box-shadow: 0 10px 28px rgba(13,13,13,0.2); z-index: 999; border: 1.5px solid var(--ink); transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s; }
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); box-shadow: 0 16px 36px rgba(13,13,13,0.15); }
+    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; flex-shrink: 0; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; gap: 8px; }
+      nav a.nav-pill, .dropbtn { font-size: 8px; padding: 8px 16px; letter-spacing: 0.2em; }
+      .page-hero { padding: 140px 1.5rem 2.5rem; }
+      .content-wrap { padding: 3rem 1.5rem 5rem; }
+      .highlight-box { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; padding: 20px; }
+    }
+    @media (max-width: 480px) {
+      nav { gap: 6px; padding: 10px; }
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 12px; letter-spacing: 0.15em; }
+      .nav-sep { display: none; }
+      .support-float { bottom: 18px; right: 18px; padding: 11px 18px; font-size: 7px; }
+      .contact-buttons { flex-direction: column; width: 100%; }
+      .contact-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    
+    <div class="dropdown">
+      <button class="nav-pill dropbtn active">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+          <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
+    </div>
+    
+    <div class="nav-sep"></div>
+
+    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos" id="btn-fav">
+      <svg viewBox="0 0 24 24" class="heart-svg" id="heart-icon">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      <span class="icon-badge" id="fav-badge">0</span>
+    </a>
+    <a href="carrito.html" class="nav-icon-btn" title="Carrito" id="btn-cart">
+      <svg viewBox="0 0 24 24" class="bag-svg" id="bag-icon">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span class="icon-badge" id="cart-badge">0</span>
+    </a>
+  </nav>
+
+  <header class="page-hero">
+    <p class="eyebrow">Términos Legales — South Size Topping · Madrid</p>
+    <h1>Políticas y Privacidad</h1>
+    <p class="subtitle">Transparencia, rigor y exclusividad total</p>
+  </header>
+
+  <main class="content-wrap">
+
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">01</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Compromiso de Calidad y Devoluciones</h2>
+      <p>
+        En South Size Topping, la excelencia no es un concepto, es una obligación matemática. Para garantizar que cada cliente reciba una pieza de alta costura inmaculada, aplicamos controles de calidad exhaustivos.
+      </p>
+      <p>
+        En cumplimiento con el <strong>Art. 71 del Real Decreto Legislativo 1/2007</strong> (Ley General para la Defensa de los Consumidores y Usuarios), usted dispone de un plazo de 14 días naturales para ejercer su derecho de desistimiento. Sin embargo, para <strong>proteger la higiene, la exclusividad y la experiencia premium</strong> de todos nuestros clientes, la aceptación de cualquier devolución queda estrictamente sujeta a las siguientes condiciones irrefutables:
+      </p>
+      <ul class="legal-list">
+        <li>La prenda debe encontrarse en estado prístino: sin haber sido usada, lavada, perfumada o alterada en su forma original.</li>
+        <li>Debe conservar absolutamente todas sus etiquetas de autenticidad, precintos de seguridad intactos y el embalaje primario original.</li>
+      </ul>
+      <p>
+        Conforme al <strong>Art. 108.2 de la Ley de Consumidores</strong>, la firma se reserva el pleno derecho de rechazar de manera inmediata la devolución o aplicar una depreciación del 100% sobre el valor del artículo si el departamento de calidad detecta la más mínima señal de manipulación que exceda la mera comprobación de la prenda.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">02</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Excepciones al Derecho de Desistimiento</h2>
+      <p>
+        Nuestras prendas son diseños de autor con stock rigurosamente limitado. Por este motivo, y amparados jurídicamente por el <strong>Art. 103 del Real Decreto Legislativo 1/2007</strong>, no se admitirán cambios ni devoluciones bajo ningún concepto en los siguientes supuestos:
+      </p>
+      <ul class="legal-list">
+        <li>Bienes confeccionados conforme a especificaciones del consumidor, personalizados o <strong>ediciones limitadas exclusivas</strong> (piezas firmadas por el diseñador).</li>
+        <li>Artículos precintados que no sean aptos para ser devueltos por razones de protección de la salud o de estricta higiene, cuyo precinto haya sido removido tras la entrega.</li>
+      </ul>
+      <div class="highlight-box">
+        <p>
+          <strong>Importante:</strong> Los costes íntegros del envío de retorno corren a cargo del cliente. La firma no asume responsabilidad por extravíos en paquetes de vuelta. Todo reembolso aprobado se procesará en un plazo máximo de 14 días tras la inspección favorable en nuestras instalaciones.
+        </p>
+      </div>
+    </section>
+
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">03</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Propiedad Intelectual e Industrial</h2>
+      <p>
+        South Size Topping no produce simples artículos de moda; concebimos arquitectura urbana. Todos nuestros diseños, bocetos, logotipos, imágenes, textos y la identidad corporativa están amparados por la <strong>Ley de Propiedad Intelectual (Real Decreto Legislativo 1/1996)</strong> y la <strong>Ley de Marcas (Ley 17/2001)</strong> del ordenamiento jurídico español.
+      </p>
+      <p>
+        Queda terminantemente prohibida la reproducción, distribución, comunicación pública, reventa no autorizada o explotación comercial de nuestros diseños sin el consentimiento expreso y por escrito de Ángel, fundador de la marca. La firma iniciará acciones legales de forma automática ante cualquier intento de falsificación o vulneración de nuestros derechos.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="section-label">
+        <span class="section-num">04</span>
+        <div class="section-rule"></div>
+      </div>
+      <h2>Protección de Datos y Privacidad</h2>
+      <p>
+        Tratamos su información con el mismo rigor y exclusividad que nuestros diseños. South Size Topping cumple estrictamente con las directrices del <strong>Reglamento General de Protección de Datos (RGPD) de la UE (2016/679)</strong> y la <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong> española.
+      </p>
+      <ul class="legal-list">
+        <li><strong>Sus datos son suyos:</strong> Jamás venderemos, alquilaremos ni cederemos sus datos a terceros para usos comerciales ajenos a nuestra firma.</li>
+        <li><strong>Finalidad:</strong> La información recabada se utiliza única y exclusivamente para la logística, entrega de su pedido y facturación legal.</li>
+        <li><strong>Derechos ARCO:</strong> Puede ejercer sus derechos de acceso, rectificación, cancelación u oposición contactando con nuestro equipo directivo en cualquier momento.</li>
+      </ul>
+      <p>Al procesar un pedido en nuestro sitio web, usted declara haber leído, comprendido y aceptado en su totalidad estos términos y condiciones, sometiéndose expresamente a los Juzgados y Tribunales de la ciudad de Madrid, España.</p>
+    </section>
+
+  </main>
+
+  <section id="contacto" class="contact-section">
+    <span class="contact-tag">Estamos aquí</span>
+    <h2>Contacto</h2>
+    <div class="contact-buttons">
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:info@streeturbanwear.com" class="contact-btn btn-email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">South Size Topping</span>
+    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
+  </footer>
+
+  <a href="soporte.html" class="support-float" title="Soporte">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
+    </svg>
+  </a>
+
+  <script>
+    /* ══════════════════════════
+       CARRITO / BADGES
+    ══════════════════════════ */
+    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; } catch { return []; } }
+    function getFavs()  { try { return JSON.parse(localStorage.getItem('sst-fav'))  || []; } catch { return []; } }
+
+    function syncBadges() {
+      const cartTotal = getCart().reduce((s, i) => s + (i.qty || 1), 0);
+      const favTotal  = getFavs().length;
+
+      const cb = document.getElementById('cart-badge');
+      const fb = document.getElementById('fav-badge');
+      const hi = document.getElementById('heart-icon');
+      const bi = document.getElementById('bag-icon');
+
+      if (cb) { cb.textContent = cartTotal; cb.classList.toggle('visible', cartTotal > 0); }
+      if (fb) { fb.textContent = favTotal;  fb.classList.toggle('visible', favTotal > 0); }
+      if (hi) hi.classList.toggle('has-items', favTotal > 0);
+      if (bi) bi.classList.toggle('has-items', cartTotal > 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      syncBadges();
+      // Dropdown en móviles
+      const dropbtn = document.querySelector('.dropbtn');
+      if(dropbtn) dropbtn.addEventListener('click', e => e.preventDefault());
+    });
+    window.addEventListener('storage', syncBadges);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="sst-core.js"></script>
+
+</body>
+</html>

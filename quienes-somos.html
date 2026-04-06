@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
+  <title>Nuestra Firma | South Size Topping España</title>
+  <meta name="description" content="South Size Topping × Boxing Profight. La esencia del lujo urbano nacido en las calles de Madrid." />
+  <meta name="author" content="Ángel" />
+  <link rel="canonical" href="https://www.streeturbanwear.com/quienes-somos.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #faf9f7;
+      --ink:   #0d0d0d;
+      --gold:  #b8975a;
+      --muted: #6b6b6b;
+      --ease:  cubic-bezier(.25,1,.4,1);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
+
+    /* ══════════════════════════
+       NAV Y DROPDOWN
+    ══════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
+    }
+
+    nav a.nav-pill:hover, .dropbtn:hover {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
+    }
+
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 11rem 2rem 4rem;
+      text-align: center;
+      background: var(--cream);
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 700;
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: 1; color: var(--ink);
+    }
+
+    /* ── MANIFIESTO TEXTO (PRO STYLE) ── */
+    .manifesto-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+      text-align: center;
+    }
+
+    .big-statement {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 5rem;
+      color: var(--ink);
+      animation: fadeUp 1.2s var(--ease);
+    }
+
+    .big-statement span {
+      color: var(--gold);
+    }
+
+    .urban-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      text-align: left;
+      margin-top: 4rem;
+    }
+
+    .urban-block h2 {
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .urban-block p {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--ink-mid);
+      font-weight: 500;
+    }
+
+    .highlight-box {
+      margin: 6rem 0;
+      padding: 4rem 2rem;
+      border-top: 1px solid rgba(13,13,13,0.1);
+      border-bottom: 1px solid rgba(13,13,13,0.1);
+      position: relative;
+    }
+
+    .highlight-box::after {
+      content: 'S$T';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12rem;
+      font-weight: 800;
+      color: rgba(13,13,13,0.03);
+      z-index: -1;
+      letter-spacing: -0.05em;
+    }
+
+    .quote-pro {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--ink);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--cream);
+    }
+    footer p { font-size: 0.55rem; letter-spacing: 0.3em; opacity: 0.4; text-transform: uppercase; }
+
+    /* ── SUPPORT FLOAT ── */
+    .support-float {
+      position: fixed; bottom: 36px; right: 36px;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--ink); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
+      z-index: 999; border: 1.5px solid var(--ink);
+      transition: all 0.3s var(--ease);
+    }
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .urban-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .manifesto-section { padding-bottom: 4rem; }
+      .page-hero { padding-top: 8rem; }
+      .support-float { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <h1>La Esencia.</h1>
+  </header>
+
+  <main class="manifesto-section">
+    <p class="big-statement">
+      No vendemos ropa. Sincronizamos el <span>caos de la calle</span> con el rigor del <span>atelier</span>.
+    </p>
+
+    <div class="urban-grid">
+      <div class="urban-block">
+        <h2>El Origen</h2>
+        <p>Nacidos en el asfalto de Madrid. South Size Topping no es una tendencia, es un código genético. Ángel fundó esta firma bajo una premisa innegociable: la rudeza tiene su propia elegancia y la calle es nuestra pasarela.</p>
+      </div>
+      <div class="urban-block">
+        <h2>La Armadura</h2>
+        <p>Cada costura es un muro de resistencia. Fusionamos la disciplina del ring con la caída impecable de los tejidos más nobles. Vestirnos es prepararse para la conquista del presente, sin pedir permiso.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p class="quote-pro">"Madrid nos vio nacer, pero el estilo no entiende de fronteras."</p>
+    </div>
+
+    <div class="urban-grid" style="margin-top: 0;">
+      <div class="urban-block">
+        <h2>Exclusividad Real</h2>
+        <p>En un mundo saturado de copias, apostamos por el rastro efímero. Nuestras piezas son colecciones cápsula diseñadas para pocos; una vez que el eco de un diseño se apaga, no vuelve jamás.</p>
+      </div>
+      <div class="urban-block">
+        <h2>Urban Wear Pro</h2>
+        <p>Cortes arquitectónicos que respetan el movimiento. Esto no es moda casual, es ingeniería textil para la ciudad moderna. Calidad que se siente al tacto y se reconoce a distancia.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 South Size Topping — Madrid Urbain Wear</p>
+  </footer>
+
+  <a href="soporte.html" class="support-float">
+    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="1.6">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
+    </svg>
+  </a>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="sst-core.js"></script>
+
+</body>
+</html>

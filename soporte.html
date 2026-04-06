@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
+  <title>Soporte y Atención | South Size Topping España</title>
+  <meta name="description" content="Soporte oficial y atención al cliente de South Size Topping. Habla con Ángel, fundador y concierge de la marca.">
+  <meta name="author" content="Ángel" />
+  <link rel="canonical" href="https://www.streeturbanwear.com/soporte.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:   #faf9f7;
+      --ink:     #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --ink-soft:#7a7875;
+      --gold:    #b8975a;
+      --border:  rgba(13,13,13,0.1);
+      --ease:    cubic-bezier(.25,1,.4,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
+
+    /* ══════════════════════════
+       NAV Y DROPDOWN
+    ══════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
+    }
+
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
+    }
+
+    .dropdown { position: relative; display: inline-block; }
+
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
+
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
+
+    .nav-sep { width: 1px; height: 22px; background: rgba(13,13,13,0.18); flex-shrink: 0; }
+
+    .nav-icon-btn {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent;
+      cursor: pointer; color: var(--ink);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .nav-icon-btn:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px); }
+    .nav-icon-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.8; fill: none; transition: fill 0.25s, stroke 0.25s; }
+    .nav-icon-btn:hover svg { stroke: var(--cream); }
+    .nav-icon-btn:hover .heart-svg { fill: var(--cream); stroke: var(--cream); }
+
+    .cart-count, .fav-count {
+      position: absolute; top: -4px; right: -4px;
+      background: var(--ink); color: var(--cream);
+      font-size: 7px; font-weight: 800;
+      width: 14px; height: 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1.5px solid var(--cream);
+      transition: transform 0.3s;
+      opacity: 0; transform: scale(0);
+    }
+    .cart-count.visible, .fav-count.visible { opacity: 1; transform: scale(1); }
+    .heart-svg { fill: none; stroke: var(--ink); }
+    .heart-svg.has-items { fill: #e03535; stroke: #e03535; }
+    .bag-svg.has-items { stroke: var(--gold); }
+
+    /* ══════════════════════════
+       MAIN CHAT AREA
+    ══════════════════════════ */
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 130px 20px 80px;
+      flex-grow: 1;
+      animation: fadeUp 1s var(--ease) forwards;
+    }
+
+    .support-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .support-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .support-subtitle {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* CHAT CONTAINER */
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: 560px;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(13,13,13,0.05);
+      border-radius: 6px;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      background: #fafafa;
+      flex-shrink: 0;
+    }
+
+    .chat-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .chat-avatar::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 10px;
+      height: 10px;
+      background: #25D366; /* WhatsApp green */
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+    }
+
+    .chat-agent-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-agent-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .chat-agent-role {
+      font-size: 0.6rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* MESSAGES */
+    .chat-messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-messages::-webkit-scrollbar { width: 3px; }
+    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+
+    .msg {
+      max-width: 82%;
+      padding: 14px 20px;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      font-weight: 500;
+      animation: msgAppear 0.4s var(--ease) forwards;
+      opacity: 0;
+      transform: translateY(10px);
+      position: relative;
+    }
+
+    .msg-time {
+      display: block;
+      font-size: 0.55rem;
+      color: #aaa;
+      margin-top: 6px;
+      letter-spacing: 1px;
+      text-align: right;
+    }
+
+    .msg-bot .msg-time { text-align: left; }
+
+    @keyframes msgAppear {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-bot {
+      align-self: flex-start;
+      background: #f5f4f0;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      border-radius: 0 16px 16px 16px;
+    }
+
+    .msg-user {
+      align-self: flex-end;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 16px 0 16px 16px;
+    }
+
+    .msg-user .msg-time { color: rgba(255,255,255,0.45); }
+    .msg-bot strong { color: var(--gold); font-weight: 700; }
+    
+    .msg-bot a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 1px solid var(--ink);
+      transition: all 0.3s ease;
+    }
+    .msg-bot a:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* TYPING */
+    .typing-indicator {
+      align-self: flex-start;
+      display: flex;
+      gap: 5px;
+      padding: 14px 22px;
+      background: #f5f4f0;
+      border: 1px solid var(--border);
+      border-radius: 0 16px 16px 16px;
+      animation: msgAppear 0.3s ease forwards;
+      opacity: 0;
+    }
+
+    .typing-indicator span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #bbb; animation: typingDot 1.4s infinite ease-in-out;
+    }
+
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingDot {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    /* QUICK REPLIES */
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-self: flex-start;
+      max-width: 90%;
+      animation: msgAppear 0.5s var(--ease) forwards;
+      animation-delay: 0.15s;
+      opacity: 0;
+    }
+
+    .quick-btn {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      padding: 8px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      white-space: nowrap;
+      border-radius: 999px;
+    }
+
+    .quick-btn:hover {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    /* INPUT */
+    .chat-input-area {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding: 0;
+      flex-shrink: 0;
+      background: #fafafa;
+    }
+
+    .chat-input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 18px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .chat-input::placeholder {
+      color: #aaa;
+      font-weight: 400;
+    }
+
+    .chat-input:disabled { opacity: 0.5; }
+
+    .chat-send {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .chat-send svg {
+      width: 20px; height: 20px;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+
+    .chat-send:hover { transform: translateX(2px); }
+    .chat-send:hover svg { color: var(--gold); }
+
+    /* CONTACT CARDS IN CHAT */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      margin-top: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none !important;
+      color: var(--ink) !important;
+      transition: border-color 0.25s, transform 0.25s !important;
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .contact-card svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .contact-card span {
+      font-size: 0.7rem; letter-spacing: 0.05em;
+      font-weight: 700; text-transform: uppercase;
+    }
+
+    /* ══════════════════════════
+       CONTACTO FOOTER
+    ══════════════════════════ */
+    .contact-section {
+      background: var(--ink);
+      padding: 90px 40px 70px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .contact-tag {
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 14px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 60px);
+      font-weight: 700; font-style: italic;
+      letter-spacing: 0.1em; color: var(--cream);
+      margin-bottom: 50px;
+    }
+
+    .contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 11px;
+      padding: 14px 32px; text-decoration: none;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      border-radius: 999px;
+      border: 1.5px solid rgba(250,249,247,0.2);
+      color: rgba(250,249,247,0.65);
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; transition: transform 0.3s var(--ease); }
+    .contact-btn:hover svg { transform: scale(1.2); }
+    .btn-ig:hover    { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; border-color:transparent; }
+    .btn-wa:hover    { background: #25D366; color:#fff; border-color:transparent; }
+    .btn-email:hover { background: var(--gold); color: var(--ink); border-color:transparent; }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(250,249,247,0.06);
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+      width: 100%;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; font-weight: 700; font-style: italic;
+      letter-spacing: 0.22em; color: rgba(250,249,247,0.2);
+    }
+
+    .footer-copy {
+      font-size: 7.5px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(250,249,247,0.12);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; gap: 8px; }
+      nav a.nav-pill, .dropbtn { font-size: 8px; padding: 8px 16px; letter-spacing: 0.2em; }
+      main { padding: 110px 16px 60px; }
+      .chat-container { height: 500px; border-radius: 4px; }
+      .contact-section { padding: 80px 20px 60px; }
+      footer { flex-direction: column; text-align: center; padding: 22px 24px; gap: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { gap: 6px; padding: 10px; }
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 12px; letter-spacing: 0.15em; }
+      .nav-sep { display: none; }
+      .msg { font-size: 0.75rem; padding: 12px 16px; max-width: 90%; }
+      .quick-btn { font-size: 0.6rem; padding: 7px 14px; }
+      .contact-buttons { flex-direction: column; width: 100%; }
+      .contact-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
+    </div>
+    
+    <div class="nav-sep"></div>
+
+    <a href="favoritos.html" class="nav-icon-btn" title="Favoritos">
+      <svg viewBox="0 0 24 24"><path class="heart-svg" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span class="fav-count" id="fav-badge">0</span>
+    </a>
+
+    <a href="carrito.html" class="nav-icon-btn" title="Bolsa">
+      <svg viewBox="0 0 24 24"><path class="bag-svg" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cart-badge">0</span>
+    </a>
+  </nav>
+
+  <main>
+    <div class="support-header">
+      <h1 class="support-title">Soporte</h1>
+      <p class="support-subtitle">Asistente Personal &nbsp;·&nbsp; Ángel</p>
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-header">
+        <div class="chat-avatar">Á</div>
+        <div class="chat-agent-info">
+          <span class="chat-agent-name">Ángel</span>
+          <span class="chat-agent-role">Concierge — South Size Topping</span>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu mensaje..." autocomplete="off">
+        <button class="chat-send" id="chatSend" title="Enviar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <section id="contacto" class="contact-section">
+    <span class="contact-tag">Estamos aquí</span>
+    <h2>Contacto</h2>
+    <div class="contact-buttons">
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:info@streeturbanwear.com" class="contact-btn btn-email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">South Size Topping</span>
+    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
+  </footer>
+
+  <script>
+  (() => {
+    /* ══════════════════════════
+       CARRITO / BADGES
+    ══════════════════════════ */
+    function getCart() { try { return JSON.parse(localStorage.getItem('sst-cart')) || JSON.parse(localStorage.getItem('sst_cart')) || []; } catch { return []; } }
+    function getFavs()  { try { return JSON.parse(localStorage.getItem('sst-fav'))  || []; } catch { return []; } }
+
+    function syncBadges() {
+      const cartTotal = getCart().reduce((s, i) => s + (i.qty || 1), 0);
+      const favTotal  = getFavs().length;
+
+      const cb = document.getElementById('cart-badge');
+      const fb = document.getElementById('fav-badge');
+      const hi = document.querySelector('.heart-svg');
+      const bi = document.querySelector('.bag-svg');
+
+      if (cb) { cb.textContent = cartTotal; cb.classList.toggle('visible', cartTotal > 0); }
+      if (fb) { fb.textContent = favTotal;  fb.classList.toggle('visible', favTotal > 0); }
+      if (hi) hi.classList.toggle('has-items', favTotal > 0);
+      if (bi) bi.classList.toggle('has-items', cartTotal > 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      syncBadges();
+      const dropbtn = document.querySelector('.dropbtn');
+      if(dropbtn) dropbtn.addEventListener('click', e => e.preventDefault());
+    });
+    window.addEventListener('storage', syncBadges);
+
+    /* ═══════════════════════════════════════════════════════
+       ÁNGEL — BOT CONCIERGE SST (Motor de chat)
+    ═══════════════════════════════════════════════════════ */
+    const BRAND = {
+      name: 'South Size Topping',
+      short: 'S$T',
+      founder: 'Ángel',
+      city: 'Madrid, España',
+      email: 'info@streeturbanwear.com',
+      whatsapp: '+34 653 18 19 05',
+      whatsappLink: 'https://wa.me/34653181905',
+      instagram: '@Street.southsizetopping',
+      instagramLink: 'https://instagram.com/Street.southsizetopping',
+      returnDays: 14,
+      freeShipThreshold: 30,
+      giftThreshold: 40,
+      bonoDescuento: 10,
+      shippingCost: 4.99,
+      shippingDays: '3-5 días laborables'
+    };
+
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+    const now  = () => new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+    const greetByTime = () => {
+      const h = new Date().getHours();
+      if (h < 7)  return 'Buenas noches';
+      if (h < 13) return 'Buenos días';
+      if (h < 20) return 'Buenas tardes';
+      return 'Buenas noches';
+    };
+
+    const whatsappCard = `<a href="${BRAND.whatsappLink}" class="contact-card" target="_blank"><svg viewBox="0 0 24 24"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg><span>WhatsApp — ${BRAND.whatsapp}</span></a>`;
+    const instaCard   = `<a href="${BRAND.instagramLink}" class="contact-card" target="_blank"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#d6249f" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="#d6249f" stroke-width="1.5"/></svg><span>Instagram — ${BRAND.instagram}</span></a>`;
+    const emailCard   = `<a href="mailto:${BRAND.email}" class="contact-card"><svg viewBox="0 0 24 24" fill="#0078D4"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/></svg><span>Email — ${BRAND.email}</span></a>`;
+    const allContacts = `${whatsappCard}${instaCard}${emailCard}`;
+
+    const responses = [
+      {
+        keywords: ['hola', 'buenas', 'hey', 'qué tal', 'buenos días', 'buenas tardes', 'buenas noches', 'saludos', 'ola', 'hi', 'hello'],
+        replies: [
+          `${greetByTime()}. Bienvenido a <strong>${BRAND.name}</strong>. Soy Ángel, fundador y tu asistente personal. Pregúntame lo que necesites sobre nuestras colecciones, envíos, tallas o lo que sea.`,
+          `${greetByTime()}. Encantado de tenerte aquí. Soy <strong>Ángel</strong>, al frente de ${BRAND.name}. Cuéntame, ¿en qué te puedo echar una mano?`
+        ]
+      },
+      {
+        keywords: ['ella', 'mujer', 'chica', 'femenina', 'femenino', 'chicas', 'mujeres', 'coleccion ella', 'colección ella'],
+        replies: [
+          `La <strong>Colección Ella</strong> está en fase de diseño en nuestro atelier. Estamos creando piezas con la misma actitud urbana y elegancia que define a ${BRAND.name}. Visita la sección <a href="ella.html">Ella</a> y déjanos tu email para avisarte en primicia.`
+        ]
+      },
+      {
+        keywords: ['él', 'el ', 'hombre', 'chico', 'masculina', 'masculino', 'hombres', 'chicos', 'coleccion el', 'colección él'],
+        replies: [
+          `Nuestra <strong>Colección Él</strong> redefine el streetwear clásico. Sudaderas de corte arquitectónico, camisetas premium y puro carácter. Explora todas las piezas en la sección <a href="el.html">Colección Él</a>.`
+        ]
+      },
+      {
+        keywords: ['llavero', 'llaveros', 'accesorio', 'accesorios', 'complemento', 'complementos'],
+        replies: [
+          `Nuestros <strong>Accesorios de Autor</strong> son el emblema táctil de la firma. Un pequeño lujo que te identifica como miembro del club ${BRAND.short}. Descúbrelos en <a href="llaveros.html">Llaveros</a>. Por cierto, si tu pedido supera los ${BRAND.giftThreshold}€, te lo enviamos gratis.`
+        ]
+      },
+      {
+        keywords: ['catálogo', 'catalogo', 'productos', 'coleccion', 'colecciones', 'ropa', 'prendas', 'tienda', 'ver mas', 'ver más'],
+        replies: [
+          `Trabajamos con tres líneas: <strong>Colección Él</strong>, <strong>Colección Ella</strong> (próximamente) y <strong>Accesorios de Autor</strong>. Puedes verlo todo ordenado en nuestro <a href="catalogo.html">Catálogo</a>.`
+        ]
+      },
+      {
+        keywords: ['material', 'materiales', 'calidad', 'tela', 'algodón', 'algodon', 'tejido', 'hecho de', 'composición', 'gramaje', 'resistente'],
+        replies: [
+          `No escatimamos en calidad. En <strong>${BRAND.name}</strong> trabajamos con algodones premium de alto gramaje y tejidos que garantizan estructura, resistencia y una caída impecable. La elegancia de la alta costura llevada a la calle.`
+        ]
+      },
+      {
+        keywords: ['lavar', 'lavado', 'cuidado', 'cuidados', 'planchar', 'secadora', 'limpiar', 'mantenimiento', 'conservar', 'instrucciones lavado'],
+        replies: [
+          `Para que tu prenda se mantenga intacta: lávala del revés en <strong>agua fría (máx. 30 °C)</strong>, no uses secadora, y plancha del revés evitando pasar calor directo sobre estampados o bordados. Así mantienes el color y la estructura como el primer día.`
+        ]
+      },
+      {
+        keywords: ['precio', 'cuánto cuesta', 'cuanto cuesta', 'coste', 'valor', 'caro', 'barato', 'cuanto es'],
+        replies: [
+          `Trabajamos con piezas de alta gama a precios justos, siempre en euros (€). Los precios están visibles en el <a href="catalogo.html">Catálogo</a>. Recuerda que con 2 prendas de Él tienes un bono de 10€, y al superar ${BRAND.giftThreshold}€, te regalamos un llavero.`
+        ]
+      },
+      {
+        keywords: ['promoción', 'promocion', 'descuento', 'rebaja', 'regalo', 'gratis', 'oferta', 'bono', 'bonos', '10 euros', '10€', '10 euros de descuento', 'diez euros'],
+        replies: [
+          `Actualmente tienes 3 ventajas automáticas en tu <a href="carrito.html">Bolsa</a>:<br>1. <strong>Bono -10 €</strong> comprando 2 o más prendas de la Colección Él.<br>2. <strong>Envío Gratis</strong> a partir de ${BRAND.freeShipThreshold} €.<br>3. <strong>Llavero de Autor</strong> de regalo en pedidos superiores a ${BRAND.giftThreshold} €.`
+        ]
+      },
+      {
+        keywords: ['envío', 'envio', 'entrega', 'llegar', 'cuánto tarda', 'cuanto tarda', 'shipping', 'paquete', 'portes', 'coste envio'],
+        replies: [
+          `Envíos a Península: ${BRAND.shippingCost} € (<strong>¡Gratis desde ${BRAND.freeShipThreshold} €!</strong>). Entrega en <strong>${BRAND.shippingDays}</strong>.<br><br>¿Vives en Canarias, Baleares o fuera de España? Escríbeme por WhatsApp y lo gestionamos rápido:<br>${whatsappCard}`
+        ]
+      },
+      {
+        keywords: ['canarias', 'baleares', 'islas', 'ceuta', 'melilla', 'internacional', 'mexico', 'latinoamérica', 'europa', 'francia', 'extranjero', 'otro país'],
+        replies: [
+          `Hacemos envíos fuera de la Península (Baleares, Canarias, Internacional). Los tiempos y costes varían según destino, así que escríbeme directamente para darte precio cerrado y sin sorpresas:<br><br>${whatsappCard}`
+        ]
+      },
+      {
+        keywords: ['devoluci', 'devolver', 'cambio', 'cambiar', 'reembolso', 'retorno', 'no me gusta', 'me queda grande', 'me queda pequeño'],
+        replies: [
+          `Tienes <strong>${BRAND.returnDays} días naturales</strong> desde la recepción para gestionar un cambio o devolución. La prenda debe estar impecable, sin usar y con etiquetas. Escríbeme al WhatsApp para iniciar el proceso al momento:<br><br>${whatsappCard}`
+        ]
+      },
+      {
+        keywords: ['talla', 'tallas', 'medida', 'medidas', 'size', 'guía de tallas', 'guia de tallas', 'como talla', 'tallaje', 'oversize'],
+        replies: [
+          `Nuestras prendas tienen un <strong>corte ligeramente oversize controlado</strong>. Sientan perfectas si pides tu talla habitual, pero con ese toque holgado de streetwear. Si dudas entre dos tallas, mándame tu altura y peso por WhatsApp y te asesoro para que aciertes de lleno:<br><br>${whatsappCard}`
+        ]
+      },
+      {
+        keywords: ['pago', 'pagar', 'tarjeta', 'bizum', 'transferencia', 'paypal', 'método de pago', 'metodo de pago'],
+        replies: [
+          `Para garantizar exclusividad y un trato directo, al finalizar tu pedido en la web se abrirá un WhatsApp conmigo. Ahí cerramos el pago mediante <strong>Bizum</strong> o <strong>Transferencia Bancaria inmediata</strong>. 100% seguro y sin intermediarios.`
+        ]
+      },
+      {
+        keywords: ['contacto', 'contactar', 'hablar', 'teléfono', 'telefono', 'email', 'correo', 'whatsapp', 'humano', 'llamar'],
+        replies: [
+          `Este es un asistente inteligente para ayudarte rápido, pero <strong>soy Ángel</strong> y estoy al otro lado para cualquier duda real. Elige el canal que prefieras para hablar conmigo directamente:<br><br>${allContacts}`
+        ]
+      },
+      {
+        keywords: ['cómo te llamas', 'como te llamas', 'tu nombre', 'eres un bot', 'eres real', 'eres humano', 'ia', 'robot'],
+        replies: [
+          `Soy <strong>Ángel</strong>, creador de ${BRAND.name}. He creado este asistente para que no tengas que esperar por dudas frecuentes (tallas, envíos, promos). Pero si le das al botón de WhatsApp, hablarás conmigo, el humano, en directo.`
+        ]
+      },
+      {
+        keywords: ['quién', 'quien', 'sobre', 'historia', 'fundador', 'filosofía', 'significado', 'boxing', 'profight', 'south size', 'topping'],
+        replies: [
+          `<strong>${BRAND.name}</strong> nace en Madrid. Es mi visión personal de fusionar la energía cruda de la calle y la disciplina del ring (Boxing Profight) con la precisión de la sastrería. No hacemos solo ropa: creamos actitud. Lee nuestra historia completa <a href="quienes-somos.html">aquí</a>.`
+        ]
+      },
+      {
+        keywords: ['tienda física', 'tienda fisica', 'local', 'showroom', 'probador', 'ir a ver', 'dirección', 'direccion', 'ubicación'],
+        replies: [
+          `Actualmente <strong>${BRAND.name}</strong> opera 100% online desde Madrid. No tenemos tienda física permanente, pero organizamos <strong>pop-ups y eventos</strong> exclusivos. Síguenos en <a href="${BRAND.instagramLink}" target="_blank">Instagram</a> para enterarte del próximo.`
+        ]
+      },
+      {
+        keywords: ['horario', 'hora', 'cuando', 'disponible', 'atencion al cliente', 'responden', 'abierto'],
+        replies: [
+          `Estoy disponible por WhatsApp prácticamente todos los días de <strong>10:00 a 22:00 (hora de Madrid)</strong>. Si me escribes fuera de ese horario, te respondo a primera hora de la mañana. Este chat web, en cambio, está activo 24/7.`
+        ]
+      },
+      {
+        keywords: ['colaboración', 'colaboracion', 'collab', 'embajador', 'influencer', 'modelo', 'trabajar juntos', 'propuesta', 'partnership'],
+        replies: [
+          `Nos encanta la gente con actitud. Si quieres colaborar con nosotros, envíame un mensaje directo por Instagram o un correo con tu perfil y tu idea, y lo valoramos:<br><br>${instaCard}${emailCard}`
+        ]
+      },
+      {
+        keywords: ['mierda', 'basura', 'asco', 'horrible', 'puto', 'puta', 'joder', 'gilipollas', 'idiota', 'estúpido', 'estupido', 'timo', 'ladrón'],
+        replies: [
+          `Ey, relájate. Mi prioridad es que tu experiencia sea perfecta. Si ha habido algún problema o algo no te cuadra, hablemos como personas. Escríbeme al WhatsApp, dime qué ha pasado y te doy una solución ahora mismo:<br><br>${whatsappCard}`
+        ]
+      },
+      {
+        keywords: ['gracias', 'genial', 'perfecto', 'vale', 'ok', 'entendido', 'guay', 'estupendo', 'muchas gracias', 'muy bien', 'excelente', 'increíble'],
+        replies: [
+          `Un placer. Si necesitas algo más, aquí sigo. Y si ya estás listo, pásate por el <a href="catalogo.html">Catálogo</a> y pilla tu prenda antes de que vuele el stock.`
+        ]
+      },
+      {
+        keywords: ['❤', '🔥', '👏', '💪', '😍', '🖤', '⚡', '👍', '🙌', '✨'],
+        replies: [
+          `Esa es la actitud ⚡. Si necesitas que te asesore con algo de la colección, dispara.`
+        ]
+      }
+    ];
+
+    const fallbackReplies = [
+      `Buena pregunta. Para asegurarme de darte la información exacta, lo mejor es que me escribas directo al WhatsApp y te contesto en un minuto:<br><br>${whatsappCard}`,
+      `No quiero darte una respuesta genérica para eso. Escríbeme por Insta o WhatsApp y lo miramos a fondo tú y yo:<br><br>${whatsappCard}${instaCard}`
+    ];
+
+    const quickReplies = [
+      { label: 'Envíos y Costes', text: 'información sobre envios' },
+      { label: 'Tallas y Cortes', text: 'guia de tallas oversize' },
+      { label: 'Descuentos (10€)', text: 'promocion bono descuento' },
+      { label: 'Cambios y Devos', text: 'devolucion y cambios' },
+      { label: 'WhatsApp de Ángel', text: 'contacto directo por whatsapp' },
+    ];
+
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput    = document.getElementById('chatInput');
+    const chatSend     = document.getElementById('chatSend');
+
+    function addMessage(html, type = 'bot', delay = 0) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const div = document.createElement('div');
+          div.className = `msg msg-${type}`;
+          const time = document.createElement('span');
+          time.className = 'msg-time';
+          time.textContent = now();
+          div.innerHTML = html;
+          div.appendChild(time);
+          chatMessages.appendChild(div);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          resolve();
+        }, delay);
+      });
+    }
+
+    function showTyping() {
+      const div = document.createElement('div');
+      div.className = 'typing-indicator';
+      div.id = 'typingIndicator';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function hideTyping() {
+      const el = document.getElementById('typingIndicator');
+      if (el) el.remove();
+    }
+
+    function showQuickReplies() {
+      const existing = document.getElementById('quickReplies');
+      if (existing) existing.remove();
+      const container = document.createElement('div');
+      container.className = 'quick-replies';
+      container.id = 'quickReplies';
+      quickReplies.forEach(qr => {
+        const btn = document.createElement('button');
+        btn.className = 'quick-btn';
+        btn.textContent = qr.label;
+        btn.addEventListener('click', () => {
+          removeQuickReplies();
+          handleUserInput(qr.text, qr.label);
+        });
+        container.appendChild(btn);
+      });
+      chatMessages.appendChild(container);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function removeQuickReplies() {
+      const el = document.getElementById('quickReplies');
+      if (el) el.remove();
+    }
+
+    function norm(str) {
+      return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+    }
+
+    function findResponse(input) {
+      const n = norm(input);
+      if (n.length < 2) {
+        return pick([`Dispara, ¿qué necesitas saber?`]);
+      }
+      let bestMatch = null;
+      let bestScore = 0;
+      for (const r of responses) {
+        let score = 0;
+        for (const kw of r.keywords) {
+          const kwn = norm(kw);
+          if (n.includes(kwn)) score += kwn.length;
+        }
+        if (score > bestScore) { bestScore = score; bestMatch = r; }
+      }
+      if (bestMatch && bestScore >= 2) return pick(bestMatch.replies);
+      return pick(fallbackReplies);
+    }
+
+    async function handleUserInput(inputText, displayText) {
+      const rawInput = (inputText || '').trim();
+      const display  = (displayText || rawInput).trim();
+      if (!display) return;
+
+      chatInput.disabled = true;
+      chatSend.disabled  = true;
+
+      removeQuickReplies();
+      await addMessage(display, 'user');
+      chatInput.value = '';
+
+      showTyping();
+      const delay = 800 + Math.random() * 1200;
+      
+      setTimeout(async () => {
+        hideTyping();
+        const reply = findResponse(rawInput || display);
+        await addMessage(reply, 'bot');
+        chatInput.disabled = false;
+        chatSend.disabled  = false;
+        chatInput.focus();
+        setTimeout(() => showQuickReplies(), 700);
+      }, delay);
+    }
+
+    chatSend.addEventListener('click', () => handleUserInput(chatInput.value));
+    chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') handleUserInput(chatInput.value); });
+
+    (async function init() {
+      await addMessage(`${greetByTime()}. Soy <strong>Ángel</strong>, creador de <strong>${BRAND.name}</strong>.`, 'bot', 600);
+      await addMessage(`¿En qué puedo ayudarte? Si tienes dudas con envíos, la promoción de -10€, tallas o lo que sea, cuéntame.`, 'bot', 1400);
+      setTimeout(() => showQuickReplies(), 1800);
+    })();
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="sst-core.js"></script>
+
+</body>
+</html>

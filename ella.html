@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colección Ella — South Size Topping</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:   #faf9f7;
+      --ink:     #0d0d0d;
+      --ink-mid: #3a3a3a;
+      --ink-soft:#7a7875;
+      --gold:    #b8975a;
+      --border:  rgba(13,13,13,0.1);
+      --ease:    cubic-bezier(.25,1,.4,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--ink); }
+
+    /* ══════════════════════════
+       BANNER
+    ══════════════════════════ */
+    .shipping-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════
+       NAV Y DROPDOWN MINIMALISTA
+    ══════════════════════════ */
+    nav {
+      position: fixed; top: 30px; left: 0; right: 0;
+      z-index: 400;
+      display: flex; justify-content: center; align-items: center;
+      flex-wrap: wrap; gap: 12px; min-height: 70px; padding: 10px 40px;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px); border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+
+    nav a.nav-pill, .dropbtn {
+      color: var(--ink); text-decoration: none; font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 999px; border: 1.5px solid rgba(13,13,13,0.18);
+      background: transparent; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      white-space: nowrap; cursor: pointer;
+    }
+
+    nav a.nav-pill:hover, .dropbtn:hover, .dropbtn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px);
+    }
+
+    .dropdown { position: relative; display: inline-block; }
+
+    .dropdown-content {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background-color: var(--cream); min-width: 180px; box-shadow: 0px 10px 30px rgba(13,13,13,0.15);
+      border-radius: 8px; border: 1px solid rgba(13,13,13,0.08); z-index: 500; margin-top: 10px;
+      flex-direction: column; overflow: hidden;
+    }
+
+    .dropdown-content a {
+      color: var(--ink); padding: 14px 20px; text-decoration: none; display: block;
+      font-size: 7.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; transition: background 0.2s ease, color 0.2s ease;
+      border-bottom: 1px solid rgba(13,13,13,0.05);
+    }
+
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover { background-color: var(--ink); color: var(--cream); }
+    .dropdown:hover .dropdown-content { display: flex; animation: fadeUp 0.3s ease; }
+
+    /* ══════════════════════════
+       HEADER
+    ══════════════════════════ */
+    header {
+      padding: 148px 20px 44px;
+      text-align: center;
+    }
+
+    .collection-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 6vw, 86px);
+      font-weight: 700; font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .header-sub {
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       COMING SOON — zona central
+    ══════════════════════════ */
+    .coming-soon {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 120px;
+      text-align: center;
+    }
+
+    /* Animación aguja/hilo — SVG puro */
+    .needle-wrap {
+      margin-bottom: 48px;
+      animation: float 3.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .needle-wrap svg {
+      width: clamp(80px, 16vw, 130px);
+      height: auto;
+      opacity: 0.9;
+    }
+
+    /* Línea de hilo animada */
+    .thread-line {
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      animation: drawThread 2.2s ease forwards 0.4s;
+    }
+
+    @keyframes drawThread {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Texto principal */
+    .cs-eyebrow {
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.6em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.3s forwards;
+    }
+
+    .cs-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 700; font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.5s forwards;
+    }
+
+    .cs-sub {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink-soft);
+      line-height: 2.2;
+      max-width: 460px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.7s forwards;
+    }
+
+    /* Barra de progreso animada */
+    .progress-wrap {
+      width: clamp(220px, 50vw, 380px);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 0.9s forwards;
+    }
+
+    .progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--ink), var(--gold));
+      border-radius: 999px;
+      width: 0%;
+      animation: fillBar 2.5s cubic-bezier(0.22,1,0.36,1) 1.2s forwards;
+    }
+
+    @keyframes fillBar { to { width: 70%; } }
+
+    /* Notificarme */
+    .notify-row {
+      display: flex; gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.1s forwards;
+      max-width: 380px;
+      width: 90%;
+    }
+
+    .notify-row input {
+      flex-grow: 1;
+      border: none; outline: none;
+      background: transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--ink);
+      padding: 13px 20px;
+    }
+
+    .notify-row input::placeholder { color: var(--ink-soft); }
+
+    .notify-row button {
+      background: var(--ink); color: var(--cream);
+      border: none; cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 13px 22px;
+      white-space: nowrap;
+      transition: background 0.25s;
+    }
+
+    .notify-row button:hover { background: var(--gold); }
+
+    /* Tags */
+    .cs-tags {
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: riseIn 0.9s ease 1.3s forwards;
+    }
+
+    .cs-tag {
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════
+       SOPORTE FLOTANTE (Solo icono)
+    ══════════════════════════ */
+    .support-float {
+      position: fixed; bottom: 36px; right: 36px;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--ink); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(13,13,13,0.16);
+      z-index: 999; border: 1.5px solid var(--ink);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
+    .support-float:hover { background: var(--cream); color: var(--ink); transform: translateY(-3px); }
+    .support-float svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+
+    /* ══════════════════════════
+       CONTACTO
+    ══════════════════════════ */
+    .contact-section {
+      background: var(--ink);
+      padding: 90px 40px 70px;
+      text-align: center;
+    }
+
+    .contact-tag {
+      font-size: 7.5px; font-weight: 700;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 14px;
+    }
+
+    .contact-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 60px);
+      font-weight: 700; font-style: italic;
+      letter-spacing: 0.1em; color: var(--cream);
+      margin-bottom: 50px;
+    }
+
+    .contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 11px;
+      padding: 14px 32px; text-decoration: none;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      border-radius: 999px;
+      border: 1.5px solid rgba(250,249,247,0.2);
+      color: rgba(250,249,247,0.65);
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn svg { width: 17px; height: 17px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .contact-btn:hover svg { transform: scale(1.2); }
+    .btn-ig:hover    { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; border-color:transparent; }
+    .btn-wa:hover    { background: #25D366; color:#fff; border-color:transparent; }
+    .btn-email:hover { background: var(--gold); color: var(--ink); border-color:transparent; }
+
+    /* ══════════════════════════
+       FOOTER
+    ══════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(250,249,247,0.06);
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px; font-weight: 700; font-style: italic;
+      letter-spacing: 0.22em; color: rgba(250,249,247,0.2);
+    }
+
+    .footer-copy {
+      font-size: 7.5px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(250,249,247,0.12);
+    }
+
+    /* ══════════════════════════
+       ANIMACIONES
+    ══════════════════════════ */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to   { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    /* ══════════════════════════
+       RESPONSIVE
+    ══════════════════════════ */
+    @media (max-width: 600px) {
+      nav { gap: 6px; padding: 8px 10px; min-height: auto; top: 28px; }
+      nav a.nav-pill, .dropbtn { font-size: 7.5px; padding: 8px 12px; letter-spacing: 0.16em; }
+      header { padding: 130px 16px 36px; }
+      .support-float { bottom: 18px; right: 18px; width: 44px; height: 44px; }
+      footer { flex-direction: column; text-align: center; padding: 20px; }
+    }
+
+    @media (max-width: 420px) {
+      nav a.nav-pill, .dropbtn { font-size: 6.5px; padding: 6px 9px; letter-spacing: 0.12em; }
+      .contact-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="shipping-banner">
+    Envío gratuito en Madrid en pedidos superiores a 30€
+  </div>
+
+  <nav>
+    <a href="catalogo.html" class="nav-pill">Catálogo</a>
+    
+    <div class="dropdown">
+      <button class="nav-pill dropbtn">Quiénes Somos ▾</button>
+      <div class="dropdown-content">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Sobre la marca</a>
+        <a href="contactos.html">Contactos</a>
+        <a href="politicas.html">Políticas</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1 class="collection-title">Colección Ella</h1>
+    <p class="header-sub">Selección Exclusiva &nbsp;·&nbsp; Madrid</p>
+  </header>
+
+  <section class="coming-soon">
+
+    <div class="needle-wrap">
+      <svg viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="46" y="10" width="8" height="90" rx="4" fill="#0d0d0d"/>
+        <ellipse cx="50" cy="18" rx="4" ry="6" fill="#faf9f7" stroke="#0d0d0d" stroke-width="1.5"/>
+        <polygon points="46,100 54,100 50,115" fill="#0d0d0d"/>
+        <path class="thread-line"
+          d="M50 18 C30 30, 70 50, 40 70 C20 85, 65 95, 50 115"
+          stroke="#b8975a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <circle cx="34" cy="128" r="3" fill="#b8975a" opacity="0.5"/>
+        <circle cx="44" cy="132" r="2" fill="#b8975a" opacity="0.35"/>
+        <circle cx="56" cy="130" r="2.5" fill="#b8975a" opacity="0.4"/>
+        <circle cx="66" cy="126" r="2" fill="#b8975a" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <span class="cs-eyebrow">Próximamente</span>
+
+    <h2 class="cs-title">Estamos diseñando<br>algo especial para ti</h2>
+
+    <p class="cs-sub">
+      Nuestra colección femenina está siendo creada con el mismo cuidado y detalle<br>
+      que cada prenda que llevamos. Pura actitud. Madrid al desnudo.
+    </p>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>En proceso</span>
+        <span>70%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="notify-row">
+      <input type="email" placeholder="Tu email para avisarte al lanzar" />
+      <button onclick="notifyMe(this)">Avísame</button>
+    </div>
+
+    <div class="cs-tags">
+      <span class="cs-tag">Sudaderas</span>
+      <span class="cs-tag">Camisetas</span>
+      <span class="cs-tag">Accesorios</span>
+      <span class="cs-tag">Edición limitada</span>
+    </div>
+
+  </section>
+
+  <a href="soporte.html" class="support-float" title="Soporte">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="5" r="2.2"/>
+      <rect x="3" y="11" width="18" height="11" rx="1.5"/>
+      <path d="M1 22h22"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+      <path d="M9 10.5c0-1.66 1.34-3 3-3s3 1.34 3 3"/>
+    </svg>
+  </a>
+
+  <section id="contacto" class="contact-section">
+    <span class="contact-tag">Estamos aquí</span>
+    <h2>Contacto</h2>
+    <div class="contact-buttons">
+      <a href="https://www.instagram.com/Street.southsizetopping" target="_blank" class="contact-btn btn-ig">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/34653181905" target="_blank" class="contact-btn btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:info@streeturbanwear.com" class="contact-btn btn-email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">South Size Topping</span>
+    <span class="footer-copy">© 2026 Ángel — Todos los derechos reservados</span>
+  </footer>
+
+  <div id="notify-modal" style="
+    display:none; position:fixed; inset:0; z-index:9999;
+    align-items:center; justify-content:center;
+    background:rgba(13,13,13,0.5); backdrop-filter:blur(8px);
+  ">
+    <div style="
+      background:var(--cream); padding:44px 52px; border-radius:4px;
+      text-align:center; max-width:340px; width:90%;
+      animation: riseIn 0.4s ease forwards;
+    ">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;font-style:italic;color:var(--ink);margin-bottom:12px;">
+        ¡Te avisamos! 🖤
+      </p>
+      <p style="font-size:8.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-soft);line-height:2;">
+        Serás la primera en saber<br>cuando lancemos la colección.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Prevenir el comportamiento por defecto en móviles para que el dropdown funcione bien
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropbtn = document.querySelector('.dropbtn');
+      if (dropbtn) {
+        dropbtn.addEventListener('click', (e) => {
+          e.preventDefault();
+        });
+      }
+    });
+
+    /* ── LÓGICA NOTIFICAR EMAIL ── */
+    function notifyMe(btn) {
+      const input = btn.previousElementSibling;
+      const email = input.value.trim();
+
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        input.style.outline = '2px solid #e05252';
+        input.placeholder = 'Introduce un email válido';
+        setTimeout(() => {
+          input.style.outline = '';
+          input.placeholder = 'Tu email para avisarte al lanzar';
+        }, 2400);
+        return;
+      }
+
+      /* Abre el cliente de email con TODO relleno — solo hay que pulsar Enviar */
+      const subject = encodeURIComponent('💌 Nueva interesada — Colección Ella');
+      const body    = encodeURIComponent(
+        'Hola Ángel,\n\n' +
+        'Alguien está interesada en la Colección Ella de South Size Topping.\n\n' +
+        '📧 Su email: ' + email + '\n\n' +
+        '— Notificación automática desde ella'
+      );
+
+      window.location.href =
+        'mailto:info@streeturbanwear.com' +
+        '?subject=' + subject +
+        '&body=' + body;
+
+      /* Mostrar confirmación */
+      input.value = '';
+      const m = document.getElementById('notify-modal');
+      m.style.display = 'flex';
+      setTimeout(() => m.style.display = 'none', 3500);
+    }
+
+    const notifyModal = document.getElementById('notify-modal');
+    if (notifyModal) {
+      notifyModal.addEventListener('click', function () {
+        this.style.display = 'none';
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="sst-core.js"></script>
+
+</body>
+</html>
